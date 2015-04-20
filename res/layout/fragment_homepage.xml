@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/slibe" />
+
+        <EditText
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/search_bg"
+            android:drawableLeft="@drawable/search_product"
+            android:inputType="@null"
+            android:singleLine="true"
+            android:hint="@string/search_hint"
+            android:textSize="17sp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address_hz"
+            android:drawableRight="@drawable/jt_down"
+            android:background="@null"
+            android:paddingRight="5dp"
+            />
+    </LinearLayout>
+    
+    <ListView
+        android:id="@+id/listview_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:smoothScrollbar="false"
+        />
+
+</LinearLayout>

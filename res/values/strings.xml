@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Gongheshe</string>
+    <string name="app_name">OrderPlatform</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="title_bar_slide">共合设</string>
+	<string name="search_hint">木材家具/石材/沙发/灯具/地板</string>
+	<string name="all">全部</string>
+	<string name="construction_class">结构类</string>
+	<string name="electromechanical_class">机电类</string>
+	<string name="wash_class">卫浴类</string>
+	<string name="wooden_class">成品木作</string>
+	<string name="face_class">面材类</string>
+	<string name="light_class">照明材料</string>
+	<string name="decorate_class">陈设材料</string>
+	<string name="user_register">用户注册</string>
+	<string name="user_name">用户名</string>
+	<string name="password">密码</string>
+	<string name="phone_number">联系电话</string>
+	<string name="company_belong">所属公司</string>
+	<string name="my_zone">我的空间</string>
+	<string name="my_collect">我的收藏</string>
+	<string name="my_order">我的订单</string>
+	<string name="change_password">修改密码</string>
+	<string name="change_image">修改头像</string>
+	<string name="copyright">版权声明</string>
+	<string name="muzuo">木作</string>
+	<string name="mianliao">面料</string>
+	<string name="weiyu">卫浴</string>
+	<string name="chenshe">陈设</string>
+	<string name="more">更多</string>
+	<string name="furniture">家具</string>
+	<string name="light_tool">灯具</string>
+	<string name="custom_made">定制</string>
+	<string name="building_material">建材</string>
+	<string name="brand_class">品牌</string>
+	<string name="sale_product">促销产品</string>
+	<string name="hot_product">热卖产品</string>
+	<string name="class_search">类别搜索</string>
+	<string name="address_hz">杭州</string>
+	<string name="price">价格</string>
+	<string name="sentiment">人气</string>
+	<string name="sale_volume">销量</string>
 </resources>
