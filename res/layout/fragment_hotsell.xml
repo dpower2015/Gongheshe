@@ -42,4 +42,15 @@
             android:textColor="@color/red_check" />
     </LinearLayout>
 
+    <org.solo.waterfall.WaterfallSmartView 
+    android:id="@+id/hotsel_shop_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal" >
+	    </LinearLayout>
+	</org.solo.waterfall.WaterfallSmartView>
+    
 </LinearLayout>
