@@ -17,6 +17,7 @@ import com.example.gongheshe.R;
 import com.gongheshe.adapter.HotSelAdapter;
 import com.gongheshe.util.cache.ACache;
 import com.googheshe.entity.GhhConst;
+import com.googheshe.entity.HotSelEntity;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -34,30 +35,27 @@ public class HotSaleFragment extends BaseFragment {
 		
 		mWaterfall=(WaterfallSmartView)view.findViewById(R.id.hotsel_shop_list);
 		mHotselAdapter=new HotSelAdapter(getActivity());
+		mHotselAdapter.setWaterfallView(mWaterfall);
 		mWaterfall.setAdapter(mHotselAdapter);
 		mCache = ACache.get(getActivity());
 		internetData();
+		
 		return view;
 	}
 	private void internetData() {
 		client = new AsyncHttpClient();
 		//test
-		mWaterfall.addItem("test", 20, 20);
-		mWaterfall.addItem("test1", 40, 40);
-		mWaterfall.addItem("test2", 30, 30);
-		mWaterfall.addItem("test", 60, 60);
-		mWaterfall.addItem("test", 30, 30);
-		mWaterfall.addItem("test", 30, 30);
-		mWaterfall.addItem("test", 30, 30);
-		mWaterfall.addItem("test", 30, 30);
-		mWaterfall.addItem("test", 30, 30);
-		mWaterfall.addItem("test", 30, 30);
-		mWaterfall.addItem("test", 30, 30);
-		mWaterfall.addItem("test", 30, 30);
+		mHotselAdapter.add(new HotSelEntity(),30,30);
+		mHotselAdapter.add(new HotSelEntity(),30,30);
+		mHotselAdapter.add(new HotSelEntity(),30,30);
+		mHotselAdapter.add(new HotSelEntity(),30,30);
+		mHotselAdapter.add(new HotSelEntity(),30,30);
+		mHotselAdapter.add(new HotSelEntity(),30,30);
+		mHotselAdapter.add(new HotSelEntity(),30,30);
+		mHotselAdapter.add(new HotSelEntity(),30,30);
+		mHotselAdapter.add(new HotSelEntity(),30,30);
+		mHotselAdapter.add(new HotSelEntity(),30,30);
 		//end
-		
-		
-		
 	}
 	//请求热卖产品列表
 	public void requestHotSelGoodsList(){

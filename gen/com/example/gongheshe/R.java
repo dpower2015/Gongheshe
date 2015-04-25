@@ -209,8 +209,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int btn_login=0x7f040005;
         public static final int btn_register=0x7f040006;
         public static final int fullscreen=0x7f040003;
-        public static final int good_icon=0x7f040011;
-        public static final int good_title=0x7f040012;
+        public static final int good_icon=0x7f040012;
+        public static final int good_title=0x7f040013;
+        public static final int goods_dolla=0x7f040015;
+        public static final int goods_yuan=0x7f040014;
         public static final int hotsel_shop_list=0x7f04000e;
         public static final int ibtn_back=0x7f04000c;
         public static final int ibtn_brand=0x7f040009;
@@ -224,6 +226,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int right=0x7f040001;
         public static final int selected_view=0x7f040004;
         public static final int textView1=0x7f04000f;
+        public static final int title=0x7f040011;
         public static final int viewpager=0x7f040007;
     }
     public static final class integer {
