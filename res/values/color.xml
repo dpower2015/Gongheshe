@@ -28,4 +28,6 @@
     <color name="red">#FFFF0000</color>
     <color name="red_check">#FFFF5555</color>
      <color name="translate">#00000000</color>
+    
+    <color name="home_menu_text">#AA000000</color>
 </resources>

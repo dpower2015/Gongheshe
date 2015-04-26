@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/layout_toshow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+         android:background="@color/white"
+        android:padding="10dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_left_menu_elec" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/electromechanical_class"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/jt_right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_main"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_cons_land"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_air"
+                android:text="@string/land_construct"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                android:id="@+id/btn_cons_sun"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_ground_warm"
+                android:text="@string/ground_warm"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                android:id="@+id/btn_plastics_door_window"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_clean_water"
+                android:text="@string/water_purification"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                android:id="@+id/btn_cons_garden"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_dust"
+                android:text="@string/center_dust"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_wind"
+                android:text="@string/fresh_wind"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_security"
+                android:text="@string/security"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_lamp"
+                android:text="@string/lamp_system"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_media"
+                android:text="@string/media_system"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_intelligence"
+                android:text="@string/smart_system"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_curtain"
+                android:text="@string/curtain_electron"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_lift"
+                android:text="@string/lift"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_swim"
+                android:text="@string/swimming_devices"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</LinearLayout>

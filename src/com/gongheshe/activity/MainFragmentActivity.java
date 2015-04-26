@@ -1,5 +1,6 @@
 package com.gongheshe.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -15,6 +16,10 @@ import android.widget.ImageButton;
 import com.example.gongheshe.R;
 import com.gongheshe.adapter.MainPagerAdapter;
 import com.gongheshe.fragment.BaseFragment;
+import com.gongheshe.fragment.BrandFragment;
+import com.gongheshe.fragment.HomePageFragment;
+import com.gongheshe.fragment.HotSaleFragment;
+import com.gongheshe.fragment.MineFragment;
 import com.gongheshe.util.ToastUtil;
 
 public class MainFragmentActivity extends BaseActivity implements OnClickListener{
@@ -26,6 +31,7 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 	private int imgResId;
 
 	private BaseFragment fragment;
+	private BaseFragment mHomefragment;
 	private List<Fragment> fragmentList;
 	private long firstTime;
 	private long secondTime;
@@ -36,40 +42,52 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_fragment);
 		context = this;
-		viewPager = (ViewPager) findViewById(R.id.viewpager);
-		mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
-		viewPager.setAdapter(mainPagerAdapter);
-		setOnPageChangeListener();
+//		viewPager = (ViewPager) findViewById(R.id.viewpager);
+//		mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
+//		viewPager.setAdapter(mainPagerAdapter);
+//		setOnPageChangeListener();
+//onPageSelect(0);
 		findViewById(R.id.ibtn_home).setOnClickListener(this);
 		findViewById(R.id.ibtn_brand).setOnClickListener(this);
 		findViewById(R.id.ibtn_hotsell).setOnClickListener(this);
 		findViewById(R.id.ibtn_mine).setOnClickListener(this);
-//		findViewById(R.id.ibtn_home).performClick();
-//		viewPager.setCurrentItem(0);
-		onPageSelect(0);
+		initfragent();
+		
 	}
 
-	private void setOnPageChangeListener() {
-
-		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-			@Override
-			public void onPageSelected(int position) {
-				onPageSelect(position);
-			}
-
-			@Override
-			public void onPageScrolled(int position, float positionOffset,
-					int positionOffsetPixels) {
-				
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int state) {
-				
-			}
-		});
+	
+	public void initfragent(){
+		
+		fragmentList = new ArrayList<Fragment>();
+		FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+				.beginTransaction();
+		mHomefragment = new HomePageFragment();
+		fragmentList.add(mHomefragment);
+		fragmentTransaction.add(R.id.fragment,mHomefragment);
+		fragmentTransaction.commit();
+		
 	}
+//	private void setOnPageChangeListener() {
+//
+//		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//
+//			@Override
+//			public void onPageSelected(int position) {
+//				onPageSelect(position);
+//			}
+//
+//			@Override
+//			public void onPageScrolled(int position, float positionOffset,
+//					int positionOffsetPixels) {
+//				
+//			}
+//
+//			@Override
+//			public void onPageScrollStateChanged(int state) {
+//				
+//			}
+//		});
+//	}
 	
 	private void onPageSelect(int position){
 		ImageButton img = null;
@@ -103,21 +121,28 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		imgButton = img;
 		
 	}
-
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.ibtn_home:
-			viewPager.setCurrentItem(0);
+			onPageSelect(0);
+			replaceFragment(new HomePageFragment(),true);
+			//viewPager.setCurrentItem(0);
 			break;
 		case R.id.ibtn_brand:
-			viewPager.setCurrentItem(1);
+			onPageSelect(1);
+			replaceFragment(new BrandFragment(),true);
+			//viewPager.setCurrentItem(1);
 			break;
 		case R.id.ibtn_hotsell:
-			viewPager.setCurrentItem(2);
+			onPageSelect(2);
+			replaceFragment(new HotSaleFragment(),true);
+			//viewPager.setCurrentItem(2);
 			break;
 		case R.id.ibtn_mine:
-			viewPager.setCurrentItem(3);
+			onPageSelect(3);
+			replaceFragment(new MineFragment(),true);
+			//viewPager.setCurrentItem(3);
 			break;
 
 		default:
@@ -127,7 +152,7 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 	}
 	
 	/**
-	 * Ôö¼Ó
+	 * ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param fragment
 	 * @param isAddToBackStack
@@ -145,7 +170,7 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		fragmentTransaction.setCustomAnimations(R.anim.fragment_left,
 				R.anim.fragment_right);
 		fragmentTransaction.hide(fragmentList.get(fragmentList.size() - 2));
-		//fragmentTransaction.add(R.id.fragment, fragment);
+		fragmentTransaction.add(R.id.fragment, fragment);
 		fragmentTransaction.commit();
 	}
 	@Override
@@ -179,7 +204,7 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 			spaceTime = firstTime - secondTime;
 			secondTime = firstTime;
 			if (spaceTime > 2000) {
-				ToastUtil.showToast(this, "ÔÙ°´Ò»´ÎÍË³ö³ÌÐò");
+				ToastUtil.showToast(this, "ï¿½Ù°ï¿½Ò»ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½");
 			} else {
 				super.onBackPressed();
 				System.exit(0);
@@ -217,7 +242,7 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 				fragmentManager.popBackStack();
 			}
 			fragmentList.clear();
-			//fragmentList.add(homeFragment);
+			fragmentList.add(mHomefragment);
 		}
 	}
 }

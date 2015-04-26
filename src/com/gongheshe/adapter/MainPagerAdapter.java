@@ -24,6 +24,7 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
 		fragments.add(new BrandFragment());
 		fragments.add(new HotSaleFragment());
 		fragments.add(new MineFragment());
+		
 	}
 
 	@Override

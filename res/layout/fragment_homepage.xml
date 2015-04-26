@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey_main"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -22,25 +23,107 @@
             android:layout_weight="1"
             android:background="@drawable/search_bg"
             android:drawableLeft="@drawable/search_product"
+            android:hint="@string/search_hint"
             android:inputType="@null"
             android:singleLine="true"
-            android:hint="@string/search_hint"
             android:textSize="17sp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/address_hz"
-            android:drawableRight="@drawable/jt_down"
             android:background="@null"
+            android:drawableRight="@drawable/jt_down"
             android:paddingRight="5dp"
-            />
+            android:text="@string/address_hz" />
     </LinearLayout>
-    
-    <ListView
-        android:id="@+id/listview_home"
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:smoothScrollbar="false"
-        />
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <fragment
+                android:id="@+id/frame_structure"
+                android:name="com.gongheshe.fragment.HomeStructureFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/grey_main" />
+
+            <fragment
+                android:id="@+id/frame_electrome"
+                android:name="com.gongheshe.fragment.HomeElecFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/line_width" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/grey_main" />
+
+            <fragment
+                android:id="@+id/frame_bath"
+                android:name="com.gongheshe.fragment.HomeBathFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/line_width" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/grey_main" />
+
+            <fragment
+                android:id="@+id/frame_wood"
+                android:name="com.gongheshe.fragment.HomeWoodFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/line_width" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/grey_main" />
+
+            <fragment
+                android:id="@+id/frame_face"
+                android:name="com.gongheshe.fragment.HomeFaceFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/line_width" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/grey_main" />
+
+            <fragment
+                android:id="@+id/frame_lamp"
+                android:name="com.gongheshe.fragment.HomeLampFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/line_width" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/grey_main" />
+
+            <fragment
+                android:id="@+id/frame_furnish"
+                android:name="com.gongheshe.fragment.HomeFurnishFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/line_width" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

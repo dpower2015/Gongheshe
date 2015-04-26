@@ -24,6 +24,7 @@
 	<string name="change_password">修改密码</string>
 	<string name="change_image">修改头像</string>
 	<string name="copyright">版权声明</string>
+	<string name="copyright_title">版权</string>
 	<string name="muzuo">木作</string>
 	<string name="mianliao">面料</string>
 	<string name="weiyu">卫浴</string>
@@ -41,6 +42,60 @@
 	<string name="price">价格</string>
 	<string name="sentiment">人气</string>
 	<string name="sale_volume">销量</string>
+	<string name="land_construct">土地建造</string>
+	<string name="sun_room">阳光房</string>
+	<string name="garden_view">园林/景观</string>
+	<string name="plastics_door_window">塑钢门窗</string>
+	
+	<string name="center_aircondition">中央空调</string>
+	<string name="ground_warm">地暖系统</string>
+	<string name="water_purification">净水系统</string>
+	<string name="center_dust">中央吸尘</string>
+	<string name="fresh_wind">新风系统</string>
+	<string name="security">安防系统</string>
+	<string name="lamp_system">照明系统</string>
+	<string name="media_system">影音系统</string>
+	<string name="smart_system">智能系统</string>
+	<string name="curtain_electron">电动窗帘</string>
+	<string name="lift">电梯</string>
+	<string name="swimming_devices">游泳设备</string>
+	
+	<string name="pedestal_toilet">坐厕</string>
+	<string name="face_pot">脸盆</string>
+	<string name="bathtab">浴缸</string>
+	<string name="sprinkler">龙头/花洒</string>
+	<string name="floor_drain">地漏/去水</string>
+	<string name="hanging_drop">五金挂饰</string>
+	<string name="all_shower_room">整体淋浴房</string>
+	
+	<string name="whole_broad">整体橱柜</string>
+	<string name="indoor_system">内门系统</string>
+	<string name="broad_system">墙板系统</string>
+	<string name="cloth_hat_cupbroad">衣帽柜体</string>
+	<string name="wash_cupbroad">浴室柜体</string>
+	<string name="stair_rail">楼梯/护栏</string>
+	<string name="floor">地板</string>
+	
+	<string name="stone">石材</string>
+	<string name="tile">瓷砖</string>
+	<string name="wallpaper">墙纸</string>
+	<string name="hard_soft_package">软硬包</string>
+	<string name="paint">涂料/硅藻泥</string>
+	<string name="gyp_line">石膏线条</string>
+	<string name="glasses">镜面/玻璃</string>
+	<string name="special_material">特殊材料</string>
+	
+	<string name="flush_light_panel">筒灯</string>
+	<string name="spot_light">射灯</string>
+	<string name="light_emitting_lamp">发光灯管</string>
+	<string name="floor_lamp">地灯</string>
+	<string name="switch_board">开关面板</string>
+	
+	<string name="lamp">灯具</string>
+	<string name="decoration">饰品</string>
+	<string name="carpet">地毯</string>
+	<string name="curtain_art">窗帘布艺</string>
+	<string name="decoration_picture">装饰画</string>
 	<string name="all_cate">全部分类</string>
 	<string name="xlistview_header_hint_normal">下拉刷新</string>
     <string name="xlistview_header_hint_ready">松开刷新数据</string>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/layout_toshow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_left_menu_construction" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/construction_class"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/jt_right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_main"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <Button
+            android:id="@+id/btn_cons_land"
+            style="@null"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/ic_cons_land"
+            android:text="@string/land_construct"
+            android:textColor="@color/home_menu_text"
+            android:textSize="@dimen/textsize_home_menu" />
+
+        <Button
+            android:id="@+id/btn_cons_sun"
+            style="@null"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/ic_cons_sun"
+            android:text="@string/sun_room"
+            android:textColor="@color/home_menu_text"
+            android:textSize="@dimen/textsize_home_menu" />
+
+        <Button
+            android:id="@+id/btn_plastics_door_window"
+            style="@null"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/ic_cons_door_win"
+            android:text="@string/plastics_door_window"
+            android:textColor="@color/home_menu_text"
+            android:textSize="@dimen/textsize_home_menu" />
+
+        <Button
+            android:id="@+id/btn_cons_garden"
+            style="@null"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/ic_cons_garden"
+            android:text="@string/garden_view"
+            android:textColor="@color/home_menu_text"
+            android:textSize="@dimen/textsize_home_menu" />
+    </LinearLayout>
+
+</LinearLayout>

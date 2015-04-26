@@ -24,5 +24,7 @@
     <integer name="num_cols">1</integer>
     
     <dimen name="actionbar_height">45dp</dimen>
+    
+    <dimen name="textsize_home_menu">15sp</dimen>
 
 </resources>

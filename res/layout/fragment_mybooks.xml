@@ -47,7 +47,15 @@
        	</LinearLayout>
        
     </RelativeLayout>
-    
+     <zy.zh.xListView.XListView
+        android:id="@+id/xListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:divider="@color/translate"
+        android:dividerHeight="10dp"
+        android:scrollbars="none"
+        android:cacheColorHint="@color/translate" />
 
     
 </LinearLayout>

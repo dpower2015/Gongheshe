@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/modify_passwd"
+            android:text="@string/my_collect"
             android:textColor="@color/black"
             android:textSize="20sp" />
     </RelativeLayout>
@@ -53,6 +53,7 @@
         android:id="@+id/xListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:divider="@color/translate"
         android:dividerHeight="10dp"
         android:scrollbars="none"
