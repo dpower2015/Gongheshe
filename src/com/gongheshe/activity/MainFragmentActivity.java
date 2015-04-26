@@ -1,15 +1,21 @@
 package com.gongheshe.activity;
 
-import com.example.gongheshe.R;
-import com.gongheshe.adapter.MainPagerAdapter;
+import java.util.List;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+
+import com.example.gongheshe.R;
+import com.gongheshe.adapter.MainPagerAdapter;
+import com.gongheshe.fragment.BaseFragment;
+import com.gongheshe.util.ToastUtil;
 
 public class MainFragmentActivity extends BaseActivity implements OnClickListener{
 
@@ -19,6 +25,12 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 	private ImageButton imgButton;
 	private int imgResId;
 
+	private BaseFragment fragment;
+	private List<Fragment> fragmentList;
+	private long firstTime;
+	private long secondTime;
+	private long spaceTime;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -112,5 +124,100 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 			break;
 		}
 		
+	}
+	
+	/**
+	 * 增加
+	 * 
+	 * @param fragment
+	 * @param isAddToBackStack
+	 */
+	public void replaceFragment(Fragment fragment, boolean isAddToBackStack) {
+
+		this.fragment = (BaseFragment) fragment;
+
+		FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+				.beginTransaction();
+		if (isAddToBackStack) {
+			fragmentTransaction.addToBackStack(fragment.getClass().getName());
+		}
+		fragmentList.add(fragment);
+		fragmentTransaction.setCustomAnimations(R.anim.fragment_left,
+				R.anim.fragment_right);
+		fragmentTransaction.hide(fragmentList.get(fragmentList.size() - 2));
+		//fragmentTransaction.add(R.id.fragment, fragment);
+		fragmentTransaction.commit();
+	}
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+
+		FragmentManager fragmentManager = getSupportFragmentManager();
+		if (fragmentManager.getBackStackEntryCount() > 0) {
+
+			if (fragmentList.size() < 2) {
+				return;
+			}
+
+			FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+					.beginTransaction();
+			fragmentTransaction.setCustomAnimations(R.anim.fragment_back_left,
+					R.anim.fragment_back_right);
+
+			this.fragment = (BaseFragment) fragmentList
+					.get(fragmentList.size() - 2);
+
+			fragmentTransaction.show(fragmentList.get(fragmentList.size() - 2));
+			fragmentTransaction.hide(fragmentList.get(fragmentList.size() - 1));
+
+			fragmentTransaction.commit();
+			fragmentManager.popBackStack();
+			fragmentList.remove(fragmentList.size() - 1);
+		} else {
+
+			firstTime = System.currentTimeMillis();
+			spaceTime = firstTime - secondTime;
+			secondTime = firstTime;
+			if (spaceTime > 2000) {
+				ToastUtil.showToast(this, "再按一次退出程序");
+			} else {
+				super.onBackPressed();
+				System.exit(0);
+			}
+
+		}
+	}
+
+	@Override
+	public void reSetView() {
+		// TODO Auto-generated method stub
+		super.reSetView();
+
+		FragmentManager fragmentManager = getSupportFragmentManager();
+		if (fragmentManager.getBackStackEntryCount() > 0) {
+
+			if (fragmentList.size() < 2) {
+				return;
+			}
+			
+			FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+					.beginTransaction();
+			fragmentTransaction.setCustomAnimations(R.anim.fragment_back_left,
+					R.anim.fragment_back_right);
+
+			this.fragment = (BaseFragment) fragmentList
+					.get(fragmentList.size() - 2);
+
+			fragmentTransaction.show(fragmentList.get(0));
+			fragmentTransaction.hide(fragmentList.get(fragmentList.size() - 1));
+
+			fragmentTransaction.commit();
+			
+			for (int i = 0,size = fragmentList.size(); i < size; i++) {
+				fragmentManager.popBackStack();
+			}
+			fragmentList.clear();
+			//fragmentList.add(homeFragment);
+		}
 	}
 }

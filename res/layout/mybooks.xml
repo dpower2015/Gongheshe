@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="@dimen/actionbar_height"
+    	android:orientation="horizontal"
+    	android:layout_margin="5dp"
+        >
+         <ImageButton
+            android:id="@+id/ibtn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/jt_left" />
+       	
+       	<LinearLayout 
+       	    android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:orientation="horizontal"
+    		android:layout_centerInParent="true"
+    		android:background="@color/hongse"
+       	    >
+       	     <TextView 
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_centerInParent="true"
+    		android:gravity="center"
+            android:text="@string/finished"
+            style="@style/title_style"
+            />
+       	     <TextView 
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_centerInParent="true"
+    		android:gravity="center"
+    		android:layout_margin="1dp"
+    		android:background="@color/white_nor"
+            android:text="@string/going"
+            style="@style/title_style"
+            />
+       	</LinearLayout>
+       
+    </RelativeLayout>
+    
+
+    
+</LinearLayout>
+
+<!-- 我的订单界面 -->

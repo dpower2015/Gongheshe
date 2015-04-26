@@ -27,4 +27,5 @@
     <color name="huise_normal">#EBEBEB</color>
     <color name="red">#FFFF0000</color>
     <color name="red_check">#FFFF5555</color>
+     <color name="translate">#00000000</color>
 </resources>

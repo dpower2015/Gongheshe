@@ -21,4 +21,9 @@
         <item name="android:textSize">20sp</item>
      	<item name="android:textColor">@color/hongse</item> 
     </style>
+    <style name ="title_style" 
+        >
+        <item name="android:textSize">20sp</item>
+     	<item name="android:textColor">@color/heise</item> 
+    </style>
 </resources>

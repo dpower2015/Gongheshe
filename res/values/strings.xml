@@ -41,4 +41,30 @@
 	<string name="price">价格</string>
 	<string name="sentiment">人气</string>
 	<string name="sale_volume">销量</string>
+	<string name="all_cate">全部分类</string>
+	<string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+	<string name="xlistview_footer_hint_normal"></string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="finished">已完成</string>
+    <string name="going">正在进行</string>
+    <string name="reserve_time">预定时间:</string>
+    <string name="books_finished_time">订单完成时间:</string>
+    <string name="modify_passwd">修改密码</string>
+    <string name="enter_passwd_original">请输入原始密码</string>
+    <string name="enter_passwd_new">请输入新密码</string>
+    <string name="enter_passwd_new_again">请再次输入新密码</string>
+	<string name="test">故事开始于多米尼克和布莱恩各自的小队成员带着
+	    赦免令回到美国的一年之后。他们过着循规蹈矩的日子，家乡生活的感觉
+	    很好。然而他们都不知道，危险正在悄然接近，冷血的英国特勤杀手肖出    了。
+	    从东京的韩被残忍谋杀，到洛杉矶霍布斯的死里逃生，肖有条不紊地追杀
+	    着在上一部中干掉了欧文的团队成员，因为欧文是他的弟弟。肖出现了在
+	    托雷托家，多米尼克必须去找政府高级特工帮忙。主人公们唯一的希望就
+	    是继续开着赛车为美国政府保护一台高科技追踪设备的样品。作为回报，
+	    他们可以利用这个设备在肖大开杀戒之前就追查到他的行踪。他们组成了
+	    史上最亲密的团队：多米尼克、布莱恩、霍布斯、莱蒂、罗姆、特尔佳、
+	    米娅——他们将面临最大的威胁，从阿布扎比转战阿塞拜疆。在那些与家园
+	    似曾相识的街道上极速飞驰。 </string>
 </resources>
