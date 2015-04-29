@@ -3,6 +3,7 @@ package com.gongheshe.fragment;
 import com.example.gongheshe.R;
 
 import android.os.Bundle;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

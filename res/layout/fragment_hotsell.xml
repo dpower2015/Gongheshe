@@ -14,6 +14,7 @@
         android:padding="1px" >
 
         <CheckBox
+            android:id="@+id/price"
             android:layout_width="60dp"
             android:layout_height="30dp"
             android:background="@color/red_check"
@@ -23,6 +24,7 @@
             android:textColor="@color/white" />
 
         <CheckBox
+            android:id="@+id/sentiment"
             android:layout_width="60dp"
             android:layout_height="30dp"
             android:layout_marginRight="1px"
@@ -33,6 +35,7 @@
             android:textColor="@color/red_check" />
 
         <CheckBox
+            android:id="@+id/sale_volume"
             android:layout_width="60dp"
             android:layout_height="30dp"
             android:background="@color/white"

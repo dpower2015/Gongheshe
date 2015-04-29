@@ -1,11 +1,12 @@
 package com.gongheshe.fragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
@@ -14,6 +15,7 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 	
 	View view;
 	private BaseActivity baseActivity;
+	private final int REQUEST_IMG=1;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -35,6 +37,11 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 			baseActivity.replaceFragment(cprightFragment, true);
 			break;
 		case R.id.modify_head_img:
+			Intent intent = new Intent(Intent.ACTION_PICK);  
+		    intent.setType("image/*");//相片类型  
+		    startActivityForResult(intent, REQUEST_IMG);  
+            // REQUEST_CAMERA =0;
+			
 			break;
 		case R.id.modify_pw:
 			ModifypwFragment modifyFragment = new ModifypwFragment();
@@ -54,5 +61,16 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 		}
 		
 	}
-
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+			
+		if (requestCode == REQUEST_IMG) {             
+                Uri uri = data.getData();  
+                //获取头像图片
+            
+        	} 
+			
+		}
 }

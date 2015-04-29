@@ -8,15 +8,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="horizontal" >
-
-        <ImageButton
-            android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp" >
+		<TextView 
+		    android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
-            android:contentDescription="@null"
-            android:src="@drawable/slibe" />
-
+            android:text="@string/cate"
+            android:textSize="17sp"
+            android:textColor="@color/red_check"
+		    />
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
@@ -26,15 +26,18 @@
             android:hint="@string/search_hint"
             android:inputType="@null"
             android:singleLine="true"
-            android:textSize="17sp" />
+            android:textSize="15sp"
+            android:layout_margin="2dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
             android:background="@null"
             android:drawableRight="@drawable/jt_down"
             android:paddingRight="5dp"
-            android:text="@string/address_hz" />
+            android:textColor="@color/red_check"
+            android:text="...  " />
     </LinearLayout>
   <GridView
        android:id="@+id/merchant_list"

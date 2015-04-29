@@ -8,7 +8,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
@@ -33,16 +36,18 @@ public class HotSelAdapter extends ArrayAdapter<HotSelEntity>{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		final Holder mHolder;
-		if(convertView == null){
+		System.out.println("######position :"+position);
+		//if(convertView == null){
+			int flag=((HotSelEntity)getItem(position)).flag;
+			if(flag==1){
+				System.out.println("in.........");
+				convertView = inflater.inflate(R.layout.title_item, null);
+				
+			}else {
+				
 				mHolder = new Holder();
 				convertView = inflater.inflate(R.layout.photo_item, null);
-				
 				mHolder.good_icon = (ImageView)convertView.findViewById(R.id.good_icon);
-				mHolder.title=(TextView)(convertView).findViewById(R.id.title);
-				if(position==0){
-					
-					mHolder.title.setVisibility(View.VISIBLE);
-				}
 				mHolder.good_icon.setOnClickListener(new OnClickListener() {
 					
 					@Override
@@ -51,10 +56,31 @@ public class HotSelAdapter extends ArrayAdapter<HotSelEntity>{
 						
 					}
 				});
-				convertView.setTag(mHolder);
-		}else{
-			mHolder = (Holder) convertView.getTag();
-		}
+			}
+				
+				
+//				if(flag==1){
+//					int height1,width1,height2,width2;
+//					 height1=((RelativeLayout)convertView.findViewById(R.id.photo_item)).getMeasuredHeight();
+//					 width1=((RelativeLayout)convertView.findViewById(R.id.photo_item)).getMeasuredWidth();
+//					 height2=((LinearLayout)convertView.findViewById(R.id.title_bar)).getMeasuredHeight();
+//					 width2= ((LinearLayout)convertView.findViewById(R.id.title_bar)).getMeasuredWidth();
+//					 System.out.println("photo_item:"+height1+":"+width1);
+//					 System.out.println("title_bar:"+height2+":"+width2);
+//					
+//					
+//					 System.out.println("######flag==1");
+//					 convertView.findViewById(R.id.photo_item).setVisibility(View.GONE);
+//					 convertView.findViewById(R.id.title_bar).setVisibility(View.VISIBLE);
+//					 mHolder.good_icon.setVisibility(View.GONE);
+//					 
+//				}
+				
+				
+				//convertView.setTag(mHolder);
+		//}else{
+			//mHolder = (Holder) convertView.getTag();
+	//	}
 		return convertView;
 	}
 
@@ -62,7 +88,7 @@ public class HotSelAdapter extends ArrayAdapter<HotSelEntity>{
 	private class Holder{
 		ImageView  good_icon;
 		TextView good_title;
-		TextView title;
+		//LinearLayout title_bar;
 	}
 	
 	public void add(HotSelEntity object,int weight,int height) {

@@ -42,11 +42,6 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_fragment);
 		context = this;
-//		viewPager = (ViewPager) findViewById(R.id.viewpager);
-//		mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
-//		viewPager.setAdapter(mainPagerAdapter);
-//		setOnPageChangeListener();
-//onPageSelect(0);
 		findViewById(R.id.ibtn_home).setOnClickListener(this);
 		findViewById(R.id.ibtn_brand).setOnClickListener(this);
 		findViewById(R.id.ibtn_hotsell).setOnClickListener(this);
@@ -54,8 +49,6 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		initfragent();
 		
 	}
-
-	
 	public void initfragent(){
 		
 		fragmentList = new ArrayList<Fragment>();
@@ -67,28 +60,6 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		fragmentTransaction.commit();
 		
 	}
-//	private void setOnPageChangeListener() {
-//
-//		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//
-//			@Override
-//			public void onPageSelected(int position) {
-//				onPageSelect(position);
-//			}
-//
-//			@Override
-//			public void onPageScrolled(int position, float positionOffset,
-//					int positionOffsetPixels) {
-//				
-//			}
-//
-//			@Override
-//			public void onPageScrollStateChanged(int state) {
-//				
-//			}
-//		});
-//	}
-	
 	private void onPageSelect(int position){
 		ImageButton img = null;
 		if(imgButton != null){

@@ -1,6 +1,7 @@
 package com.gongheshe.fragment;
 
 import android.os.Bundle;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,8 +23,8 @@ public class HomeStructureFragment extends BaseFragment implements
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.fragment_home_structure, container,
-				false);
+		
+		view = inflater.inflate(R.layout.fragment_home_structure, container,false);
 		layout_toshow = view.findViewById(R.id.layout_toshow);
 		layout_menu = view.findViewById(R.id.layout_menu);
 		layout_menu.setVisibility(View.GONE);

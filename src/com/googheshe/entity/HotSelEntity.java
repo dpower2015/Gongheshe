@@ -3,6 +3,7 @@ package com.googheshe.entity;
 public class HotSelEntity {
 	private String goods_img_url;
 	private String goods_title;
+	public int flag=0;
 	public String getGoods_img_url() {
 		return goods_img_url;
 	}
