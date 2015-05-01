@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:background="@android:color/white"
             android:contentDescription="@null"
-            android:src="@drawable/ic_home_off" />
+            android:src="@drawable/ic_home_on" />
 
         <ImageButton
             android:id="@+id/ibtn_brand"

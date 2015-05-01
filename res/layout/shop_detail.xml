@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/white">
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,13 +10,16 @@
         android:background="@color/white"
         android:orientation="horizontal"
         android:layout_margin="5dp" >
-		<TextView 
-		    android:layout_width="wrap_content"
+        <ImageButton
+            android:id="@+id/ibtn_back"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cate"
-            style="@style/title_style"
-            android:layout_marginRight="10dp" 
-		    />
+            android:background="@null"
+            android:contentDescription="@null"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/jt_left" />
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"
@@ -27,7 +29,7 @@
             android:hint="@string/search_hint"
             android:inputType="@null"
             android:singleLine="true"
-            android:textSize="@dimen/input_size"
+            android:textSize="15sp"
             android:layout_margin="2dp" />
 
         <Button
@@ -37,16 +39,7 @@
             android:background="@null"
             android:drawableRight="@drawable/jt_down"
             android:paddingRight="5dp"
-            style="@style/title_style"
-            android:text="杭州" />
+            android:textColor="@color/red_check"
+            android:text="@string/cate" />
     </LinearLayout>
-  <GridView
-       android:id="@+id/merchant_list"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_margin="10dp"
-       android:horizontalSpacing="5dp"
-       android:numColumns="3"
-       android:stretchMode="columnWidth"
-       android:verticalSpacing="5dp" />
 </LinearLayout>

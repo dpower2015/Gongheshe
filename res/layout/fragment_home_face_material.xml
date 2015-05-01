@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-         android:background="@color/white"
+         android:background="@drawable/menu_bg"
         android:padding="10dp" >
 
         <ImageView
@@ -34,7 +34,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:contentDescription="@null"
-            android:src="@drawable/jt_right" />
+            android:src="@drawable/jt_right_head" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,7 +60,8 @@
                 android:drawableTop="@drawable/ic_face_meterial_01"
                 android:text="@string/stone"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/strone"/>
 
             <Button
                 style="@null"
@@ -72,7 +73,8 @@
                 android:drawableTop="@drawable/ic_face_meterial_02"
                 android:text="@string/tile"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/tile"/>
 
             <Button
                 style="@null"
@@ -84,7 +86,8 @@
                 android:drawableTop="@drawable/ic_face_meterial_03"
                 android:text="@string/wallpaper"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/wallpaper" />
 
             <Button
                 style="@null"
@@ -96,7 +99,8 @@
                 android:drawableTop="@drawable/ic_face_meterial_04"
                 android:text="@string/hard_soft_package"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/hard_soft_package"/>
         </LinearLayout>
 
         <LinearLayout
@@ -115,7 +119,8 @@
                 android:drawableTop="@drawable/ic_face_meterial_05"
                 android:text="@string/paint"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/paint"/>
 
             <Button
                 style="@null"
@@ -127,7 +132,8 @@
                 android:drawableTop="@drawable/ic_face_meterial_06"
                 android:text="@string/gyp_line"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/gyp_line" />
 
             <Button
                 style="@null"
@@ -139,7 +145,8 @@
                 android:drawableTop="@drawable/ic_face_meterial_07"
                 android:text="@string/glasses"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/glasses"/>
 
             <Button
                 style="@null"
@@ -151,7 +158,8 @@
                 android:drawableTop="@drawable/ic_face_meterial_08"
                 android:text="@string/special_material"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/special_material" />
         </LinearLayout>
     </LinearLayout>
 

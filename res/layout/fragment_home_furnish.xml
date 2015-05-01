@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/white"
+        android:background="@drawable/menu_bg"
         android:padding="10dp" >
 
         <ImageView
@@ -34,7 +34,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:contentDescription="@null"
-            android:src="@drawable/jt_right" />
+            android:src="@drawable/jt_right_head" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,7 +60,8 @@
                 android:drawableTop="@drawable/ic_furniture_01"
                 android:text="@string/furniture"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/furniture" />
 
             <Button
                 style="@null"
@@ -72,7 +73,8 @@
                 android:drawableTop="@drawable/ic_furniture_02"
                 android:text="@string/lamp"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/lamp" />
 
             <Button
                 style="@null"
@@ -84,7 +86,8 @@
                 android:drawableTop="@drawable/ic_furniture_03"
                 android:text="@string/decoration"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/decoration" />
 
             <Button
                 style="@null"
@@ -96,7 +99,8 @@
                 android:drawableTop="@drawable/ic_furniture_04"
                 android:text="@string/carpet"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/carpet"/>
         </LinearLayout>
 
         <LinearLayout
@@ -115,7 +119,8 @@
                 android:drawableTop="@drawable/ic_furniture_05"
                 android:text="@string/curtain_art"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/curtain_art"/>
 
             <Button
                 style="@null"
@@ -127,7 +132,8 @@
                 android:drawableTop="@drawable/ic_furniture_06"
                 android:text="@string/decoration_picture"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/decoration_picture" />
 
             <Button
                 style="@null"
@@ -140,7 +146,8 @@
                 android:drawableTop="@drawable/ic_wash_shower"
                 android:text="@string/all_shower_room"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/all_shower_room"/>
 
             <Button
                 style="@null"
@@ -153,7 +160,8 @@
                 android:text="@string/media_system"
                 android:visibility="invisible"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/media_system"/>
         </LinearLayout>
     </LinearLayout>
 

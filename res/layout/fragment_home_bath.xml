@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/white"
+        android:background="@drawable/menu_bg"
         android:padding="10dp" >
 
         <ImageView
@@ -34,7 +34,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:contentDescription="@null"
-            android:src="@drawable/jt_right" />
+            android:src="@drawable/jt_right_head" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,7 +60,8 @@
                 android:drawableTop="@drawable/ic_wash_pedestal"
                 android:text="@string/pedestal_toilet"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/pedestal_toilet"/>
 
             <Button
                 style="@null"
@@ -72,7 +73,8 @@
                 android:drawableTop="@drawable/ic_wash_face"
                 android:text="@string/face_pot"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/face_pot"/>
 
             <Button
                 style="@null"
@@ -84,7 +86,8 @@
                 android:drawableTop="@drawable/ic_wash_bathtub"
                 android:text="@string/bathtab"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/bathtab" />
 
             <Button
                 style="@null"
@@ -96,7 +99,8 @@
                 android:drawableTop="@drawable/ic_wash_sprinkler"
                 android:text="@string/sprinkler"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/sprinkler"/>
         </LinearLayout>
 
         <LinearLayout
@@ -115,7 +119,8 @@
                 android:drawableTop="@drawable/ic_wash_floordrain"
                 android:text="@string/floor_drain"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/floor_drain"/>
 
             <Button
                 style="@null"
@@ -127,7 +132,8 @@
                 android:drawableTop="@drawable/ic_wash_pendant"
                 android:text="@string/hanging_drop"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/hanging_drop" />
 
             <Button
                 style="@null"
@@ -139,7 +145,8 @@
                 android:drawableTop="@drawable/ic_wash_shower"
                 android:text="@string/all_shower_room"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/all_shower_room"  />
 
             <Button
                 style="@null"
@@ -152,7 +159,8 @@
                 android:text="@string/media_system"
                 android:visibility="invisible"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" />
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/media_system"  />
         </LinearLayout>
     </LinearLayout>
 

@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.example.gongheshe.R;
+import com.gongheshe.activity.BaseActivity;
 
 /**
  * @author ZhengZhiying<br>
@@ -19,7 +20,7 @@ public class HomeStructureFragment extends BaseFragment implements
 	private View view;
 	private View layout_toshow;
 	private View layout_menu;
-
+	private BaseActivity baseActivity;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class HomeStructureFragment extends BaseFragment implements
 		setOnClickListenerTo(R.id.btn_cons_sun);
 		setOnClickListenerTo(R.id.btn_plastics_door_window);
 		setOnClickListenerTo(R.id.btn_cons_garden);
+		baseActivity=(BaseActivity)getActivity();
 		return view;
 	}
 
@@ -43,19 +45,24 @@ public class HomeStructureFragment extends BaseFragment implements
 			// 鏄剧ず瀛愯彍鍗�
 			if(layout_menu.getVisibility() == View.VISIBLE){
 				layout_menu.setVisibility(View.GONE);
+				layout_toshow.setBackgroundResource(R.color.white);
 			}else{
+				layout_toshow.setBackgroundResource(R.drawable.menu_bg);
 				layout_menu.setVisibility(View.VISIBLE);
 			}
 			break;
-		case R.id.btn_cons_land:
-			break;
-		case R.id.btn_cons_sun:
-			break;
-		case R.id.btn_plastics_door_window:
-			break;
-		case R.id.btn_cons_garden:
-			break;
+//		case R.id.btn_cons_land:
+//			break;
+//		case R.id.btn_cons_sun:
+//			break;
+//		case R.id.btn_plastics_door_window:
+//			break;
+//		case R.id.btn_cons_garden:
+//			break;
 		default:
+			
+			ShopDetail shopDetail =new ShopDetail();
+			baseActivity.replaceFragment(shopDetail, true);
 			break;
 		}
 	}

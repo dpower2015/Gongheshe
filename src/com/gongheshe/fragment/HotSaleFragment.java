@@ -56,25 +56,25 @@ public class HotSaleFragment extends BaseFragment implements OnItemClickListener
 	public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
 		// TODO Auto-generated method stub
 		if(arg0.getId()==R.id.price){
-			price.setBackgroundResource(R.color.red_check);
+			price.setBackgroundResource(R.color.red);
 			price.setTextColor(baseActivity.getResources().getColor(R.color.white));
 			sentiment.setBackgroundResource(R.color.white);
-			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.red_check));
+			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.red));
 			sale_volume.setBackgroundResource(R.color.white);
-			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.red_check));
+			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.red));
 		}else if(arg0.getId()==R.id.sentiment){
 			price.setBackgroundResource(R.color.white);
-			price.setTextColor(baseActivity.getResources().getColor(R.color.red_check));
-			sentiment.setBackgroundResource(R.color.red_check);
+			price.setTextColor(baseActivity.getResources().getColor(R.color.red));
+			sentiment.setBackgroundResource(R.color.red);
 			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.white));
 			sale_volume.setBackgroundResource(R.color.white);
-			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.red_check));
+			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.red));
 		}else if(arg0.getId()==R.id.sale_volume){
 			price.setBackgroundResource(R.color.white);
-			price.setTextColor(baseActivity.getResources().getColor(R.color.red_check));
+			price.setTextColor(baseActivity.getResources().getColor(R.color.red));
 			sentiment.setBackgroundResource(R.color.white);
-			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.red_check));
-			sale_volume.setBackgroundResource(R.color.red_check);
+			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.red));
+			sale_volume.setBackgroundResource(R.color.red);
 			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.white));
 		} 
 		

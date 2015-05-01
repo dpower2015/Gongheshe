@@ -2,22 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_main"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" 
         android:focusable="true"   
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+        android:layout_margin="5dp">
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@null"
             android:contentDescription="@null"
-            android:src="@drawable/slibe" />
+            android:layout_gravity="center"
+            android:src="@drawable/slibe"
+            android:layout_marginRight="10dp" />
 
         <EditText
             android:layout_width="0px"
@@ -29,7 +32,7 @@
             android:hint="@string/search_hint"
             android:inputType="@null"
             android:singleLine="true"
-            android:textSize="15sp"
+            android:textSize="@dimen/input_size"
              />
         <Button
             android:layout_width="wrap_content"
@@ -38,7 +41,8 @@
             android:background="@null"
             android:drawableRight="@drawable/jt_down"
             android:paddingRight="5dp"
-            android:text="...  " />
+            style="@style/title_style"
+            android:text="杭州" />
     </LinearLayout>
 
     <ScrollView
@@ -50,7 +54,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-
+			<FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/grey_main" />
             <fragment 
                 android:id="@+id/frame_structure"
                 android:name="com.gongheshe.fragment.HomeStructureFragment"

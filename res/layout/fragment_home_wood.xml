@@ -34,7 +34,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:contentDescription="@null"
-            android:src="@drawable/jt_right" />
+            android:src="@drawable/jt_right_head" />
     </LinearLayout>
 
     <LinearLayout

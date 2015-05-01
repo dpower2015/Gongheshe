@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="@color/red_check"
+        android:background="@color/red"
         android:orientation="horizontal"
         android:padding="1px" >
 
@@ -17,7 +17,7 @@
             android:id="@+id/price"
             android:layout_width="60dp"
             android:layout_height="30dp"
-            android:background="@color/red_check"
+            android:background="@color/red"
             android:button="@null"
             android:gravity="center"
             android:text="@string/price"
@@ -32,7 +32,7 @@
             android:button="@null"
             android:gravity="center"
             android:text="@string/sentiment"
-            android:textColor="@color/red_check" />
+            android:textColor="@color/red" />
 
         <CheckBox
             android:id="@+id/sale_volume"
@@ -42,9 +42,15 @@
             android:button="@null"
             android:gravity="center"
             android:text="@string/sale_volume"
-            android:textColor="@color/red_check" />
+            android:textColor="@color/red" />
     </LinearLayout>
-
+    
+	<FrameLayout
+	    		android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/grey_main" />
+    
     <org.solo.waterfall.WaterfallSmartView 
     android:id="@+id/hotsel_shop_list"
     android:layout_width="match_parent"

@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.example.gongheshe.R;
+import com.gongheshe.activity.BaseActivity;
 
 /**
  * @author ZhengZhiying<br>
@@ -17,7 +18,7 @@ public class HomeBathFragment extends BaseFragment implements OnClickListener {
 	private View view;
 	private View layout_toshow;
 	private View layout_menu;
-
+	private BaseActivity baseActivity;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -26,6 +27,15 @@ public class HomeBathFragment extends BaseFragment implements OnClickListener {
 		layout_menu = view.findViewById(R.id.layout_menu);
 		layout_menu.setVisibility(View.GONE);
 		layout_toshow.setOnClickListener(this);
+		baseActivity=(BaseActivity)getActivity();
+		
+		view.findViewById(R.id.pedestal_toilet).setOnClickListener(this);
+		view.findViewById(R.id.face_pot).setOnClickListener(this);
+		view.findViewById(R.id.bathtab).setOnClickListener(this);
+		view.findViewById(R.id.sprinkler).setOnClickListener(this);
+		view.findViewById(R.id.floor_drain).setOnClickListener(this);
+		view.findViewById(R.id.hanging_drop).setOnClickListener(this);
+		view.findViewById(R.id.all_shower_room).setOnClickListener(this);
 		return view;
 	}
 
@@ -41,6 +51,9 @@ public class HomeBathFragment extends BaseFragment implements OnClickListener {
 			}
 			break;
 		default:
+			ShopDetail shopDetail =new ShopDetail();
+			baseActivity.replaceFragment(shopDetail, true);
+			
 			break;
 		}
 	}

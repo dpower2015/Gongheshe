@@ -19,11 +19,16 @@
 	<style name ="item_style" 
         >
         <item name="android:textSize">20sp</item>
-     	<item name="android:textColor">@color/hongse</item> 
+     	<item name="android:textColor">@color/red</item> 
     </style>
     <style name ="title_style" 
         >
         <item name="android:textSize">20sp</item>
-     	<item name="android:textColor">@color/heise</item> 
+     	<item name="android:textColor">@color/red</item> 
+    </style>
+     <style name ="input_style" 
+        >
+        <item name="android:textSize">13sp</item>
+     	<item name="android:textColor">@color/red</item> 
     </style>
 </resources>

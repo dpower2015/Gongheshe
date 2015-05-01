@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="grey_main">#22000000</color>
+    <color name="grey_main">#F5F6F1</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey_light_line">#33000000</color>
@@ -25,7 +25,7 @@
     <color name="huise_head">#D3D3D3</color>
     <color name="huise_tail">#C0C0C0</color>
     <color name="huise_normal">#EBEBEB</color>
-    <color name="red">#FFFF0000</color>
+    <color name="red">#D34A58</color>
     <color name="red_check">#FFFF5555</color>
      <color name="translate">#00000000</color>
     
