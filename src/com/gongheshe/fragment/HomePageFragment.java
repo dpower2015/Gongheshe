@@ -14,12 +14,25 @@ import android.view.ViewGroup;
  */
 public class HomePageFragment extends BaseFragment {
 	
-	private View view;
+	private static View view;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.fragment_homepage, container, false);
+		
+		if (view != null) {
+	        ViewGroup parent = (ViewGroup) view.getParent();
+	        if (parent != null)
+	            parent.removeView(view);
+	    }
+	    try {
+	        view = inflater.inflate(R.layout.fragment_homepage, container, false);
+	    } catch (InflateException e) {
+	        /* map is already there, just return view as it is */
+	    }
+		
+		
+		//view = inflater.inflate(R.layout.fragment_homepage, container, false);
 		return view;
 	}
 }

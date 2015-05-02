@@ -35,7 +35,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical" 
+           >
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -142,6 +143,41 @@
             </LinearLayout>
             
              <LinearLayout
+                android:id="@+id/myproject"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@null"
+                    android:src="@drawable/version" />
+
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/myproject"
+                    android:textColor="#AA000000"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/jt_right_red" />
+            </LinearLayout>
+            
+            
+            
+             <LinearLayout
                 android:id="@+id/modify_pw"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -206,42 +242,16 @@
                     android:contentDescription="@null"
                     android:src="@drawable/jt_right_red" />
             </LinearLayout>
-            
-             
-             <LinearLayout
-                android:id="@+id/copyright_id"
+            <Button 
+                android:id="@+id/exit_curuser"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal" >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_copyright" />
-
-                <TextView
-                    android:layout_width="0px"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:text="@string/copyright"
-                    android:textColor="#AA000000"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_gravity="right|center_vertical"
-                    android:layout_marginRight="10dp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/jt_right_red" />
-            </LinearLayout>
-            
+                android:layout_gravity="center"
+                android:text="@string/exit_curUser"
+                android:textColor="@color/white"
+                android:background="@color/red"
+                />
         </LinearLayout>
     </ScrollView>
 

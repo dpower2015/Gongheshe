@@ -3,7 +3,7 @@
     android:id="@+id/partner_grid_ll"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white_nor"
+    android:background="@color/grey_main"
      >
      <RelativeLayout 
          android:layout_width="88dp"

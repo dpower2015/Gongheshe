@@ -20,11 +20,12 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.fragment_mine, container, false);
-		view.findViewById(R.id.copyright_id).setOnClickListener(this);
+		view.findViewById(R.id.myproject).setOnClickListener(this);
 		view.findViewById(R.id.modify_pw).setOnClickListener(this);
 		view.findViewById(R.id.modify_head_img).setOnClickListener(this);
 		view.findViewById(R.id.mybooks).setOnClickListener(this);
 		view.findViewById(R.id.mystore).setOnClickListener(this);
+		view.findViewById(R.id.exit_curuser).setOnClickListener(this);
 		baseActivity=(BaseActivity)getActivity();
 		return view;
 	}
@@ -32,16 +33,15 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		switch(arg0.getId()){
-		case R.id.copyright_id:
-			CopyrightFragment cprightFragment = new CopyrightFragment();
-			baseActivity.replaceFragment(cprightFragment, true);
+		case R.id.myproject:
+			MyprojectFragment myproject=new MyprojectFragment();
+			baseActivity.replaceFragment(myproject, true);
 			break;
 		case R.id.modify_head_img:
 			Intent intent = new Intent(Intent.ACTION_PICK);  
 		    intent.setType("image/*");//相片类型  
 		    startActivityForResult(intent, REQUEST_IMG);  
             // REQUEST_CAMERA =0;
-			
 			break;
 		case R.id.modify_pw:
 			ModifypwFragment modifyFragment = new ModifypwFragment();
@@ -54,6 +54,9 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 		case R.id.mystore:
 			MystoreFragment mystoreFragment =new MystoreFragment();
 			baseActivity.replaceFragment(mystoreFragment, true);
+			break;
+		case R.id.exit_curuser:
+			
 			break;
 		default:
 			break;

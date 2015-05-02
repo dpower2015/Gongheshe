@@ -21,10 +21,13 @@
     <dimen name="shadow_width">15dp</dimen>
     <dimen name="line_width">1dp</dimen>
 	<dimen name="item_size">16sp</dimen>
+	<dimen name="title_size">20sp</dimen>
     <integer name="num_cols">1</integer>
     
     <dimen name="actionbar_height">45dp</dimen>
+    <dimen name="ic_height">25dp</dimen>
     <dimen name="textsize_home_menu">15sp</dimen>
     <dimen name="input_size">13sp</dimen>
+    <dimen name="margin_bar">5dp</dimen>
 
 </resources>

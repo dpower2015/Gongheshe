@@ -47,9 +47,11 @@ public class HomeElecFragment extends BaseFragment implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.layout_toshow:
 			// 鏄剧ず瀛愯彍鍗�
-			if (layout_menu.getVisibility() == View.VISIBLE) {
+			if(layout_menu.getVisibility() == View.VISIBLE){
 				layout_menu.setVisibility(View.GONE);
-			} else {
+				layout_toshow.setBackgroundResource(R.color.white);
+			}else{
+				layout_toshow.setBackgroundResource(R.drawable.menu_bg);
 				layout_menu.setVisibility(View.VISIBLE);
 			}
 			break;

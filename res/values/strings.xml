@@ -23,6 +23,7 @@
 	<string name="my_order">我的订单</string>
 	<string name="change_password">修改密码</string>
 	<string name="change_image">修改头像</string>
+	<string name="myproject">我的项目</string>
 	<string name="copyright">版权声明</string>
 	<string name="copyright_title">版权</string>
 	<string name="muzuo">木作</string>
@@ -112,5 +113,23 @@
     <string name="enter_passwd_original">请输入原始密码</string>
     <string name="enter_passwd_new">请输入新密码</string>
     <string name="enter_passwd_new_again">请再次输入新密码</string>
-	<string name="test">版权声明 </string>
+	<string name="test">亲，您还未添加项目！ </string>
+	<string name="exit_curUser">退出当前账号</string>
+	
+	
+	<string name="loading"></string>
+    <string name="loading_fail">加载失败</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="open_picture">打开图库</string>
+    <string name="open_camera">打开摄像头</string>
+    
+    
+    <string name="username_is_null">用户名为空</string>
+	<string name="telphone_number_is_null">手机号不能为空</string>
+	<string name="no_the_right_tel_number">手机号不完整</string>
+	<string name="password_is_null">密码为空</string>
+	<string name="company_name_is_null">公司名字不能为空</string>
+	<string name="register_success">注册成功!</string>
+	<string name="register_fail">注册失败!</string>
 </resources>

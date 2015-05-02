@@ -36,9 +36,14 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="@null" />
+                android:singleLine="true"
+                android:inputType="@null"
+                android:background="@null" />
         </LinearLayout>
-
+		<FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/separ" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +58,9 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="@null" />
+                android:singleLine="true"
+                android:inputType="@null"
+                android:background="@null"/>
         </LinearLayout>
 
         <Button
