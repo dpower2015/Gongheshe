@@ -134,10 +134,10 @@ public class RegisterActivity extends BaseActivity implements OnClickListener{
 				} catch (Exception ex) {
 					LoggerSZ.e(TAG, "" + ex.toString());
 				}
-				//Intent intent = new Intent();
-				//intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				//intent.setClass(context, LoginActivity.class);
-				//startActivity(intent);
+				Intent intent = new Intent();
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.setClass(RegisterActivity.this, LoginActivity.class);
+				startActivity(intent);
 			}
 		});
 	}
