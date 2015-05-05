@@ -58,6 +58,7 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		fragmentList.add(mHomefragment);
 		fragmentTransaction.add(R.id.fragment,mHomefragment);
 		fragmentTransaction.commit();
+		imgResId = R.drawable.ic_home_off;
 		
 	}
 	private void onPageSelect(int position){
