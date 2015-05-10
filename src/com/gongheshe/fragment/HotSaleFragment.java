@@ -66,7 +66,7 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 		mHotselAdapter=new HotSelAdapter(getActivity());
 		hotselList.setAdapter(mHotselAdapter);
 		hotselList.setOnRefreshListener(this);
-		hotselList.setMode(Mode.BOTH); 
+		hotselList.setMode(Mode.PULL_UP_TO_REFRESH); 
 		hotselList.setOnScrollListener(this);
 		hotselList.setOnItemClickListener(this);
 		mCache = ACache.get(getActivity());
@@ -163,6 +163,8 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 					datas.add(gson.fromJson(arr.getJSONObject(i)
 							.toString(), HotSelMod.class));
 				}
+				mHotselAdapter.setHotSetList(datas);
+				mHotselAdapter.notifyDataSetChanged();
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}		
