@@ -11,6 +11,9 @@ public class GhhConst {
 	public final static String HomeSecondActivity = BASE_URL+"pGetThrees.htm";
 	
 	public final static String PRODUCT_BY_PRICE=BASE_URL+"pProductByPrice.htm";
+	public final static String PRODUCT_BY_SENTIMENT=BASE_URL+"pProductByParam.htm";
+	public final static String PRODUCT_BY_SALE=BASE_URL+"pProductByParam.htm";
+	public final static String GET_HOTSEL_TIME=BASE_URL+"pDate.htm";
 	//http://localhost:88/phone/data/pProductByPrice.htm?pagesize=20&pagenumber=1&sortType=1
 	/** 图片头部 */
 	public final static String headPicUrl = "http://s-145217.abc188.com";

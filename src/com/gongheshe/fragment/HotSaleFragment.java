@@ -26,6 +26,7 @@ import com.gongheshe.activity.BaseActivity;
 import com.gongheshe.adapter.HotSelAdapter;
 import com.gongheshe.dialog.LoadingDlg;
 import com.gongheshe.javabean.HotSelMod;
+import com.gongheshe.javabean.HotSelTimeMod;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.cache.ACache;
 import com.googheshe.entity.GhhConst;
@@ -51,6 +52,10 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 	private BaseActivity baseActivity;
 	private CheckBox price,sentiment,sale_volume;
 	private PullToRefreshStaggeredGridView hotselList;
+	private final static int GET_PRICE_LIST=0;
+	private final static int GET_SENTIMENT_LIST=1;
+	private final static int GET_SALE_LIST=2;
+	private int mCurFlag=GET_PRICE_LIST;
 	//
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,7 +76,8 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 		hotselList.setOnItemClickListener(this);
 		mCache = ACache.get(getActivity());
 		baseActivity =(BaseActivity)getActivity();
-		requestHotSelGoodsList();
+		getUpProductTime();
+		requestHotSelGoodsList(GET_PRICE_LIST);
 		return view;
 	}
 	@Override
@@ -84,6 +90,8 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.red));
 			sale_volume.setBackgroundResource(R.color.white);
 			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.red));
+			requestHotSelGoodsList(GET_PRICE_LIST);
+			mCurFlag=GET_PRICE_LIST;
 		}else if(arg0.getId()==R.id.sentiment){
 			price.setBackgroundResource(R.color.white);
 			price.setTextColor(baseActivity.getResources().getColor(R.color.red));
@@ -91,6 +99,9 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.white));
 			sale_volume.setBackgroundResource(R.color.white);
 			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.red));
+			requestHotSelGoodsList(GET_SENTIMENT_LIST);
+			mCurFlag=GET_SENTIMENT_LIST;
+			
 		}else if(arg0.getId()==R.id.sale_volume){
 			price.setBackgroundResource(R.color.white);
 			price.setTextColor(baseActivity.getResources().getColor(R.color.red));
@@ -98,20 +109,73 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.red));
 			sale_volume.setBackgroundResource(R.color.red);
 			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.white));
+			requestHotSelGoodsList(GET_SALE_LIST);
+			mCurFlag=GET_SALE_LIST;
 		} 
-		System.out.println("...."+arg0.toString());
 	}
-	//����������Ʒ�б�
-	public void requestHotSelGoodsList(){
-		RequestParams params = new RequestParams();
-		params.put("pagesize", PAGE_SIZE);
-		params.put("pagenumber",mPageNum);
-		params.put("sortType",1);
+	//����������Ʒ�б�	
+	private void getUpProductTime(){
 		httpClient = new AsyncHttpClient();
-		httpClient.post(GhhConst.PRODUCT_BY_PRICE, params, new AsyncHttpResponseHandler() {
+		httpClient.get(GhhConst.GET_HOTSEL_TIME, new AsyncHttpResponseHandler() {
+			
+			@Override
+			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+				// TODO Auto-generated method stub
+				LoggerSZ.i(TAG, "result = " + new String(arg2));
+				try {
+					LoadingDlg.get().hide();
+				} catch (Exception ex) {
+					LoggerSZ.e(TAG, "" + ex.toString());
+				}
+				onTimeDataReturn(new String(arg2));
+			}
+			
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				Toast.makeText(baseActivity, "获取数据失败", Toast.LENGTH_SHORT).show();
+				try {
+					LoadingDlg.get().hide();
+				} catch (Exception ex) {
+					LoggerSZ.e(TAG, "" + ex.toString());
+				}
+			}
+		});
+		
+		
+	}
+	public void requestHotSelGoodsList(int flag){
+		RequestParams paramsGoods = new RequestParams();
+		String url=null;
+		mPageNum=1;
+		paramsGoods.put("pagesize", PAGE_SIZE+"");
+		paramsGoods.put("pagenumber",mPageNum+"");
+		switch (flag){
+		case GET_PRICE_LIST:
+			paramsGoods.put("sortType",1+"");
+			url=GhhConst.PRODUCT_BY_PRICE;
+			break;
+		case GET_SENTIMENT_LIST:
+			paramsGoods.put("sortType",2+"");
+			url=GhhConst.PRODUCT_BY_SENTIMENT;
+			break;
+		case GET_SALE_LIST:
+			paramsGoods.put("sortType",3+"");
+			url=GhhConst.PRODUCT_BY_SALE;
+			break;
+		default :
+			break;
+		}
+		System.out.println("#####url:"+url);
+		System.out.println("#####para:"+paramsGoods.toString());
+		httpClient = new AsyncHttpClient();
+		
+		
+		httpClient.post(url, paramsGoods, new AsyncHttpResponseHandler() {
 
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {
+				hotselList.onRefreshComplete();
 				LoggerSZ.e(TAG, "访问失败" + e.toString());
 				Toast.makeText(baseActivity, "获取数据失败", Toast.LENGTH_SHORT).show();
 				try {
@@ -124,6 +188,8 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			@Override
 			public void onSuccess(int statusCode, Header[] headers,
 					byte[] response) {
+				hotselList.onRefreshComplete();
+				 mPageNum++;
 				LoggerSZ.i(TAG, "result = " + new String(response));
 				try {
 					LoadingDlg.get().hide();
@@ -150,7 +216,12 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			}
 		});
 		}
-	
+	private void onTimeDataReturn(String string){
+				LoggerSZ.i(TAG, "###### TimeDataReturn ;" + string);
+			Gson gson = new Gson();
+			mHotselAdapter.setTimeMod(gson.fromJson(string,HotSelTimeMod.class));
+			mHotselAdapter.notifyDataSetChanged();
+	}
 	private void onDataReturn(String string){
 			try {
 				JSONObject jsonObject = new JSONObject(string);
@@ -158,6 +229,9 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 				JSONArray arr = jsonObject.getJSONArray("data");
 				ArrayList<HotSelMod> datas;
 				datas = new ArrayList<HotSelMod>();
+				HotSelMod temp=new HotSelMod();
+				temp.id="-1";
+				datas.add(temp);
 				Gson gson = new Gson();
 				for (int i = 0; i < arr.length(); i++) {
 					datas.add(gson.fromJson(arr.getJSONObject(i)
@@ -188,13 +262,12 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 	@Override
 	public void onScrollStateChanged(AbsListView arg0, int arg1) {
 		// TODO Auto-generated method stub
-		
 	}
 	@Override
 	public void onRefresh(PullToRefreshBase<StaggeredGridView> refreshView) {
 		// TODO Auto-generated method stub
-		     System.out.println("###onRefresh");
-		     hotselList.onRefreshComplete();
+		     //System.out.println("###onRefresh");
+		     requestHotSelGoodsList(mCurFlag);
 	}
 	
 }
