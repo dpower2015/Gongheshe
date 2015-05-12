@@ -52,6 +52,7 @@
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/bt_1"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -64,6 +65,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
+                android:id="@+id/bt_2"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -76,6 +78,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
+                android:id="@+id/bt_3"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -88,6 +91,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
+                android:id="@+id/bt_4"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -107,6 +111,7 @@
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/bt_5"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -119,6 +124,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
+                android:id="@+id/bt_6"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -131,6 +137,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
+                android:id="@+id/bt_7"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"

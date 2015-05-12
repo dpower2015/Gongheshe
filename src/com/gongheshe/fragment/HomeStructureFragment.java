@@ -60,8 +60,7 @@ public class HomeStructureFragment extends BaseFragment implements
 //		case R.id.btn_cons_garden:
 //			break;
 		default:
-			
-			ShopDetail shopDetail =new ShopDetail();
+			ShopDetail shopDetail =new ShopDetail().setIntentData(1, 1);
 			baseActivity.replaceFragment(shopDetail, true);
 			break;
 		}

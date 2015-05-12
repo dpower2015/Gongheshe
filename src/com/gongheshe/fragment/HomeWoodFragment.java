@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.example.gongheshe.R;
+import com.gongheshe.activity.BaseActivity;
 
 /**
  * @author ZhengZhiying<br>
@@ -17,6 +18,7 @@ public class HomeWoodFragment extends BaseFragment implements OnClickListener {
 	private View view;
 	private View layout_toshow;
 	private View layout_menu;
+	private BaseActivity baseActivity;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,6 +28,14 @@ public class HomeWoodFragment extends BaseFragment implements OnClickListener {
 		layout_menu = view.findViewById(R.id.layout_menu);
 		layout_menu.setVisibility(View.GONE);
 		layout_toshow.setOnClickListener(this);
+		baseActivity=(BaseActivity)getActivity();
+		view.findViewById(R.id.bt_1).setOnClickListener(this);
+		view.findViewById(R.id.bt_2).setOnClickListener(this);
+		view.findViewById(R.id.bt_3).setOnClickListener(this);
+		view.findViewById(R.id.bt_4).setOnClickListener(this);
+		view.findViewById(R.id.bt_5).setOnClickListener(this);
+		view.findViewById(R.id.bt_6).setOnClickListener(this);
+		view.findViewById(R.id.bt_7).setOnClickListener(this);
 		return view;
 	}
 	
@@ -43,6 +53,8 @@ public class HomeWoodFragment extends BaseFragment implements OnClickListener {
 			}
 			break;
 		default:
+			ShopDetail shopDetail =new ShopDetail().setIntentData(1, 1);
+			baseActivity.replaceFragment(shopDetail, true);
 			break;
 		}
 	}

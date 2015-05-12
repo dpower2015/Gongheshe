@@ -94,12 +94,18 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		imgButton = img;
 		
 	}
+	
+	public HomePageFragment getHomefragment(){
+		return (HomePageFragment) mHomefragment;
+	}
+	
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.ibtn_home:
 			onPageSelect(0);
-			replaceFragment(new HomePageFragment(),true);
+			mHomefragment = new HomePageFragment();
+			replaceFragment(mHomefragment,true);
 			//viewPager.setCurrentItem(0);
 			break;
 		case R.id.ibtn_brand:

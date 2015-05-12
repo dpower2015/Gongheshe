@@ -53,7 +53,7 @@ public class HomeFaceFragment extends BaseFragment  implements OnClickListener{
 			}
 			break;
 		default:
-			ShopDetail shopDetail =new ShopDetail();
+			ShopDetail shopDetail =new ShopDetail().setIntentData(1, 1);
 			baseActivity.replaceFragment(shopDetail, true);
 			break;
 		}
