@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.gongheshe.R;
 import com.gongheshe.javabean.HotSelMod;
+import com.gongheshe.javabean.HotSelTimeMod;
 import com.gongheshe.util.AnimateFirstDisplayListener;
 import com.gongheshe.util.ImageLoderConfig;
 import com.googheshe.entity.GhhConst;
@@ -22,13 +23,30 @@ public class HotSelAdapter extends BaseAdapter{
 	private LayoutInflater inflater;
 	private Context mContext;
 	private ArrayList<HotSelMod> hotsetList;
+	private HotSelTimeMod timeMod;
 	private ImageLoader imgLoader = ImageLoader.getInstance();
 	public HotSelAdapter(Context context) {
 		inflater = LayoutInflater.from(context);
 		mContext=context;
 	}
 	public void setHotSetList(ArrayList<HotSelMod> lists){
+		if(hotsetList!=null){
+			hotsetList.clear();
+		}
 		hotsetList =lists;
+	}
+	public void setTimeMod(HotSelTimeMod timeMod){
+		
+		this.timeMod=timeMod;
+		
+	}
+	public void clearHotSels(){
+		
+		if(hotsetList!=null){
+		
+			hotsetList.clear();
+		}
+		
 	}
 	@Override
 	public int getCount() {
@@ -57,7 +75,7 @@ public class HotSelAdapter extends BaseAdapter{
 		Holder holder;
 		if(true){
 			
-			if(position==0){
+			if(hotsetList.get(position).id.equals("-1")){
 				
 				 holder_title=new HolderTitle();
 				convertView = inflater.inflate(R.layout.title_item, null);
@@ -65,6 +83,13 @@ public class HotSelAdapter extends BaseAdapter{
 				holder_title.month=(TextView)convertView.findViewById(R.id.month);
 				holder_title.time=(TextView)convertView.findViewById(R.id.time);
 				holder_title.weekday=(TextView)convertView.findViewById(R.id.weekday);
+				if(timeMod!=null){
+					holder_title.day.setText(timeMod.day);
+					holder_title.month.setText("/"+timeMod.month+"月");
+					holder_title.weekday.setText(timeMod.week);
+					holder_title.time.setText(timeMod.time+"发布");
+				}
+				
 				convertView.setTag(holder_title);
 				
 			}else {
@@ -82,18 +107,19 @@ public class HotSelAdapter extends BaseAdapter{
 						AnimateFirstDisplayListener.getIns()// 加载动画
 						);
 				
-				holder.goods_dollor.setText(hotsetList.get(position).martPrice);
-				holder.goods_yuan.setText(hotsetList.get(position).minprice);
+				holder.goods_dollor.setText(hotsetList.get(position).minprice);
+				holder.goods_yuan.setText("￥"+hotsetList.get(position).martPrice);
 				holder.goods_title.setText(hotsetList.get(position).name);
 			}
 			
 		}else {
-			if(position==0){
+			
+			boolean flag=convertView.getTag().getClass().equals(HolderTitle.class);
+			if(flag){
 				
 				holder_title=(HolderTitle)convertView.getTag();
 				
 			}else {
-				
 				holder=(Holder)convertView.getTag();
 				imgLoader.displayImage(GhhConst.headPicUrl
 						+ hotsetList.get(position).androidNote2ImagesMinUrl, // 下载地址

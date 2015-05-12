@@ -501,7 +501,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int slibe=0x7f02006d;
         public static final int test_user_image=0x7f02006e;
         public static final int version=0x7f02006f;
-        public static final int xlistview_arrow=0x7f020070;
+        public static final int visit=0x7f020070;
+        public static final int xlistview_arrow=0x7f020071;
     }
     public static final class id {
         public static final int add_project=0x7f05005d;
@@ -819,7 +820,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0a0001;
-        public static final int Dialog=0x7f0a0005;
+        public static final int Dialog=0x7f0a0006;
+        public static final int foot_stype=0x7f0a0005;
         public static final int input_style=0x7f0a0004;
         public static final int item_style=0x7f0a0002;
         public static final int title_style=0x7f0a0003;

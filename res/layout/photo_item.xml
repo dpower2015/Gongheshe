@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:padding="2.5dp">
     <ImageView
         android:id="@+id/good_icon"
         android:layout_width="match_parent"
@@ -15,6 +16,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:text="titile"
+         style="@style/foot_stype"
          android:layout_gravity="center"
          />
      <RelativeLayout 
@@ -28,14 +30,25 @@
          android:layout_height="wrap_content"
          android:text="#2"
          android:layout_marginLeft="10dp"
+         style="@style/foot_stype"
          />
          
+          
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:src="@drawable/visit"
+            android:layout_toLeftOf="@+id/goods_dollor"
+            android:layout_alignBottom="@id/goods_dollor"
+            />
           <TextView 
          android:id="@+id/goods_dollor"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_centerInParent="true"
+         android:layout_alignParentRight="true"
+         android:layout_marginRight="10dp"
          android:text="#12"
+         style="@style/foot_stype"
          />
      </RelativeLayout >
 </LinearLayout>

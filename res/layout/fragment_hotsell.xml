@@ -56,5 +56,8 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_gravity="center"
+         android:background="@color/grey_main"
+         android:paddingLeft="5dp"
+         android:paddingRight="5dp"
         />
 </LinearLayout>
