@@ -1,100 +1,126 @@
 package com.gongheshe.adapter;
 
-import org.solo.waterfall.WaterfallSmartView;
+import java.util.ArrayList;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
-import com.googheshe.entity.HotSelEntity;
+import com.gongheshe.javabean.HotSelMod;
+import com.gongheshe.util.AnimateFirstDisplayListener;
+import com.gongheshe.util.ImageLoderConfig;
+import com.googheshe.entity.GhhConst;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
-public class HotSelAdapter extends ArrayAdapter<HotSelEntity>{
+public class HotSelAdapter extends BaseAdapter{
 	
 	private LayoutInflater inflater;
 	private Context mContext;
-	private WaterfallSmartView mWaterfallView;
+	private ArrayList<HotSelMod> hotsetList;
+	private ImageLoader imgLoader = ImageLoader.getInstance();
 	public HotSelAdapter(Context context) {
-		super(context, android.R.layout.simple_list_item_1);
 		inflater = LayoutInflater.from(context);
 		mContext=context;
-		
 	}
-	public void setWaterfallView(WaterfallSmartView view){
-		
-		mWaterfallView =view;
+	public void setHotSetList(ArrayList<HotSelMod> lists){
+		hotsetList =lists;
+	}
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		if(hotsetList!=null){
+			
+			return hotsetList.size();
+			
+		}
+		return 0;
+	}
+	@Override
+	public Object getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public long getItemId(int arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		final Holder mHolder;
-		System.out.println("######position :"+position);
-		//if(convertView == null){
-			int flag=((HotSelEntity)getItem(position)).flag;
-			if(flag==1){
-				System.out.println("in.........");
+		HolderTitle holder_title;
+		Holder holder;
+		if(true){
+			
+			if(position==0){
+				
+				 holder_title=new HolderTitle();
 				convertView = inflater.inflate(R.layout.title_item, null);
+				holder_title.day=(TextView)convertView.findViewById(R.id.day);
+				holder_title.month=(TextView)convertView.findViewById(R.id.month);
+				holder_title.time=(TextView)convertView.findViewById(R.id.time);
+				holder_title.weekday=(TextView)convertView.findViewById(R.id.weekday);
+				convertView.setTag(holder_title);
+				
+			}else {
+				holder=new Holder();
+				convertView = inflater.inflate(R.layout.photo_item, null);
+				holder.goods_icon=(ImageView)convertView.findViewById(R.id.good_icon);
+				holder.goods_dollor=(TextView)convertView.findViewById(R.id.goods_dollor);
+				holder.goods_title=(TextView)convertView.findViewById(R.id.goods_title);
+				holder.goods_yuan=(TextView)convertView.findViewById(R.id.goods_yuan);
+				convertView.setTag(holder);
+				// #这里明显要使用图片库了。在网上随便down些图片吧
+				imgLoader.displayImage(hotsetList.get(position).androidNote2ImagesMinUrl, // 下载地址
+						holder.goods_icon, // ImageView控件实例
+						ImageLoderConfig.getOptions(), // 配置信息
+						AnimateFirstDisplayListener.getIns()// 加载动画
+						);
+				
+				holder.goods_dollor.setText(hotsetList.get(position).martPrice);
+				holder.goods_yuan.setText(hotsetList.get(position).minprice);
+				holder.goods_title.setText(hotsetList.get(position).name);
+			}
+			
+		}else {
+			if(position==0){
+				
+				holder_title=(HolderTitle)convertView.getTag();
 				
 			}else {
 				
-				mHolder = new Holder();
-				convertView = inflater.inflate(R.layout.photo_item, null);
-				mHolder.good_icon = (ImageView)convertView.findViewById(R.id.good_icon);
-				mHolder.good_icon.setOnClickListener(new OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						
-					}
-				});
+				holder=(Holder)convertView.getTag();
+				imgLoader.displayImage(GhhConst.headPicUrl
+						+ hotsetList.get(position).androidNote2ImagesMinUrl, // 下载地址
+						holder.goods_icon, // ImageView控件实例
+						ImageLoderConfig.getOptions(), // 配置信息
+						AnimateFirstDisplayListener.getIns()// 加载动画
+						);
 			}
-				
-				
-//				if(flag==1){
-//					int height1,width1,height2,width2;
-//					 height1=((RelativeLayout)convertView.findViewById(R.id.photo_item)).getMeasuredHeight();
-//					 width1=((RelativeLayout)convertView.findViewById(R.id.photo_item)).getMeasuredWidth();
-//					 height2=((LinearLayout)convertView.findViewById(R.id.title_bar)).getMeasuredHeight();
-//					 width2= ((LinearLayout)convertView.findViewById(R.id.title_bar)).getMeasuredWidth();
-//					 System.out.println("photo_item:"+height1+":"+width1);
-//					 System.out.println("title_bar:"+height2+":"+width2);
-//					
-//					
-//					 System.out.println("######flag==1");
-//					 convertView.findViewById(R.id.photo_item).setVisibility(View.GONE);
-//					 convertView.findViewById(R.id.title_bar).setVisibility(View.VISIBLE);
-//					 mHolder.good_icon.setVisibility(View.GONE);
-//					 
-//				}
-				
-				
-				//convertView.setTag(mHolder);
-		//}else{
-			//mHolder = (Holder) convertView.getTag();
-	//	}
+		}
 		return convertView;
 	}
 
 	
 	private class Holder{
-		ImageView  good_icon;
-		TextView good_title;
-		//LinearLayout title_bar;
+		ImageView  goods_icon;
+		TextView goods_title;
+		TextView goods_dollor;
+		TextView goods_yuan;
+		
 	}
-	
-	public void add(HotSelEntity object,int weight,int height) {
-		// TODO Auto-generated method stub
-		super.add(object);
-		mWaterfallView.addItem(object, weight, height);
+
+
+	private class HolderTitle{
+		TextView time;
+		TextView day;
+		TextView month;
+		TextView weekday;
 	}
 	
 }
