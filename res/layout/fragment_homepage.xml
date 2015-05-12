@@ -35,6 +35,7 @@
             android:textSize="@dimen/input_size"
              />
         <Button
+            android:id="@+id/bt_to_show_citys"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"

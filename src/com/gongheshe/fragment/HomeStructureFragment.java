@@ -6,9 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
+import com.gongheshe.dialog.CityListPopWindow;
 
 /**
  * @author ZhengZhiying<br>
@@ -21,6 +25,7 @@ public class HomeStructureFragment extends BaseFragment implements
 	private View layout_toshow;
 	private View layout_menu;
 	private BaseActivity baseActivity;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -37,6 +42,7 @@ public class HomeStructureFragment extends BaseFragment implements
 		baseActivity=(BaseActivity)getActivity();
 		return view;
 	}
+
 
 	@Override
 	public void onClick(View v) {

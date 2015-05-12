@@ -14,4 +14,6 @@ public class GhhConst {
 	//http://localhost:88/phone/data/pProductByPrice.htm?pagesize=20&pagenumber=1&sortType=1
 	/** 图片头部 */
 	public final static String headPicUrl = "http://s-145217.abc188.com";
+	
+	public final static String getcitys = BASE_URL+"pGetCitys.htm?pagesize=20&pagenumber=1";
 }

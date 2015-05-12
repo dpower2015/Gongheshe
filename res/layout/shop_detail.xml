@@ -33,6 +33,7 @@
             android:layout_margin="2dp" />
 
         <Button
+            android:id="@+id/bt_to_show_citys"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
@@ -42,9 +43,9 @@
             android:textColor="@color/red_check"
             android:text="@string/cate" />
     </LinearLayout>
-    <GridView
-        android:id="@+id/gridview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <com.handmark.pulltorefresh.library.PullToRefreshStaggeredGridView
+         android:id="@+id/stag_gridview"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
         />
 </LinearLayout>
