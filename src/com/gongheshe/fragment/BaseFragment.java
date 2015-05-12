@@ -7,10 +7,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class BaseFragment extends Fragment {
+	
+	private BaseFragment parent;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
+	
+	public BaseFragment getParentFragmentX(){
+		return parent;
+	}
+
+	public void setParent(BaseFragment parent) {
+		this.parent = parent;
+	}
+	
+	
 }

@@ -52,6 +52,7 @@
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/bt_1"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -61,10 +62,10 @@
                 android:drawableTop="@drawable/ic_furniture_01"
                 android:text="@string/furniture"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/furniture" />
+                android:textSize="@dimen/textsize_home_menu"/>
 
             <Button
+                android:id="@+id/bt_2"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -74,10 +75,10 @@
                 android:drawableTop="@drawable/ic_furniture_02"
                 android:text="@string/lamp"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/lamp" />
+                android:textSize="@dimen/textsize_home_menu"/>
 
             <Button
+                android:id="@+id/bt_3"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -87,10 +88,10 @@
                 android:drawableTop="@drawable/ic_furniture_03"
                 android:text="@string/decoration"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/decoration" />
+                android:textSize="@dimen/textsize_home_menu" />
 
             <Button
+                android:id="@+id/bt_4"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -100,8 +101,7 @@
                 android:drawableTop="@drawable/ic_furniture_04"
                 android:text="@string/carpet"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/carpet"/>
+                android:textSize="@dimen/textsize_home_menu" />
         </LinearLayout>
 
         <LinearLayout
@@ -111,6 +111,7 @@
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/bt_5"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -120,10 +121,10 @@
                 android:drawableTop="@drawable/ic_furniture_05"
                 android:text="@string/curtain_art"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/curtain_art"/>
+                android:textSize="@dimen/textsize_home_menu" />
 
             <Button
+                android:id="@+id/bt_6"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -133,8 +134,7 @@
                 android:drawableTop="@drawable/ic_furniture_06"
                 android:text="@string/decoration_picture"
                 android:textColor="@color/home_menu_text"
-                android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/decoration_picture" />
+                android:textSize="@dimen/textsize_home_menu"/>
 
             <Button
                 style="@null"

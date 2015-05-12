@@ -42,8 +42,8 @@
             android:textColor="@color/red_check"
             android:text="@string/cate" />
     </LinearLayout>
-    <zy.zh.xListView.XListView 
-        android:id="@+id/xListView"
+    <GridView
+        android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

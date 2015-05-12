@@ -7,6 +7,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.example.gongheshe.R;
+import com.gongheshe.activity.BaseActivity;
+import com.gongheshe.activity.MainFragmentActivity;
 
 /**
  * @author ZhengZhiying<br>
@@ -17,6 +19,7 @@ public class HomeLampFragment extends BaseFragment  implements OnClickListener{
 	private View view;
 	private View layout_toshow;
 	private View layout_menu;
+	private BaseActivity baseActivity;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,6 +29,12 @@ public class HomeLampFragment extends BaseFragment  implements OnClickListener{
 		layout_menu = view.findViewById(R.id.layout_menu);
 		layout_menu.setVisibility(View.GONE);
 		layout_toshow.setOnClickListener(this);
+		baseActivity=(BaseActivity)getActivity();
+		view.findViewById(R.id.bt_1).setOnClickListener(this);
+		view.findViewById(R.id.bt_2).setOnClickListener(this);
+		view.findViewById(R.id.bt_3).setOnClickListener(this);
+		view.findViewById(R.id.bt_4).setOnClickListener(this);
+		view.findViewById(R.id.bt_5).setOnClickListener(this);
 		return view;
 	}
 	
@@ -40,9 +49,12 @@ public class HomeLampFragment extends BaseFragment  implements OnClickListener{
 			}else{
 				layout_toshow.setBackgroundResource(R.drawable.menu_bg);
 				layout_menu.setVisibility(View.VISIBLE);
+				((MainFragmentActivity)baseActivity).getHomefragment().scrollToBottom();
 			}
 			break;
 		default:
+			ShopDetail shopDetail =new ShopDetail().setIntentData(1, 1);
+			baseActivity.replaceFragment(shopDetail, true);
 			break;
 		}
 	}
