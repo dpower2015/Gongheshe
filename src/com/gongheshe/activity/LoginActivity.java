@@ -26,7 +26,7 @@ import com.loopj.android.http.RequestParams;
 
 /**
  * @author ZhengZhiying<br>
- * @function 登录页面
+ * @function 鐧诲綍椤甸潰
  */
 
 
@@ -106,8 +106,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {
-				LoggerSZ.e(TAG, "访问失败" + e.toString());
-				Toast.makeText(context, "登录失败", Toast.LENGTH_SHORT).show();
+				LoggerSZ.e(TAG, "璁块棶澶辫触" + e.toString());
+				Toast.makeText(context, "鐧诲綍澶辫触", Toast.LENGTH_SHORT).show();
 				try {
 					LoadingDlg.get().hide();
 				} catch (Exception ex) {
@@ -129,7 +129,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 					boolean result = jsonObject.getBoolean("status");
 					String msg=jsonObject.getString("msg");
 					if(result){
-						// 登录成功
+						// 鐧诲綍鎴愬姛
 						jsonObject = jsonObject.getJSONObject("userInfo");
 						mod = new Gson().fromJson(jsonObject.toString(),
 								userInfo.class);
@@ -137,7 +137,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 						shareSave.setUserName(name);
 						shareSave.setPsdword(psw);
 						shareSave.Enter(true);
-						Toast.makeText(context, "登录成功", Toast.LENGTH_SHORT)
+						Toast.makeText(context, "鐧诲綍鎴愬姛", Toast.LENGTH_SHORT)
 								.show();
 						Intent intent = new Intent();
 						intent.setClass(context, MainFragmentActivity.class);
@@ -150,10 +150,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					Toast.makeText(context, "登录失败", Toast.LENGTH_SHORT).show();
+					Toast.makeText(context, "鐧诲綍澶辫触", Toast.LENGTH_SHORT).show();
 				}
 
-				LoggerSZ.i(TAG, "登录接口返回：" + new String(response));
+				LoggerSZ.i(TAG, "鐧诲綍鎺ュ彛杩斿洖锛�" + new String(response));
 
 			}
 

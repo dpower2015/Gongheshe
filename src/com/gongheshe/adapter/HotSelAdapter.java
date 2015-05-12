@@ -85,9 +85,9 @@ public class HotSelAdapter extends BaseAdapter{
 				holder_title.weekday=(TextView)convertView.findViewById(R.id.weekday);
 				if(timeMod!=null){
 					holder_title.day.setText(timeMod.day);
-					holder_title.month.setText("/"+timeMod.month+"月");
+					holder_title.month.setText("/"+timeMod.month+"鏈�");
 					holder_title.weekday.setText(timeMod.week);
-					holder_title.time.setText(timeMod.time+"发布");
+					holder_title.time.setText(timeMod.time+"鍙戝竷");
 				}
 				
 				convertView.setTag(holder_title);
@@ -100,11 +100,11 @@ public class HotSelAdapter extends BaseAdapter{
 				holder.goods_title=(TextView)convertView.findViewById(R.id.goods_title);
 				holder.goods_yuan=(TextView)convertView.findViewById(R.id.goods_yuan);
 				convertView.setTag(holder);
-				// #这里明显要使用图片库了。在网上随便down些图片吧
-				imgLoader.displayImage(hotsetList.get(position).androidNote2ImagesMinUrl, // 下载地址
-						holder.goods_icon, // ImageView控件实例
-						ImageLoderConfig.getOptions(), // 配置信息
-						AnimateFirstDisplayListener.getIns()// 加载动画
+				// #杩欓噷鏄庢樉瑕佷娇鐢ㄥ浘鐗囧簱浜嗐�傚湪缃戜笂闅忎究down浜涘浘鐗囧惂
+				imgLoader.displayImage(hotsetList.get(position).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
+						holder.goods_icon, // ImageView鎺т欢瀹炰緥
+						ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
+						AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
 						);
 				
 				holder.goods_dollor.setText(hotsetList.get(position).minprice);
@@ -122,10 +122,10 @@ public class HotSelAdapter extends BaseAdapter{
 			}else {
 				holder=(Holder)convertView.getTag();
 				imgLoader.displayImage(GhhConst.headPicUrl
-						+ hotsetList.get(position).androidNote2ImagesMinUrl, // 下载地址
-						holder.goods_icon, // ImageView控件实例
-						ImageLoderConfig.getOptions(), // 配置信息
-						AnimateFirstDisplayListener.getIns()// 加载动画
+						+ hotsetList.get(position).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
+						holder.goods_icon, // ImageView鎺т欢瀹炰緥
+						ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
+						AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
 						);
 			}
 		}

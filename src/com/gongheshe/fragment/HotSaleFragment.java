@@ -145,30 +145,33 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 		
 	}
 	public void requestHotSelGoodsList(int flag){
-		RequestParams params = new RequestParams();
+		RequestParams paramsGoods = new RequestParams();
 		String url=null;
 		mPageNum=1;
-		params.put("pagesize", PAGE_SIZE);
-		params.put("pagenumber",mPageNum);
+		paramsGoods.put("pagesize", PAGE_SIZE+"");
+		paramsGoods.put("pagenumber",mPageNum+"");
 		switch (flag){
 		case GET_PRICE_LIST:
-			params.put("sortType",1);
+			paramsGoods.put("sortType",1+"");
 			url=GhhConst.PRODUCT_BY_PRICE;
 			break;
 		case GET_SENTIMENT_LIST:
-			params.put("sortType",2);
+			paramsGoods.put("sortType",2+"");
 			url=GhhConst.PRODUCT_BY_SENTIMENT;
 			break;
 		case GET_SALE_LIST:
-			params.put("sortType",3);
+			paramsGoods.put("sortType",3+"");
 			url=GhhConst.PRODUCT_BY_SALE;
 			break;
 		default :
 			break;
 		}
 		System.out.println("#####url:"+url);
+		System.out.println("#####para:"+paramsGoods.toString());
 		httpClient = new AsyncHttpClient();
-		httpClient.post(url, params, new AsyncHttpResponseHandler() {
+		
+		
+		httpClient.post(url, paramsGoods, new AsyncHttpResponseHandler() {
 
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {
