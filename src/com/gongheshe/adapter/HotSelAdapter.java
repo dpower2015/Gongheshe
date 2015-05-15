@@ -85,9 +85,9 @@ public class HotSelAdapter extends BaseAdapter{
 				holder_title.weekday=(TextView)convertView.findViewById(R.id.weekday);
 				if(timeMod!=null){
 					holder_title.day.setText(timeMod.day);
-					holder_title.month.setText("/"+timeMod.month+"鏈�");
+					holder_title.month.setText("/"+timeMod.month+"月");
 					holder_title.weekday.setText(timeMod.week);
-					holder_title.time.setText(timeMod.time+"鍙戝竷");
+					holder_title.time.setText(timeMod.time+"发布");
 				}
 				
 				convertView.setTag(holder_title);

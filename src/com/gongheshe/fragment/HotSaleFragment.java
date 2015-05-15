@@ -166,8 +166,6 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 		default :
 			break;
 		}
-		System.out.println("#####url:"+url);
-		System.out.println("#####para:"+paramsGoods.toString());
 		httpClient = new AsyncHttpClient();
 		
 		
