@@ -1,7 +1,7 @@
 package com.gongheshe.javabean;
 
 
-public class HotSelMod extends BaseMod {
+public class ProductMod extends BaseMod {
 
 	/**
 	 * 

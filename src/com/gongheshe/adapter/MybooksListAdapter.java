@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
-import com.gongheshe.adapter.MystoreListAdapter.ViewHolder;
 
 public class MybooksListAdapter extends BaseAdapter{
 

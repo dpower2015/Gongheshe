@@ -35,7 +35,6 @@ public class ShareSave {
 		writer.commit();
 	}
 	
-
 	public String getUserName() {
 		return reader.getString("userName", null);
 	}

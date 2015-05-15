@@ -25,7 +25,7 @@ import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
 import com.gongheshe.adapter.HotSelAdapter;
 import com.gongheshe.dialog.LoadingDlg;
-import com.gongheshe.javabean.HotSelMod;
+import com.gongheshe.javabean.ProductMod;
 import com.gongheshe.javabean.HotSelTimeMod;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.cache.ACache;
@@ -225,15 +225,15 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 				JSONObject jsonObject = new JSONObject(string);
 				jsonObject = jsonObject.getJSONObject("products");
 				JSONArray arr = jsonObject.getJSONArray("data");
-				ArrayList<HotSelMod> datas;
-				datas = new ArrayList<HotSelMod>();
-				HotSelMod temp=new HotSelMod();
+				ArrayList<ProductMod> datas;
+				datas = new ArrayList<ProductMod>();
+				ProductMod temp=new ProductMod();
 				temp.id="-1";
 				datas.add(temp);
 				Gson gson = new Gson();
 				for (int i = 0; i < arr.length(); i++) {
 					datas.add(gson.fromJson(arr.getJSONObject(i)
-							.toString(), HotSelMod.class));
+							.toString(), ProductMod.class));
 				}
 				mHotselAdapter.setHotSetList(datas);
 				mHotselAdapter.notifyDataSetChanged();
