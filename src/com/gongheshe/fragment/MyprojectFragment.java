@@ -16,7 +16,7 @@ import com.googheshe.entity.GhhConst;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
-public class MyprojectFragment extends BaseFragment{
+public class MyprojectFragment extends BaseFragment implements OnClickListener{
 
 	
 	private View view;
@@ -27,21 +27,30 @@ public class MyprojectFragment extends BaseFragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		view = inflater.inflate(R.layout.myproject, container, false);
+		view = inflater.inflate(R.layout.fragment_myproject, container, false);
 		baseActivity=(BaseActivity)getActivity();
-		view.findViewById(R.id.ibtn_back).setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				System.out.println("####back");
-				baseActivity.onBackPressed();
-			}
-		});
+		view.findViewById(R.id.ibtn_back).setOnClickListener(this);
+		view.findViewById(R.id.add_project).setOnClickListener(this);
+		
 		//requestData();
 		return view;
 	}
 
+
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+		int id=arg0.getId();
+		if(id==R.id.ibtn_back){
+			baseActivity.onBackPressed();
+		}else if(id==R.id.add_project){
+			AddProjectFragment myproject=new AddProjectFragment();
+			baseActivity.replaceFragment(myproject, true);
+			
+		}
+	}
+	
+	
 	
 	private void requestData() {
 		client = new AsyncHttpClient();
@@ -80,6 +89,11 @@ public class MyprojectFragment extends BaseFragment{
 		System.out.println("onDataReturn :"+string);
 		//adapter.fillDataToView(string);
 	}
+
+
+
+
+
 	
 	
 }

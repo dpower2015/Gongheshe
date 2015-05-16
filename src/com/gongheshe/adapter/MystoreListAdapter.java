@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
@@ -20,28 +21,29 @@ public class MystoreListAdapter extends BaseAdapter{
 
 	private LayoutInflater inflater;
 	private Context mContext;
-	private ArrayList<ProductMod> hotsetList;
+	private ArrayList<ProductMod> mystoreList;
 	private ImageLoader imgLoader = ImageLoader.getInstance();
+	private int count;
 	public MystoreListAdapter(Context context){
 		
 		this.mContext = context;
 		inflater = LayoutInflater.from(context);
 	}
 	public void setMystoreList(ArrayList<ProductMod> lists){
-		if(hotsetList!=null){
-			hotsetList.clear();
+		if(mystoreList!=null){
+			mystoreList.clear();
 		}
-		hotsetList =lists;
+		mystoreList =lists;
+		 if((mystoreList.size()%2)!=0){
+			 
+			 count=mystoreList.size()/2+1;
+		 }else count=mystoreList.size()/2;
+		
 	}
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-			if(hotsetList!=null){
-			
-			return hotsetList.size();
-			
-		}
-		return 0;
+		return count;
 	}
 
 	@Override
@@ -65,36 +67,70 @@ public class MystoreListAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup arg2) {
 		// TODO Auto-generated method stub
 		final  Holder holder;
+		boolean flag=false;
 		//if(convertView == null){
 		if(true){
 			holder=new Holder();
-			convertView = inflater.inflate(R.layout.photo_item, null);
-			holder.goods_icon=(ImageView)convertView.findViewById(R.id.good_icon);
-			holder.goods_dollor=(TextView)convertView.findViewById(R.id.goods_dollor);
-			holder.goods_title=(TextView)convertView.findViewById(R.id.goods_title);
-			holder.goods_yuan=(TextView)convertView.findViewById(R.id.goods_yuan);
+			convertView = inflater.inflate(R.layout.productlist_item, null);
+			holder.product_icon=(ImageView)convertView.findViewById(R.id.product_icon);
+			holder.product_dollor=(TextView)convertView.findViewById(R.id.product_dollor);
+			holder.product_title=(TextView)convertView.findViewById(R.id.product_title);
+			holder.product_yuan=(TextView)convertView.findViewById(R.id.product_yuan);
+			holder.rightView=(LinearLayout)convertView.findViewById(R.id.rightView);
+			holder.product_icon1=(ImageView)convertView.findViewById(R.id.product_icon1);
+			holder.product_dollor1=(TextView)convertView.findViewById(R.id.product_dollor1);
+			holder.product_title1=(TextView)convertView.findViewById(R.id.product_title1);
+			holder.product_yuan1=(TextView)convertView.findViewById(R.id.product_yuan1);
 			convertView.setTag(holder);
-			// #杩欓噷鏄庢樉瑕佷娇鐢ㄥ浘鐗囧簱浜嗐�傚湪缃戜笂闅忎究down浜涘浘鐗囧惂
-			imgLoader.displayImage(hotsetList.get(position).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
-					holder.goods_icon, // ImageView鎺т欢瀹炰緥
-					ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
-					AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
-					);
-			
-			holder.goods_dollor.setText(hotsetList.get(position).minprice);
-			holder.goods_yuan.setText("￥"+hotsetList.get(position).martPrice);
-			holder.goods_title.setText(hotsetList.get(position).name);
 		}
 		else {
 			holder = (Holder)convertView.getTag();
 		}
+		
+		holder.product_dollor.setText(mystoreList.get(position).clickNum);
+		holder.product_yuan.setText("￥"+mystoreList.get(position).minprice);
+		holder.product_title.setText(mystoreList.get(position).name);
+		imgLoader.displayImage(mystoreList.get(position).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
+				holder.product_icon, // ImageView鎺т欢瀹炰緥
+				ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
+				AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
+				);
+		if(position<(count-1)){
+			
+			flag=true;
+			
+		}else {
+			if((mystoreList.size()%2)==0){
+				flag=true;
+			}else {
+				flag=false;
+				holder.rightView.setVisibility(View.INVISIBLE);
+				
+			}
+		}
+		if(flag){
+			holder.product_dollor1.setText(mystoreList.get(position+1).clickNum);
+			holder.product_yuan1.setText("￥"+mystoreList.get(position+1).minprice);
+			holder.product_title1.setText(mystoreList.get(position+1).name);
+			imgLoader.displayImage(mystoreList.get(position+1).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
+					holder.product_icon1, // ImageView鎺т欢瀹炰緥
+					ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
+					AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
+				);
+		}
 		return convertView;
 	}
 	private class Holder{
-		ImageView  goods_icon;
-		TextView goods_title;
-		TextView goods_dollor;
-		TextView goods_yuan;
+		ImageView product_icon;
+		TextView  product_title;
+		TextView  product_dollor;
+		TextView  product_yuan;
+		LinearLayout rightView;
+		ImageView product_icon1;
+		TextView  product_title1;
+		TextView  product_dollor1;
+		TextView  product_yuan1;
+		
 		
 	}
 }

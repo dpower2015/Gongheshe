@@ -10,14 +10,14 @@
 
         <ImageButton
             android:id="@+id/ibtn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/ic_width"
+            android:layout_height="@dimen/ic_height"
             android:background="@null"
             android:contentDescription="@null"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:src="@drawable/jt_left" />
-
+            android:src="@drawable/jt_left" 
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="@dimen/margin_bar"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,6 +39,7 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal" >
        <EditText
+            android:id="@+id/oldpw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -62,6 +63,7 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal" >
         <EditText
+            android:id="@+id/newpw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -87,6 +89,7 @@
 
       
         <EditText
+            android:id="@+id/newpw_again"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -103,6 +106,7 @@
         android:layout_marginTop="8dp"
         android:background="@color/grey_light_line" />
     <Button 
+        android:id="@+id/admit_modify"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_gravity="center_horizontal"

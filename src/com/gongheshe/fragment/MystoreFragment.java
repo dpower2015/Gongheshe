@@ -54,8 +54,9 @@ public class MystoreFragment extends BaseFragment implements OnClickListener{
 		mystoreListAdapter =new MystoreListAdapter(baseActivity);
 		xListView.setAdapter(mystoreListAdapter);
 		cateListPopWindow =CateListPopWindow.getIns(baseActivity);
+		cateListPopWindow.setStoreFragment(this);
 		userId=shareSave.getUid();
-		requestStoreData();
+		requestStoreData(-1);
 		return view;
 	}
 	@Override
@@ -79,13 +80,26 @@ public class MystoreFragment extends BaseFragment implements OnClickListener{
 		}
 		
 	}
-	
-	public void requestStoreData(){
-		RequestParams params = new RequestParams();
+	public void update(int id){
 		mPageNum=1;
+		requestStoreData(id+1);
+	}
+	public void requestStoreData(int id){
+		String url=null;
+		RequestParams params = new RequestParams();
 		params.put("pagesize", PAGE_SIZE+"");
 		params.put("pagenumber",mPageNum+"");
 		params.put("memberId",userId+"");
+		if(id!=-1){
+			url=GhhConst.GET_MY_STORE_LIST_BYCATE;
+			params.put("product.typeOneId",id+"");
+		}
+		else {
+			
+			url=GhhConst.GET_MY_STORE_LIST;
+		}
+
+		
 		httpClient = new AsyncHttpClient();
 		System.out.println("uerId :"+userId);
 		httpClient.post(GhhConst.GET_MY_STORE_LIST, params, new AsyncHttpResponseHandler() {

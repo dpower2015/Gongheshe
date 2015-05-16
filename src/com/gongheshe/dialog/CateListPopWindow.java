@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.gongheshe.R;
 import com.gongheshe.adapter.MystoreListAdapter;
+import com.gongheshe.fragment.MystoreFragment;
 
 public class CateListPopWindow {
 
@@ -30,7 +31,8 @@ public class CateListPopWindow {
 	private PopupWindow popupWindow;
 	public  List<String> cates =Arrays.asList("结构类","机电类","卫浴类","成品木作","面材类","照明材料","陈设材料");
 	private static CateListPopWindow cateListPopWindow;
-	private MystoreListAdapter mystoreListAdapter;
+	//private MystoreListAdapter mystoreListAdapter;
+	private MystoreFragment mystroeFragment;
 	//private List<OnItemClickListener> onItemClickListener = new ArrayList<OnItemClickListener>();
 
 	public static CateListPopWindow getIns(Context context) {
@@ -57,11 +59,12 @@ public class CateListPopWindow {
 		listView.setAdapter(adapter);
 		setListViewListener();
 	}
-	public void setStoreListAdapter(MystoreListAdapter adapter){
+	public void setStoreFragment(MystoreFragment fragment){
 		
-		this.mystoreListAdapter=adapter;
-		 
+		this.mystroeFragment=fragment;
+		
 	}
+	
 	
 	
 	private void setListViewListener() {
@@ -70,11 +73,10 @@ public class CateListPopWindow {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				
-				mystoreListAdapter.update(position);
-				//for (int i = 0; i < onItemClickListener.size(); i++) {
-				//	onItemClickListener.get(i).onItemClick(parent, view,	position, id);
-				//}
+				CateListPopWindow.this.dismiss();
+				if(mystroeFragment!=null){
+					mystroeFragment.update(position);
+				}
 			}
 		});
 	}

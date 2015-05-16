@@ -107,8 +107,8 @@ public class HotSelAdapter extends BaseAdapter{
 						AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
 						);
 				
-				holder.goods_dollor.setText(hotsetList.get(position).minprice);
-				holder.goods_yuan.setText("￥"+hotsetList.get(position).martPrice);
+				holder.goods_dollor.setText(hotsetList.get(position).clickNum);
+				holder.goods_yuan.setText("￥"+hotsetList.get(position).minprice);
 				holder.goods_title.setText(hotsetList.get(position).name);
 			}
 			
