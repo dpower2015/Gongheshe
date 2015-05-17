@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.gongheshe.R;
 import com.gongheshe.dialog.LoadingDlg;
 import com.gongheshe.injectView.InjectView;
+import com.gongheshe.javabean.UserInfo;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.ShareSave;
 import com.googheshe.entity.GhhConst;
@@ -41,7 +42,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 	private AsyncHttpClient httpClient;
 	private final static String TAG="LoginActivity";
 	private ShareSave shareSave = ShareSave.get();
-	private userInfo mod;
+	private UserInfo mod;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -106,8 +107,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {
-				LoggerSZ.e(TAG, "璁块棶澶辫触" + e.toString());
-				Toast.makeText(context, "鐧诲綍澶辫触", Toast.LENGTH_SHORT).show();
+				LoggerSZ.e(TAG, "登陆失败" + e.toString());
+				Toast.makeText(context, "登陆失败", Toast.LENGTH_SHORT).show();
 				try {
 					LoadingDlg.get().hide();
 				} catch (Exception ex) {
@@ -129,15 +130,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 					boolean result = jsonObject.getBoolean("status");
 					String msg=jsonObject.getString("msg");
 					if(result){
-						// 鐧诲綍鎴愬姛
 						jsonObject = jsonObject.getJSONObject("userInfo");
 						mod = new Gson().fromJson(jsonObject.toString(),
-								userInfo.class);
+								UserInfo.class);
 						shareSave.setUid(mod.id);
 						shareSave.setUserName(name);
 						shareSave.setPsdword(psw);
 						shareSave.Enter(true);
-						Toast.makeText(context, "鐧诲綍鎴愬姛", Toast.LENGTH_SHORT)
+						Toast.makeText(context, "登陆成功", Toast.LENGTH_SHORT)
 								.show();
 						Intent intent = new Intent();
 						intent.setClass(context, MainFragmentActivity.class);
@@ -150,23 +150,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					Toast.makeText(context, "鐧诲綍澶辫触", Toast.LENGTH_SHORT).show();
+					Toast.makeText(context, "登陆异常", Toast.LENGTH_SHORT).show();
 				}
-
-				LoggerSZ.i(TAG, "鐧诲綍鎺ュ彛杩斿洖锛�" + new String(response));
 
 			}
 
 		});
 	}
 	
-	private class userInfo {
-		private String companyAddress;
-		private String companyName;
-		private String icon;
-		private String id;
-		private String mobile;
-		private String status;
-		private String userName;
-	}
 }

@@ -15,6 +15,7 @@ public class MybooksFragment extends BaseFragment{
 	private View view;
 	private BaseActivity baseActivity;
 	private XListView xListView;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {

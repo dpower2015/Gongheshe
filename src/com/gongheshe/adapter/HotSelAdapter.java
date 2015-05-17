@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
-import com.gongheshe.javabean.HotSelMod;
+import com.gongheshe.javabean.ProductMod;
 import com.gongheshe.javabean.HotSelTimeMod;
 import com.gongheshe.util.AnimateFirstDisplayListener;
 import com.gongheshe.util.ImageLoderConfig;
@@ -22,14 +22,14 @@ public class HotSelAdapter extends BaseAdapter{
 	
 	private LayoutInflater inflater;
 	private Context mContext;
-	private ArrayList<HotSelMod> hotsetList;
+	private ArrayList<ProductMod> hotsetList;
 	private HotSelTimeMod timeMod;
 	private ImageLoader imgLoader = ImageLoader.getInstance();
 	public HotSelAdapter(Context context) {
 		inflater = LayoutInflater.from(context);
 		mContext=context;
 	}
-	public void setHotSetList(ArrayList<HotSelMod> lists){
+	public void setHotSetList(ArrayList<ProductMod> lists){
 		if(hotsetList!=null){
 			hotsetList.clear();
 		}
@@ -107,8 +107,8 @@ public class HotSelAdapter extends BaseAdapter{
 						AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
 						);
 				
-				holder.goods_dollor.setText(hotsetList.get(position).minprice);
-				holder.goods_yuan.setText("￥"+hotsetList.get(position).martPrice);
+				holder.goods_dollor.setText(hotsetList.get(position).clickNum);
+				holder.goods_yuan.setText("￥"+hotsetList.get(position).minprice);
 				holder.goods_title.setText(hotsetList.get(position).name);
 			}
 			
