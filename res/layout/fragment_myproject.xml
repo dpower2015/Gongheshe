@@ -43,15 +43,8 @@
 	<zy.zh.xListView.XListView 
         android:id="@+id/listView_myPro"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:cacheColorHint="@color/translate"
+        android:scrollbars="none"
         />
-     <TextView 
-         android:id="@+id/good_title"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:text="@string/test"
-         android:gravity="center"
-         />
-     
 </LinearLayout>

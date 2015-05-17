@@ -7,12 +7,12 @@ public class ProjectContentMod {
 	public String createTime;
 	public String cusName;
 	public String cusPhone;
-	public int id;
+	public String id;
 	public String manName;
 	public String manPhone;
-	public int memberId;
+	public String memberId;
 	public String prjAddress;
 	public String prjName;
-	public int status;
+	public String status;
 	public String statusName;
 }
