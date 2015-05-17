@@ -21,7 +21,7 @@ public class MybooksListAdapter extends BaseAdapter{
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 10;
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class MybooksListAdapter extends BaseAdapter{
 		final ViewHolder viewHolder;
 		if(convertView == null){
 			viewHolder = new ViewHolder();
-			convertView =inflater.inflate(R.layout.mybooks_item,null);
+			convertView =inflater.inflate(R.layout.myorderlist_item,null);
 			convertView.setTag(viewHolder);
 		}
 		else {

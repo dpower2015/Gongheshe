@@ -11,13 +11,14 @@
         >
          <ImageButton
             android:id="@+id/ibtn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/ic_width"
+            android:layout_height="@dimen/ic_height"
             android:background="@null"
             android:contentDescription="@null"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:src="@drawable/jt_left" />
+            android:src="@drawable/jt_left" 
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="@dimen/margin_bar"/>
        	
        	<LinearLayout 
        	    android:layout_width="wrap_content"
@@ -47,6 +48,10 @@
        	</LinearLayout>
        
     </RelativeLayout>
+     <FrameLayout
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/line_width"
+           android:background="@color/grey_light_line" />
      <zy.zh.xListView.XListView
         android:id="@+id/xListView"
         android:layout_width="match_parent"
@@ -57,7 +62,6 @@
         android:scrollbars="none"
         android:cacheColorHint="@color/translate" />
 
-    
 </LinearLayout>
 
 <!-- 我的订单界面 -->

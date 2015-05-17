@@ -13,12 +13,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class MyProjectListAdapter extends BaseAdapter {
+public class MyProjectListForPickAdapter extends BaseAdapter {
 
 	private LayoutInflater inflater;
 	public ProjectDataMod data = new ProjectDataMod();
 
-	public MyProjectListAdapter(Context context) {
+	public MyProjectListForPickAdapter(Context context) {
 		inflater = LayoutInflater.from(context);
 	}
 

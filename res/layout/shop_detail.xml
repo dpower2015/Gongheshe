@@ -9,17 +9,20 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="horizontal"
-        android:layout_margin="5dp" >
+        android:padding="5dp" >
+
         <ImageButton
             android:id="@+id/ibtn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/ic_width"
+            android:layout_height="@dimen/ic_height"
             android:background="@null"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:contentDescription="@null"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:scaleType="fitXY"
             android:layout_gravity="center"
             android:src="@drawable/jt_left" />
+
         <EditText
             android:layout_width="0px"
             android:layout_height="wrap_content"

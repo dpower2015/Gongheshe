@@ -70,7 +70,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 	private GridLayout gl_productAttr;
 	private ViewHolder viewHolder = new ViewHolder();
 	private ImageView img_collect;
-	private MyProjectListFragment myProjectListF;
+	private MyProjectListForPickFragment myProjectListF;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -113,14 +113,14 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		gl_productAttr = (GridLayout) view.findViewById(R.id.gl_productAttr);
 		txt_describe = ((TextView) view.findViewById(R.id.txt_describe));
 		requestWebServer(data.id);
-		myProjectListF = new MyProjectListFragment();
+		myProjectListF = new MyProjectListForPickFragment();
 		setListenerTomyProjectListF();
 		return view;
 	}
 
 	private void setListenerTomyProjectListF() {
 		myProjectListF.setOnPickItemListener(//
-				new MyProjectListFragment.OnPickItemListener() {
+				new MyProjectListForPickFragment.OnPickItemListener() {
 
 					@Override
 					public void onPickItem(ProjectContentMod data) {

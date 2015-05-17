@@ -68,8 +68,7 @@ public class MystoreListAdapter extends BaseAdapter{
 		// TODO Auto-generated method stub
 		final  Holder holder;
 		boolean flag=false;
-		//if(convertView == null){
-		if(true){
+		if(convertView == null){
 			holder=new Holder();
 			convertView = inflater.inflate(R.layout.productlist_item, null);
 			holder.product_icon=(ImageView)convertView.findViewById(R.id.product_icon);
@@ -102,6 +101,7 @@ public class MystoreListAdapter extends BaseAdapter{
 		}else {
 			if((mystoreList.size()%2)==0){
 				flag=true;
+				holder.rightView.setVisibility(View.VISIBLE);
 			}else {
 				flag=false;
 				holder.rightView.setVisibility(View.INVISIBLE);

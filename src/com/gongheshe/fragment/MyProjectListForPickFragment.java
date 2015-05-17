@@ -14,7 +14,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.gongheshe.R;
-import com.gongheshe.adapter.MyProjectListAdapter;
+import com.gongheshe.adapter.MyProjectListForPickAdapter;
 import com.gongheshe.javabean.ProjectContentMod;
 import com.gongheshe.javabean.ProjectDataMod;
 import com.gongheshe.util.LoggerSZ;
@@ -25,14 +25,14 @@ import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
-public class MyProjectListFragment extends BaseFragment {
+public class MyProjectListForPickFragment extends BaseFragment {
 
 	private String url = GhhConst.BASE_URL + "pmpList.htm?";
 	private View view;
 	private XListView listView_myPro;
 	private OnPickItemListener onPickItemListener;
 	private int pageNumber = 0;
-	private MyProjectListAdapter adapter;
+	private MyProjectListForPickAdapter adapter;
 
 	public interface OnPickItemListener {
 		public void onPickItem(ProjectContentMod data);
@@ -47,7 +47,7 @@ public class MyProjectListFragment extends BaseFragment {
 			Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.fragment_myproject_list, container,
 				false);
-		adapter = new MyProjectListAdapter(getActivity());
+		adapter = new MyProjectListForPickAdapter(getActivity());
 		listView_myPro = (XListView) view.findViewById(R.id.listView_myPro);
 		view.findViewById(R.id.bt_back).setOnClickListener(
 				new OnClickListener() {
@@ -123,7 +123,7 @@ public class MyProjectListFragment extends BaseFragment {
 					} else {
 						ToastUtil.showToast(getActivity(),
 								getString(R.string.no_more_data_loaded));
-						MyProjectListFragment.this.pageNumber--;
+						MyProjectListForPickFragment.this.pageNumber--;
 					}
 					listView_myPro.stopLoadMore();
 				} catch (JSONException e) {
