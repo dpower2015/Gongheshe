@@ -117,7 +117,7 @@
 	<string name="exit_curUser">退出当前账号</string>
 	
 	
-	<string name="loading"></string>
+	<string name="loading">正在加载</string>
     <string name="loading_fail">加载失败</string>
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
@@ -132,4 +132,27 @@
 	<string name="company_name_is_null">公司名字不能为空</string>
 	<string name="register_success">注册成功!</string>
 	<string name="register_fail">注册失败!</string>
+	<string name="server_error">服务器出现错误，请稍后再试</string>
+	<string name="no_more_data_loaded">没有更多数据</string>
+	<string name="collect">收藏</string>
+	<string name="price_retail">零售价</string>
+	<string name="price_mark">市场价</string>
+	<string name="product_parameter">产品参数</string>
+	<string name="type">类别</string>
+	<string name="describe_en">英文描述</string>
+	<string name="brand">品牌</string>
+	<string name="unit">单位</string>
+	<string name="size">规格型号</string>
+	<string name="store">库存</string>
+	<string name="style">风格</string>
+	<string name="sell_days">供货天数</string>
+	
+	<string name="contact">联系人</string>
+	<string name="telphone">电话</string>
+	<string name="belong_project">所属项目</string>
+	<string name="pick_belong_project">请选择项目</string>
+	<string name="book_count">预定数量</string>
+	<string name="retail_all_price">零售总价</string>
+	<string name="remarks">备注</string>
+	<string name="book_now">立即预定</string>
 </resources>

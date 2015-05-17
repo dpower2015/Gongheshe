@@ -49,6 +49,9 @@ public class PullStagGridViewUT {
 			@Override
 			public void onRefresh(
 					PullToRefreshBase<StaggeredGridView> refreshView) {
+				if (gridViewListener != null) {
+					gridViewListener.onRefreshStart();
+				}
 			}
 		});
 		gridView.setMode(Mode.PULL_UP_TO_REFRESH);
@@ -65,9 +68,6 @@ public class PullStagGridViewUT {
 						&& (firstVisibleItem + visibleItemCount >= totalItemCount - 1);
 				if (lastItemVisible) {
 					gridView.setPullUpToRefreshing(gridView);
-					if (gridViewListener != null) {
-						gridViewListener.onRefreshStart();
-					}
 				}
 			}
 		});

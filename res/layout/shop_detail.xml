@@ -43,6 +43,7 @@
             android:textColor="@color/red_check"
             android:text="@string/cate" />
     </LinearLayout>
+    
     <com.handmark.pulltorefresh.library.PullToRefreshStaggeredGridView
          android:id="@+id/stag_gridview"
          android:layout_width="match_parent"

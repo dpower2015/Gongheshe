@@ -8,7 +8,7 @@ public class GhhConst {
 	public final static String REGISTER_USER=BASE_URL+"register.htm";
 	public final static String LOGIN_USER=BASE_URL+"doLogin.htm";
 	
-	public final static String HomeSecondActivity = BASE_URL+"pGetThrees.htm";
+	public final static String HomeSecondActivity = BASE_URL+"pByType.htm";
 	
 	public final static String PRODUCT_BY_PRICE=BASE_URL+"pProductByPrice.htm";
 	public final static String PRODUCT_BY_SENTIMENT=BASE_URL+"pProductByParam.htm";

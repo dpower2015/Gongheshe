@@ -52,7 +52,7 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/bt_1"
+                android:id="@+id/bt_lamp_1"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
-                android:id="@+id/bt_2"
+                android:id="@+id/bt_lamp_2"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
-                android:id="@+id/bt_3"
+                android:id="@+id/bt_lamp_3"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
-                android:id="@+id/bt_4"
+                android:id="@+id/bt_lamp_4"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/bt_5"
+                android:id="@+id/bt_lamp_5"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"

@@ -52,7 +52,7 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/btn_cons_land"
+                android:id="@+id/bt_elec1"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
-                android:id="@+id/btn_cons_sun"
+                android:id="@+id/bt_elec2"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
-                android:id="@+id/btn_plastics_door_window"
+                android:id="@+id/bt_elec3"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
-                android:id="@+id/btn_cons_garden"
+                android:id="@+id/bt_elec4"
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
                 android:text="@string/fresh_wind"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/fresh_wind"/>
+                android:id="@+id/bt_elec5"/>
 
             <Button
                 style="@null"
@@ -134,7 +134,7 @@
                 android:text="@string/security"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/security" />
+                android:id="@+id/bt_elec6" />
 
             <Button
                 style="@null"
@@ -147,7 +147,7 @@
                 android:text="@string/lamp_system"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/lamp_system"/>"
+                android:id="@+id/bt_elec7"/>"
 
             <Button
                 style="@null"
@@ -160,7 +160,7 @@
                 android:text="@string/media_system"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/media_system" />
+                android:id="@+id/bt_elec8" />
         </LinearLayout>
         
         <LinearLayout
@@ -170,6 +170,7 @@
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/bt_elec9" 
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -182,6 +183,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
+                android:id="@+id/bt_elec10" 
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -194,6 +196,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
+                android:id="@+id/bt_elec11" 
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
@@ -206,6 +209,7 @@
                 android:textSize="@dimen/textsize_home_menu" />
 
             <Button
+                android:id="@+id/bt_elec12" 
                 style="@null"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"

@@ -62,7 +62,7 @@
                 android:text="@string/stone"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/strone"/>
+                android:id="@+id/bt_face_1"/>
 
             <Button
                 style="@null"
@@ -75,7 +75,7 @@
                 android:text="@string/tile"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/tile"/>
+                android:id="@+id/bt_face_2"/>
 
             <Button
                 style="@null"
@@ -88,7 +88,7 @@
                 android:text="@string/wallpaper"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/wallpaper" />
+                android:id="@+id/bt_face_3" />
 
             <Button
                 style="@null"
@@ -101,7 +101,7 @@
                 android:text="@string/hard_soft_package"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/hard_soft_package"/>
+                android:id="@+id/bt_face_4"/>
         </LinearLayout>
 
         <LinearLayout
@@ -121,7 +121,7 @@
                 android:text="@string/paint"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/paint"/>
+                android:id="@+id/bt_face_5"/>
 
             <Button
                 style="@null"
@@ -134,7 +134,7 @@
                 android:text="@string/gyp_line"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/gyp_line" />
+                android:id="@+id/bt_face_6" />
 
             <Button
                 style="@null"
@@ -147,7 +147,7 @@
                 android:text="@string/glasses"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/glasses"/>
+                android:id="@+id/bt_face_7"/>
 
             <Button
                 style="@null"
@@ -160,7 +160,7 @@
                 android:text="@string/special_material"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/special_material" />
+                android:id="@+id/bt_face_8" />
         </LinearLayout>
     </LinearLayout>
 

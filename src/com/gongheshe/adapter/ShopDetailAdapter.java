@@ -3,30 +3,38 @@ package com.gongheshe.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.gongheshe.R;
-import com.gongheshe.model.TypeClassMod;
-
 import android.content.Context;
-import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.gongheshe.R;
+import com.gongheshe.model.TypeClassMod;
+import com.gongheshe.util.AnimateFirstDisplayListener;
+import com.gongheshe.util.ImageLoderConfig;
+import com.gongheshe.util.ToolImgLoader;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class ShopDetailAdapter extends BaseAdapter {
 
 	private Context context;
 	public List<TypeClassMod> datas = new ArrayList<TypeClassMod>();
+	private ToolImgLoader imgLoader = ToolImgLoader.get();
+	private LayoutInflater inflater;
+	public String title;
 
 	public ShopDetailAdapter(Context context) {
 		super();
 		this.context = context;
+		inflater = LayoutInflater.from(context);
 	}
 
 	@Override
 	public int getCount() {
-		return datas.size();
+		return datas.size()+1;
 	}
 
 	@Override
@@ -41,21 +49,59 @@ public class ShopDetailAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ViewHolder holder;
-		if(convertView == null){
-			convertView = LayoutInflater.from(context).inflate(R.layout.adapter_shop_detail, parent, false);
-			holder = new ViewHolder();
-			holder.txt_content = (TextView) convertView.findViewById(R.id.txt_content);
+		HolderTitle holder_title;
+		Holder holder;
+		if (position == 0) {
+			convertView = inflater.inflate(R.layout.adpter_shop_detail, null,false);
+//			convertView = inflater.inflate(R.layout.title_item, null);
+			holder_title = new HolderTitle();
+			holder_title.textTitle = (TextView) convertView.findViewById(R.id.textTitle);
+//			holder_title.month = (TextView) convertView
+//					.findViewById(R.id.month);
+//			holder_title.time = (TextView) convertView.findViewById(R.id.time);
+//			holder_title.weekday = (TextView) convertView
+//					.findViewById(R.id.weekday);
+//			holder_title.day.setText("20");
+//			holder_title.month.setText("/3月");
+//			holder_title.weekday.setText("星期一");
+//			holder_title.time.setText("23:15:45发布");
+			holder_title.textTitle.setText(title);
+			convertView.setTag(holder_title);
+		} else {
+			position--;
+			holder = new Holder();
+			convertView = inflater.inflate(R.layout.photo_item, null);
+			holder.goods_icon = (ImageView) convertView
+					.findViewById(R.id.good_icon);
+			holder.goods_dollor = (TextView) convertView
+					.findViewById(R.id.goods_dollor);
+			holder.goods_title = (TextView) convertView
+					.findViewById(R.id.goods_title);
+			holder.goods_yuan = (TextView) convertView
+					.findViewById(R.id.goods_yuan);
 			convertView.setTag(holder);
-		}else{
-			holder = (ViewHolder) convertView.getTag();
+			imgLoader.show(datas.get(position).androidNote2ImagesMinUrl,
+					holder.goods_icon);
+
+			holder.goods_dollor.setText(datas.get(position).saleNum+"");
+			holder.goods_yuan.setText("￥"+datas.get(position).minprice);
+			holder.goods_title.setText(datas.get(position).name);
 		}
-		holder.txt_content.setText(datas.get(position).toString());
 		return convertView;
 	}
-	
-	
-	class ViewHolder{
-		TextView txt_content;
+
+	private class Holder {
+		ImageView goods_icon;
+		TextView goods_title;
+		TextView goods_dollor;
+		TextView goods_yuan;
+
+	}
+
+	private class HolderTitle {
+		TextView textTitle;
+//		TextView day;
+//		TextView month;
+//		TextView weekday;
 	}
 }

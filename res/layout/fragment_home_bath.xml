@@ -62,7 +62,7 @@
                 android:text="@string/pedestal_toilet"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/pedestal_toilet"/>
+                android:id="@+id/bt_bath1"/>
 
             <Button
                 style="@null"
@@ -75,7 +75,7 @@
                 android:text="@string/face_pot"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/face_pot"/>
+                android:id="@+id/bt_bath2"/>
 
             <Button
                 style="@null"
@@ -88,7 +88,7 @@
                 android:text="@string/bathtab"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/bathtab" />
+                android:id="@+id/bt_bath3" />
 
             <Button
                 style="@null"
@@ -101,7 +101,7 @@
                 android:text="@string/sprinkler"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/sprinkler"/>
+                android:id="@+id/bt_bath4"/>
         </LinearLayout>
 
         <LinearLayout
@@ -121,7 +121,7 @@
                 android:text="@string/floor_drain"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu" 
-                android:id="@+id/floor_drain"/>
+                android:id="@+id/bt_bath5"/>
 
             <Button
                 style="@null"
@@ -134,7 +134,7 @@
                 android:text="@string/hanging_drop"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/hanging_drop" />
+                android:id="@+id/bt_bath6" />
 
             <Button
                 style="@null"
@@ -147,7 +147,7 @@
                 android:text="@string/all_shower_room"
                 android:textColor="@color/home_menu_text"
                 android:textSize="@dimen/textsize_home_menu"
-                android:id="@+id/all_shower_room"  />
+                android:id="@+id/bt_bath7"  />
 
             <Button
                 style="@null"
