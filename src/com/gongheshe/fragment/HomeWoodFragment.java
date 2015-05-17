@@ -22,6 +22,7 @@ public class HomeWoodFragment extends BaseFragment implements OnClickListener {
 	private BaseActivity baseActivity;
 	private int[] resIds = { R.id.bt_wood_1, R.id.bt_wood_2, R.id.bt_wood_3,
 			R.id.bt_wood_4, R.id.bt_wood_5, R.id.bt_wood_6, R.id.bt_wood_7 };
+	private BrandClassFragment parentF;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +35,11 @@ public class HomeWoodFragment extends BaseFragment implements OnClickListener {
 		baseActivity = (BaseActivity) getActivity();
 		for (int i = 0; i < resIds.length; i++) {
 			view.findViewById(resIds[i]).setOnClickListener(this);
+		}
+		if (getParentFragmentX() != null) {
+			if (getParentFragmentX() instanceof BrandClassFragment) {
+				parentF = (BrandClassFragment) getParentFragmentX();
+			}
 		}
 		return view;
 	}
@@ -60,10 +66,13 @@ public class HomeWoodFragment extends BaseFragment implements OnClickListener {
 //			int cityId = 1;
 			for (int i = 0; i < resIds.length; i++) {
 				if (resIds[i] == v.getId()) {
-					shopDetail = new ShopDetail().setIntentData(1, i + 1,
+					if (parentF != null) {
+						parentF.setOnBrankClickListener(4, i + 1);
+					} else {
+					shopDetail = new ShopDetail().setIntentData(4, i + 1,
 							cityMod, ((Button) view.findViewById(v.getId()))
 									.getText().toString());
-					baseActivity.replaceFragment(shopDetail, true);
+					baseActivity.replaceFragment(shopDetail, true);}
 					break;
 				}
 			}
