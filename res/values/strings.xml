@@ -169,4 +169,7 @@
 	<string name="retail_all_price">零售总价</string>
 	<string name="remarks">备注</string>
 	<string name="book_now">立即预定</string>
+	<string name="uploading">正在提交</string>
+	<string name="fail_to_book">预定失败</string>
+	<string name="success_to_book">预定成功</string>
 </resources>

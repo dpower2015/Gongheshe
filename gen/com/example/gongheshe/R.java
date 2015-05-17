@@ -523,7 +523,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int admit_modify=0x7f05007a;
         public static final int all_shower_room=0x7f050052;
         public static final int both=0x7f050007;
-        public static final int bt_back=0x7f05007f;
+        public static final int bt_back=0x7f050080;
         public static final int bt_bath1=0x7f050030;
         public static final int bt_bath2=0x7f050031;
         public static final int bt_bath3=0x7f050032;
@@ -603,7 +603,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int fullscreen=0x7f050003;
         public static final int gl_productAttr=0x7f050093;
         public static final int good_icon=0x7f0500a0;
-        public static final int good_title=0x7f05007e;
+        public static final int good_title=0x7f05007f;
         public static final int goods_dollor=0x7f0500a4;
         public static final int goods_title=0x7f0500a1;
         public static final int goods_yuan=0x7f0500a3;
@@ -626,7 +626,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int layout_toshow=0x7f05002e;
         public static final int layout_toshow_params=0x7f050088;
         public static final int left=0x7f050000;
-        public static final int listView_myPro=0x7f050080;
+        public static final int listView_myPro=0x7f05007e;
         public static final int listview_cates=0x7f0500a5;
         public static final int listview_citys=0x7f0500a6;
         public static final int manualOnly=0x7f050008;
@@ -811,6 +811,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int exit_curUser=0x7f09007f;
         public static final int face_class=0x7f09000f;
         public static final int face_pot=0x7f09004f;
+        public static final int fail_to_book=0x7f0900a4;
         public static final int finished=0x7f090076;
         public static final int floor=0x7f09005b;
         public static final int floor_drain=0x7f090052;
@@ -904,6 +905,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int stone=0x7f09005c;
         public static final int store=0x7f090098;
         public static final int style=0x7f090099;
+        public static final int success_to_book=0x7f0900a5;
         public static final int sun_room=0x7f09003f;
         public static final int swimming_devices=0x7f09004d;
         public static final int switch_board=0x7f090068;
@@ -914,6 +916,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int title_bar_slide=0x7f090008;
         public static final int type=0x7f090093;
         public static final int unit=0x7f090096;
+        public static final int uploading=0x7f0900a3;
         public static final int user_name=0x7f090013;
         public static final int user_register=0x7f090012;
         public static final int username_is_null=0x7f090086;

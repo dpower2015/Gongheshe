@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -25,6 +27,7 @@ import com.gongheshe.javabean.ProjectContentMod;
 import com.gongheshe.model.TypeClassMod;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.ShareSave;
+import com.gongheshe.util.ToastUtil;
 import com.gongheshe.util.ToolImgLoader;
 import com.googheshe.entity.GhhConst;
 import com.google.gson.Gson;
@@ -62,6 +65,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 	private TextView txt_belong_project;
 	private EditText edt_remarks;
 	private View layout_detail;
+	public Button bt_submit;
 	private ImageView img_showDetail;
 	private GridLayout gl_productAttr;
 	private ViewHolder viewHolder = new ViewHolder();
@@ -93,6 +97,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		txt_belong_project = findText(R.id.txt_belong_project);
 		img_collect = (ImageView) view.findViewById(R.id.img_collect);
 		edt_remarks = (EditText) view.findViewById(R.id.edt_remarks);
+
 		view.findViewById(R.id.layout_collect).setOnClickListener(this);
 		txt_belong_project.setOnClickListener(this);
 		viewHolder.count = 1;
@@ -100,6 +105,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		view.findViewById(R.id.layout_toshow_params).setOnClickListener(this);
 		view.findViewById(R.id.bt_up).setOnClickListener(this);
 		view.findViewById(R.id.bt_down).setOnClickListener(this);
+		bt_submit = (Button) view.findViewById(R.id.bt_submit);
 		view.findViewById(R.id.bt_submit).setOnClickListener(this);
 		layout_detail = view.findViewById(R.id.layout_detail);
 		layout_detail.setVisibility(View.GONE);
@@ -184,6 +190,8 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 			}
 			break;
 		case R.id.bt_submit:
+			bt_submit.setText(R.string.uploading);
+			bt_submit.setClickable(false);
 			postToWebServer();
 			break;
 		case R.id.txt_belong_project:
@@ -209,24 +217,51 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 			@Override
 			public void onSuccess(int statusCode, Header[] headers,
 					byte[] response) {
+				bt_submit.setText(R.string.book_now);
+				bt_submit.setClickable(true);
+				try {
+					JSONObject jsonObject = new JSONObject(new String(response));
+					boolean status = jsonObject.getBoolean("status");
+					if (status) {
+						getActivity().onBackPressed();
+						ToastUtil.showToast(getActivity(),
+								getString(R.string.success_to_book));
+					} else {
+						ToastUtil.showToast(getActivity(),
+								getString(R.string.fail_to_book) + "："
+										+ jsonObject.getString("msg"));
+					}
+
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 			}
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {
+				ToastUtil.showToast(getActivity(),
+						getString(R.string.fail_to_book));
+				bt_submit.setText(R.string.book_now);
+				bt_submit.setClickable(true);
 			}
 		};
 		RequestParams params = new RequestParams();
 		ShareSave shareSave = ShareSave.get();
+		// params.put("userId", shareSave.getUid());
 		params.put("userName", shareSave.getUserName());
 		params.put("pwd", shareSave.getPsdword());
-		params.put("order.memberId", productDetailMod.productDeti.id);
+		params.put("order.memberId", /* productDetailMod.productDeti.id+"" */
+				shareSave.getUid());
 		params.put("order.memberRemark", edt_remarks.getText().toString());
 		params.put("productId", String.valueOf(productDetailMod.productDeti.id));
 		params.put("num", String.valueOf(viewHolder.count));
-		params.put("size", viewHolder.attr.size);
-		params.put("color", viewHolder.attr.color);
-		params.put("prjId", "");
+		params.put("size", viewHolder.attr.size + "");
+		params.put("color", viewHolder.attr.color + "");
+		params.put("prjId", "" + productDetailMod.productDeti.id);// prjId :
+																	// 用户（设计师）项目id
 		httpClient.post(urlPost, params, handler);
 	}
 
@@ -249,11 +284,13 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 						new String(response).replace("\n", ""),
 						ProductDetailMod.class);
 				updateView(productDetailMod);
+				// ToastUtil.showToast(getActivity(), "提交成功");
 			}
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {
+				// ToastUtil.showToast(getActivity(), "提交失败"+e.toString());
 			}
 		};
 		LoggerSZ.i("log", url.toString() + productId);

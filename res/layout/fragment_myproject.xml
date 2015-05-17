@@ -39,7 +39,12 @@
            android:layout_width="match_parent"
            android:layout_height="@dimen/line_width"
            android:background="@color/grey_light_line" />
-	
+	<zy.zh.xListView.XListView 
+        android:id="@+id/listView_myPro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@color/translate"
+        />
      <TextView 
          android:id="@+id/good_title"
          android:layout_width="match_parent"

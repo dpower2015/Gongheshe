@@ -2,6 +2,7 @@ package com.gongheshe.fragment;
 
 import org.apache.http.Header;
 
+import zy.zh.xListView.XListView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,42 +17,40 @@ import com.googheshe.entity.GhhConst;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
-public class MyprojectFragment extends BaseFragment implements OnClickListener{
+public class MyprojectFragment extends BaseFragment implements OnClickListener {
 
-	
 	private View view;
 	private BaseActivity baseActivity;
 	private AsyncHttpClient client;
-	private final String TAG="CopyrightFragment";
+	private final String TAG = "CopyrightFragment";
+	private XListView listView_myPro;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		view = inflater.inflate(R.layout.fragment_myproject, container, false);
-		baseActivity=(BaseActivity)getActivity();
+		baseActivity = (BaseActivity) getActivity();
 		view.findViewById(R.id.ibtn_back).setOnClickListener(this);
 		view.findViewById(R.id.add_project).setOnClickListener(this);
-		
-		//requestData();
+		listView_myPro = (XListView) view.findViewById(R.id.listView_myPro);
+		// requestData();
 		return view;
 	}
-
 
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
-		int id=arg0.getId();
-		if(id==R.id.ibtn_back){
+		int id = arg0.getId();
+		if (id == R.id.ibtn_back) {
 			baseActivity.onBackPressed();
-		}else if(id==R.id.add_project){
-			AddProjectFragment myproject=new AddProjectFragment();
+		} else if (id == R.id.add_project) {
+			AddProjectFragment myproject = new AddProjectFragment();
 			baseActivity.replaceFragment(myproject, true);
-			
+
 		}
 	}
-	
-	
-	
+
 	private void requestData() {
 		client = new AsyncHttpClient();
 
@@ -60,8 +59,8 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener{
 
 					public void onFailure(int statusCode, Header[] headers,
 							byte[] response, Throwable e) {
-						//xListView.stopLoadMore();
-						//xListView.stopRefresh();
+						// xListView.stopLoadMore();
+						// xListView.stopRefresh();
 						LoggerSZ.e(TAG, "访问失败" + e.toString());
 						try {
 							LoadingDlg.get().hide();
@@ -73,8 +72,8 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener{
 					@Override
 					public void onSuccess(int statusCode, Header[] headers,
 							byte[] response) {
-						//xListView.stopLoadMore();
-						//xListView.stopRefresh();
+						// xListView.stopLoadMore();
+						// xListView.stopRefresh();
 						onDataReturn(new String(response));
 						try {
 							LoadingDlg.get().hide();
@@ -85,15 +84,10 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener{
 				});
 
 	}
+
 	protected void onDataReturn(String string) {
-		System.out.println("onDataReturn :"+string);
-		//adapter.fillDataToView(string);
+		System.out.println("onDataReturn :" + string);
+		// adapter.fillDataToView(string);
 	}
 
-
-
-
-
-	
-	
 }
