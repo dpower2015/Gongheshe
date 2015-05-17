@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import android.os.Bundle;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +18,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
+import com.gongheshe.activity.BaseActivity;
 import com.gongheshe.javabean.ProductAttr;
 import com.gongheshe.javabean.ProductDetailMod;
+import com.gongheshe.javabean.ProjectContentMod;
 import com.gongheshe.model.TypeClassMod;
 import com.gongheshe.util.LoggerSZ;
+import com.gongheshe.util.ShareSave;
 import com.gongheshe.util.ToolImgLoader;
 import com.googheshe.entity.GhhConst;
 import com.google.gson.Gson;
@@ -54,12 +58,15 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 	private TextView txt_contact;
 	private TextView txt_contact_way;
 	private TextView txt_count;
+	private TextView txt_retail_all_price;
+	private TextView txt_belong_project;
 	private EditText edt_remarks;
 	private View layout_detail;
 	private ImageView img_showDetail;
 	private GridLayout gl_productAttr;
 	private ViewHolder viewHolder = new ViewHolder();
 	private ImageView img_collect;
+	private MyProjectListFragment myProjectListF;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,9 +89,12 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		txt_contact = findText(R.id.txt_contact);
 		txt_contact_way = findText(R.id.txt_contact_way);
 		txt_count = findText(R.id.txt_count);
+		txt_retail_all_price = findText(R.id.txt_retail_all_price);
+		txt_belong_project = findText(R.id.txt_belong_project);
 		img_collect = (ImageView) view.findViewById(R.id.img_collect);
 		edt_remarks = (EditText) view.findViewById(R.id.edt_remarks);
 		view.findViewById(R.id.layout_collect).setOnClickListener(this);
+		txt_belong_project.setOnClickListener(this);
 		viewHolder.count = 1;
 		txt_count.setText("" + viewHolder.count);
 		view.findViewById(R.id.layout_toshow_params).setOnClickListener(this);
@@ -97,7 +107,22 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		gl_productAttr = (GridLayout) view.findViewById(R.id.gl_productAttr);
 		txt_describe = ((TextView) view.findViewById(R.id.txt_describe));
 		requestWebServer(data.id);
+		myProjectListF = new MyProjectListFragment();
+		setListenerTomyProjectListF();
 		return view;
+	}
+
+	private void setListenerTomyProjectListF() {
+		myProjectListF.setOnPickItemListener(//
+				new MyProjectListFragment.OnPickItemListener() {
+
+					@Override
+					public void onPickItem(ProjectContentMod data) {
+						getActivity().onBackPressed();
+						viewHolder.projectMod = data;
+						txt_belong_project.setText(data.prjName);
+					}
+				});
 	}
 
 	private TextView findText(int resId) {
@@ -125,13 +150,30 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 
 			break;
 		case R.id.bt_up:
-			viewHolder.count++;
-			txt_count.setText("" + viewHolder.count);
+			if (viewHolder.attr == null
+					|| TextUtils.isEmpty(viewHolder.attr.stock)) {
+				break;
+			}
+			if (Integer.valueOf(viewHolder.attr.stock) > viewHolder.count) {
+				viewHolder.count++;
+				txt_count.setText("" + viewHolder.count);
+				txt_retail_all_price.setText(Integer
+						.valueOf(viewHolder.attr.price)
+						* Integer.valueOf(txt_count.getText().toString()) + "");
+			}
+
 			break;
 		case R.id.bt_down:
+			if (viewHolder.attr == null
+					|| TextUtils.isEmpty(viewHolder.attr.stock)) {
+				break;
+			}
 			if (viewHolder.count > 1) {
 				viewHolder.count--;
 				txt_count.setText("" + viewHolder.count);
+				txt_retail_all_price.setText(Integer
+						.valueOf(viewHolder.attr.price)
+						* Integer.valueOf(txt_count.getText().toString()) + "");
 			}
 			break;
 		case R.id.layout_collect:
@@ -144,6 +186,11 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		case R.id.bt_submit:
 			postToWebServer();
 			break;
+		case R.id.txt_belong_project:
+			// go to my project face
+			((BaseActivity) getActivity())
+					.replaceFragment(myProjectListF, true);
+			break;
 		default:
 			break;
 		}
@@ -153,13 +200,27 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 	 * post data to server
 	 */
 	private void postToWebServer() {
+
 		AsyncHttpClient httpClient;
 		httpClient = new AsyncHttpClient();
 		AsyncHttpResponseHandler handler = null;
+		handler = new AsyncHttpResponseHandler() {
+
+			@Override
+			public void onSuccess(int statusCode, Header[] headers,
+					byte[] response) {
+			}
+
+			@Override
+			public void onFailure(int statusCode, Header[] headers,
+					byte[] response, Throwable e) {
+			}
+		};
 		RequestParams params = new RequestParams();
-//		params.put("userName", value);
-//		params.put("pwd", value);
-//		params.put("order.memberId", value);
+		ShareSave shareSave = ShareSave.get();
+		params.put("userName", shareSave.getUserName());
+		params.put("pwd", shareSave.getPsdword());
+		params.put("order.memberId", productDetailMod.productDeti.id);
 		params.put("order.memberRemark", edt_remarks.getText().toString());
 		params.put("productId", String.valueOf(productDetailMod.productDeti.id));
 		params.put("num", String.valueOf(viewHolder.count));
@@ -221,9 +282,9 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 					boolean isCollect = json.getBoolean("status");
 					viewHolder.isCollect = isCollect;
 					if (viewHolder.isCollect) {
-						img_collect.setImageResource(R.drawable.ic_collect_off);
-					} else {
 						img_collect.setImageResource(R.drawable.ic_collect_on);
+					} else {
+						img_collect.setImageResource(R.drawable.ic_collect_off);
 					}
 				} catch (JSONException e) {
 					e.printStackTrace();
@@ -235,9 +296,12 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 					byte[] response, Throwable e) {
 			}
 		};
-		urlIsCollect += "productId=" + productId;
-		urlIsCollect += "&memberId=" + memberId;
-		httpClient.get(urlIsCollect.toString(), handler);
+		String url = urlIsCollect + "productId=" + productId + "&memberId="
+				+ memberId;
+		// urlIsCollect += "productId=" + productId;
+		// urlIsCollect += "&memberId=" + memberId;
+		LoggerSZ.i(getClass().getSimpleName(), url);
+		httpClient.get(url.toString(), handler);
 	}
 
 	protected void updateView(final ProductDetailMod data) {
@@ -327,8 +391,15 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 				gl_productAttr.addView(child);
 			}
 		}
-//		data.productDeti.id
-		requestIsCollect("",String.valueOf(data.productDeti.id));
+		// data.productDeti.id
+		if (viewHolder.attr != null
+				&& !TextUtils.isEmpty(viewHolder.attr.stock)) {
+			txt_retail_all_price.setText(Integer.valueOf(viewHolder.attr.price)
+					* Integer.valueOf(txt_count.getText().toString()) + "");
+		}
+		ShareSave shareSave = ShareSave.get();
+		requestIsCollect(shareSave.getUid(),
+				String.valueOf(data.productDeti.id));
 	}
 
 	/**
@@ -340,6 +411,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		ProductAttr attr;
 		int count;
 		boolean isCollect;
+		ProjectContentMod projectMod;
 	}
 
 }
