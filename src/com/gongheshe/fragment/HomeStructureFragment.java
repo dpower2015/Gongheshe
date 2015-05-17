@@ -7,16 +7,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
 import com.gongheshe.dialog.CityListPopWindow;
+import com.gongheshe.javabean.CityMod;
 
 /**
  * @author ZhengZhiying<br>
- * @function 棣栭〉鑿滃崟瑙嗗浘---缁撴瀯绫�
  */
 public class HomeStructureFragment extends BaseFragment implements
 		OnClickListener {
@@ -25,49 +26,63 @@ public class HomeStructureFragment extends BaseFragment implements
 	private View layout_toshow;
 	private View layout_menu;
 	private BaseActivity baseActivity;
-	
+	private int[] resIds = { R.id.bt_structure_1, R.id.bt_structure_2,
+			R.id.bt_structure_3, R.id.bt_structure_4 };
+	private CityMod cityMod;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		
-		view = inflater.inflate(R.layout.fragment_home_structure, container,false);
+
+		view = inflater.inflate(R.layout.fragment_home_structure, container,
+				false);
 		layout_toshow = view.findViewById(R.id.layout_toshow);
 		layout_menu = view.findViewById(R.id.layout_menu);
 		layout_menu.setVisibility(View.GONE);
 		layout_toshow.setOnClickListener(this);
-		setOnClickListenerTo(R.id.btn_cons_land);
-		setOnClickListenerTo(R.id.btn_cons_sun);
-		setOnClickListenerTo(R.id.btn_plastics_door_window);
-		setOnClickListenerTo(R.id.btn_cons_garden);
-		baseActivity=(BaseActivity)getActivity();
+		for (int i = 0; i < resIds.length; i++) {
+			view.findViewById(resIds[i]).setOnClickListener(this);
+		}
+		baseActivity = (BaseActivity) getActivity();
 		return view;
 	}
-
+	public void setCityMod(CityMod cityMod){
+		this.cityMod = cityMod;
+	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.layout_toshow:
 			// 鏄剧ず瀛愯彍鍗�
-			if(layout_menu.getVisibility() == View.VISIBLE){
+			if (layout_menu.getVisibility() == View.VISIBLE) {
 				layout_menu.setVisibility(View.GONE);
 				layout_toshow.setBackgroundResource(R.color.white);
-			}else{
+			} else {
 				layout_toshow.setBackgroundResource(R.drawable.menu_bg);
 				layout_menu.setVisibility(View.VISIBLE);
 			}
 			break;
-//		case R.id.btn_cons_land:
-//			break;
-//		case R.id.btn_cons_sun:
-//			break;
-//		case R.id.btn_plastics_door_window:
-//			break;
-//		case R.id.btn_cons_garden:
-//			break;
+		// case R.id.btn_cons_land:
+		// break;
+		// case R.id.btn_cons_sun:
+		// break;
+		// case R.id.btn_plastics_door_window:
+		// break;
+		// case R.id.btn_cons_garden:
+		// break;
 		default:
-			ShopDetail shopDetail =new ShopDetail().setIntentData(1, 1);
-			baseActivity.replaceFragment(shopDetail, true);
+			ShopDetail shopDetail;
+//			int cityId = ci;
+			for (int i = 0; i < resIds.length; i++) {
+				if (resIds[i] == v.getId()) {
+					shopDetail = new ShopDetail().setIntentData(1, i + 1,
+							cityMod, ((Button) view.findViewById(v.getId()))
+									.getText().toString());
+					baseActivity.replaceFragment(shopDetail, true);
+					break;
+				}
+			}
 			break;
 		}
 	}

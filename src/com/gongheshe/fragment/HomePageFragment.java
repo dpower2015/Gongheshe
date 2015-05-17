@@ -22,6 +22,7 @@ import com.example.gongheshe.R;
 import com.gongheshe.dialog.CityListPopWindow;
 import com.gongheshe.javabean.CityMod;
 import com.gongheshe.model.TypeClassMod;
+import com.gongheshe.util.ToastUtil;
 import com.googheshe.entity.GhhConst;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
@@ -39,6 +40,13 @@ public class HomePageFragment extends BaseFragment implements
 	private ScrollView sv_home;
 	private CityListPopWindow cityListPopWindow;
 	private Button bt_showCity;
+	private HomeStructureFragment f_stru;
+	private HomeElecFragment f_elec;
+	private HomeBathFragment f_bath;
+	private HomeWoodFragment f_wood;
+	private HomeFaceFragment f_face;
+	private HomeLampFragment f_lamp;
+	private HomeFurnishFragment f_furnish;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,25 +70,52 @@ public class HomePageFragment extends BaseFragment implements
 		// view = inflater.inflate(R.layout.fragment_homepage, container,
 		// false);
 		requestWebServer();
-//		setListenerListView();
+		// setListenerListView();
+//		HomeStructureFragment f = 
+		f_stru = ((HomeStructureFragment) getFragmentManager()
+				.findFragmentById(R.id.frame_structure));
+		f_elec = ((HomeElecFragment) getFragmentManager()
+				.findFragmentById(R.id.frame_electrome));
+		f_bath = ((HomeBathFragment) getFragmentManager()
+				.findFragmentById(R.id.frame_bath));
+		f_wood = ((HomeWoodFragment) getFragmentManager()
+				.findFragmentById(R.id.frame_wood));
+		f_face = ((HomeFaceFragment) getFragmentManager()
+				.findFragmentById(R.id.frame_face));
+		f_lamp = ((HomeLampFragment) getFragmentManager()
+				.findFragmentById(R.id.frame_lamp));
+		f_furnish = ((HomeFurnishFragment) getFragmentManager()
+				.findFragmentById(R.id.frame_furnish));
+				
 		return view;
+	}
+	
+	private void setCityToChild(CityMod cityMod) {
+		f_stru.setCityMod(cityMod);
+		f_elec.setCityMod(cityMod);
+		f_bath.setCityMod(cityMod);
+		f_wood.setCityMod(cityMod);
+		f_face.setCityMod(cityMod);
+		f_lamp.setCityMod(cityMod);
+		f_furnish.setCityMod(cityMod);
 	}
 
 	private void setListenerListView() {
-		cityListPopWindow.setOnItemClickListener(
-				new OnItemClickListener() {
+		cityListPopWindow.setOnItemClickListener(new OnItemClickListener() {
 
-					@Override
-					public void onItemClick(AdapterView<?> parent, View view,
-							int position, long id) {
-						if(isVisible()){
-							cityListPopWindow.dismiss();
-							bt_showCity.setText(cityListPopWindow.citys
-									.get(position).name);
-						}
-						
-					}
-				});
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				if (isVisible()) {
+					cityListPopWindow.dismiss();
+					bt_showCity.setText(cityListPopWindow.citys.get(position).name);
+					setCityToChild(cityListPopWindow.citys.get(position));
+//					((HomeStructureFragment) getFragmentManager()
+//							.findFragmentById(R.id.frame_structure)).setCityMod(cityMod)
+				}
+
+			}
+		});
 	}
 
 	public void scrollToBottom() {
@@ -142,6 +177,7 @@ public class HomePageFragment extends BaseFragment implements
 					if (cityListPopWindow.isShowing()) {
 						cityListPopWindow.notifyDataSetChanged();
 					}
+					setCityToChild(cityListPopWindow.citys.get(0));
 					// adapter.notifyDataSetChanged();
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
@@ -156,7 +192,7 @@ public class HomePageFragment extends BaseFragment implements
 		};
 		return handler;
 	}
-	
+
 	@Override
 	public void onResume() {
 		super.onResume();

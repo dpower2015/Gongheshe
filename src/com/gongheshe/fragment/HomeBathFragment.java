@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
+import com.gongheshe.javabean.CityMod;
 
 /**
  * @author ZhengZhiying<br>
@@ -19,6 +21,9 @@ public class HomeBathFragment extends BaseFragment implements OnClickListener {
 	private View layout_toshow;
 	private View layout_menu;
 	private BaseActivity baseActivity;
+	private int[] resId = { R.id.bt_bath1, R.id.bt_bath2, R.id.bt_bath3,
+			R.id.bt_bath4, R.id.bt_bath5, R.id.bt_bath6, R.id.bt_bath7 };
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -27,23 +32,23 @@ public class HomeBathFragment extends BaseFragment implements OnClickListener {
 		layout_menu = view.findViewById(R.id.layout_menu);
 		layout_menu.setVisibility(View.GONE);
 		layout_toshow.setOnClickListener(this);
-		baseActivity=(BaseActivity)getActivity();
-		
-		view.findViewById(R.id.pedestal_toilet).setOnClickListener(this);
-		view.findViewById(R.id.face_pot).setOnClickListener(this);
-		view.findViewById(R.id.bathtab).setOnClickListener(this);
-		view.findViewById(R.id.sprinkler).setOnClickListener(this);
-		view.findViewById(R.id.floor_drain).setOnClickListener(this);
-		view.findViewById(R.id.hanging_drop).setOnClickListener(this);
-		view.findViewById(R.id.all_shower_room).setOnClickListener(this);
+		baseActivity = (BaseActivity) getActivity();
+
+		for (int i = 0; i < resId.length; i++) {
+			view.findViewById(resId[i]).setOnClickListener(this);
+		}
 		return view;
+	}
+	
+	private CityMod cityMod;
+	public void setCityMod(CityMod cityMod){
+		this.cityMod = cityMod;
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.layout_toshow:
-			// 鏄剧ず瀛愯彍鍗�
 			if (layout_menu.getVisibility() == View.VISIBLE) {
 				layout_toshow.setBackgroundResource(R.color.white);
 				layout_menu.setVisibility(View.GONE);
@@ -53,8 +58,18 @@ public class HomeBathFragment extends BaseFragment implements OnClickListener {
 			}
 			break;
 		default:
-			ShopDetail shopDetail =new ShopDetail().setIntentData(1, 1);
-			baseActivity.replaceFragment(shopDetail, true);
+			ShopDetail shopDetail;
+//			int cityId = 1;
+			for (int i = 0; i < resId.length; i++) {
+				if (resId[i] == v.getId()) {
+					shopDetail = new ShopDetail().setIntentData(3, i + 1,
+							cityMod, ((Button) view.findViewById(v.getId()))
+									.getText().toString());
+					baseActivity.replaceFragment(shopDetail, true);
+					break;
+				}
+			}
+
 			break;
 		}
 	}
