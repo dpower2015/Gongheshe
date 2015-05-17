@@ -2,14 +2,17 @@ package com.gongheshe.fragment;
 
 import org.apache.http.Header;
 
+import zy.zh.xListView.XListView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
+import com.gongheshe.adapter.MyprojectListAdapter;
 import com.gongheshe.dialog.LoadingDlg;
 import com.gongheshe.util.LoggerSZ;
 import com.googheshe.entity.GhhConst;
@@ -23,6 +26,9 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener{
 	private BaseActivity baseActivity;
 	private AsyncHttpClient client;
 	private final String TAG="CopyrightFragment";
+	private XListView xListView;
+	private MyprojectListAdapter myprojectListAdapter;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -32,7 +38,10 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener{
 		view.findViewById(R.id.ibtn_back).setOnClickListener(this);
 		view.findViewById(R.id.add_project).setOnClickListener(this);
 		
-		//requestData();
+		xListView=(XListView)view.findViewById(R.id.myprojectlist);
+		myprojectListAdapter =new MyprojectListAdapter(baseActivity);
+		xListView.setAdapter(myprojectListAdapter);
+		requestData();
 		return view;
 	}
 
@@ -46,7 +55,6 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener{
 		}else if(id==R.id.add_project){
 			AddProjectFragment myproject=new AddProjectFragment();
 			baseActivity.replaceFragment(myproject, true);
-			
 		}
 	}
 	
@@ -54,15 +62,15 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener{
 	
 	private void requestData() {
 		client = new AsyncHttpClient();
-
-		client.get(getActivity(), GhhConst.GET_COPYRIGHT_CONTENT, null, null,
+		client.get(getActivity(), GhhConst.GET_PROJECT_LIST, null, null,
 				new AsyncHttpResponseHandler() {
 
 					public void onFailure(int statusCode, Header[] headers,
 							byte[] response, Throwable e) {
-						//xListView.stopLoadMore();
-						//xListView.stopRefresh();
+						xListView.stopLoadMore();
+						xListView.stopRefresh();
 						LoggerSZ.e(TAG, "访问失败" + e.toString());
+						Toast.makeText(baseActivity, "获取数据失败", Toast.LENGTH_SHORT).show();
 						try {
 							LoadingDlg.get().hide();
 						} catch (Exception ex) {
@@ -73,8 +81,9 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener{
 					@Override
 					public void onSuccess(int statusCode, Header[] headers,
 							byte[] response) {
-						//xListView.stopLoadMore();
-						//xListView.stopRefresh();
+						LoggerSZ.i(TAG, "result = " + new String(response));
+						xListView.stopLoadMore();
+						xListView.stopRefresh();
 						onDataReturn(new String(response));
 						try {
 							LoadingDlg.get().hide();

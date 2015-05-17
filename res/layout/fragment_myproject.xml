@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@color/white">
       <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionbar_height" >
@@ -40,12 +41,12 @@
            android:layout_height="@dimen/line_width"
            android:background="@color/grey_light_line" />
 	
-     <TextView 
-         android:id="@+id/good_title"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:text="@string/test"
-         android:gravity="center"
-         />
-     
+     <zy.zh.xListView.XListView
+        android:id="@+id/myprojectlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/translate"
+        android:dividerHeight="1dp"
+        android:scrollbars="none"
+        android:cacheColorHint="@color/translate" />  
 </LinearLayout>

@@ -130,6 +130,10 @@
 	<string name="test">亲，您还未添加项目！ </string>
 	<string name="exit_curUser">退出当前账号</string>
 	
+	<string name="state_book">订单状态: </string>
+	<string name="apply_drawback">申请退款</string>
+	<string name="confirm_accept">确认收货</string>
+	<string name="预定时间:"></string>
 	
 	<string name="loading"></string>
     <string name="loading_fail">加载失败</string>

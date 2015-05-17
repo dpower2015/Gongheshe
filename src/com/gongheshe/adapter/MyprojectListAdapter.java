@@ -5,16 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
 
-public class MybooksListAdapter extends BaseAdapter{
-
-	private Context mContext;
+public class MyprojectListAdapter extends BaseAdapter{
 	private LayoutInflater inflater;
+	private Context mContext;
 	
-	public  MybooksListAdapter(Context context) {
+	public MyprojectListAdapter(Context context){
+		
+		
 		this.mContext = context;
 		inflater = LayoutInflater.from(context);
 	}
@@ -36,27 +38,25 @@ public class MybooksListAdapter extends BaseAdapter{
 		return 0;
 	}
 
-	
 	@Override
 	public View getView(int arg0, View convertView, ViewGroup arg2) {
 		// TODO Auto-generated method stub
-		final ViewHolder viewHolder;
+		final  Holder holder;
 		if(convertView == null){
-			viewHolder = new ViewHolder();
-			convertView =inflater.inflate(R.layout.myorderlist_item,null);
-			convertView.setTag(viewHolder);
+			holder=new Holder();
+			convertView = inflater.inflate(R.layout.projectlist_item, null);
+			convertView.setTag(holder);
 		}
 		else {
-			viewHolder = (ViewHolder)convertView.getTag();
+			holder = (Holder)convertView.getTag();
 		}
+		
 		return convertView;
 	}
-
-	class ViewHolder{
-		
-		TextView title;
+	private class Holder{
+		ImageView icon_project;
+		TextView  title_project;
 	}
-
-
+	
 	
 }

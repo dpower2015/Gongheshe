@@ -15,6 +15,8 @@ public class GhhConst {
 	public final static String GET_MY_STORE_LIST=BASE_URL+"pProductByMemberId.htm";
 	public final static String GET_MY_STORE_LIST_BYCATE=BASE_URL+"pMemberIdAndType.htm";
 	public final static String MODIFY_PASSWORD=BASE_URL+"modifyPwd.htm";
+	public final static String ADD_PROJECT=BASE_URL+"pmpfindById.htm";
+	public final static String GET_PROJECT_LIST="pmpList.htm";
 	//http://localhost:88/phone/data/pProductByPrice.htm?pagesize=20&pagenumber=1&sortType=1
 	/** 图片头部 */
 	public final static String headPicUrl = "http://s-145217.abc188.com";

@@ -102,7 +102,7 @@ public class MystoreFragment extends BaseFragment implements OnClickListener{
 		
 		httpClient = new AsyncHttpClient();
 		System.out.println("uerId :"+userId);
-		httpClient.post(GhhConst.GET_MY_STORE_LIST, params, new AsyncHttpResponseHandler() {
+		httpClient.post(url, params, new AsyncHttpResponseHandler() {
 
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {

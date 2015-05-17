@@ -45,6 +45,7 @@
             
 	        />
 	    <EditText 
+	        android:id="@+id/name_project"
 	        android:layout_weight="3"
 	        android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -73,6 +74,7 @@
             
 	        />
 	    <EditText 
+	        android:id="@+id/charge_project"
 	        android:layout_weight="3"
 	        android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -101,6 +103,7 @@
             
 	        />
 	    <EditText 
+	        android:id="@+id/charge_tel_project"
 	        android:layout_weight="3"
 	        android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -129,6 +132,7 @@
             
 	        />
 	    <EditText 
+	        android:id="@+id/name_client"
 	        android:layout_weight="3"
 	        android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -157,6 +161,7 @@
             
 	        />
 	    <EditText 
+	        android:id="@+id/tel_client"
 	        android:layout_weight="3"
 	        android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -185,6 +190,7 @@
             
 	        />
 	    <EditText 
+	        android:id="@+id/add_project"
 	        android:layout_weight="3"
 	        android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -210,16 +216,14 @@
             android:layout_marginLeft="5dp"
             android:text="@string/project_begin_time"
             style="@style/inputbar_style"
-            
-	        />
-	          />
-	    <Button
+           />
+	    <TextView
+	        android:id="@+id/time_begin"
 	        android:layout_weight="3"
 	        android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/project_end_time"
             style="@style/inputbar_style1"
-            android:text="@string/project_choose_date"
+            android:text="2015-05-16"
 	        />
 	</LinearLayout>
       <FrameLayout
@@ -241,13 +245,14 @@
             style="@style/inputbar_style"
             
 	        />
-	    <Button
+	    <TextView
+	        android:id="@+id/time_end"
 	        android:layout_weight="3"
 	        android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/project_end_time"
+            android:text="2015-05-16"
             style="@style/inputbar_style1"
-            android:text="@string/project_choose_date"
+          
 	        />
 	</LinearLayout>
       <FrameLayout
@@ -276,13 +281,17 @@
             android:hint="@string/project_going"
             style="@style/inputbar_style"
 	        />
-	    <ImageButton 
+	    <ToggleButton
+	        android:id="@+id/switch_state"
 	        android:layout_weight="1"
 	        android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="@null"
 	        />
+	  
 	</LinearLayout>
 	<EditText 
+	    android:id="@+id/decribe_project"
 	    android:layout_width="match_parent"
 	    android:layout_height="100dp"
 	    android:layout_margin="5dp"
