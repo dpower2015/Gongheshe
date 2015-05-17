@@ -65,8 +65,7 @@ public class MyProjectListAdapter extends BaseAdapter {
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		holder.txt_title.setText(data.data.get(position).prjName + "\t"
-				+ data.data.get(position).createTime);
+		holder.txt_title.setText(data.data.get(position).prjName);
 		convertView.setOnClickListener(new OnClickListener() {
 
 			@Override
