@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
-import com.gongheshe.adapter.MyprojectListAdapter;
+import com.gongheshe.adapter.MyProjectListAdapter;
 import com.gongheshe.dialog.LoadingDlg;
 import com.gongheshe.util.LoggerSZ;
 import com.googheshe.entity.GhhConst;
@@ -27,7 +27,7 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener{
 	private AsyncHttpClient client;
 	private final String TAG="CopyrightFragment";
 	private XListView xListView;
-	private MyprojectListAdapter myprojectListAdapter;
+	private MyProjectListAdapter myprojectListAdapter;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,7 +39,7 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener{
 		view.findViewById(R.id.add_project).setOnClickListener(this);
 		
 		xListView=(XListView)view.findViewById(R.id.myprojectlist);
-		myprojectListAdapter =new MyprojectListAdapter(baseActivity);
+		myprojectListAdapter =new MyProjectListAdapter(baseActivity);
 		xListView.setAdapter(myprojectListAdapter);
 		requestData();
 		return view;
