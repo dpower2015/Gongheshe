@@ -24,4 +24,5 @@ public class ProductMod extends BaseMod {
 	public String name;
 	public String saleNum;
 
+
 }

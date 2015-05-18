@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
  <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content">
+	    android:layout_height="wrap_content"
+	    android:background="@color/white">
 	    
      <LinearLayout
          android:layout_width="match_parent"
@@ -14,16 +15,17 @@
 	      >
 	      <TextView 
         android:text="test"
+        android:id="@+id/titile"
         android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_centerVertical="true"
-        style="@style/input_style"
+        style="@style/inputbar_style"
          />
      	<ImageView 
-          android:id="@+id/delete_img"
+          android:id="@+id/detail_img"
           android:layout_width="wrap_content"
-	      android:layout_height="match_parent"
+	      android:layout_height="wrap_content"
           android:src="@drawable/jt_right_red"
           android:layout_alignParentRight="true"
           android:layout_centerVertical="true"
@@ -43,9 +45,9 @@
 	       android:orientation="horizontal"
           >
           <ImageView 
-              android:layout_width="wrap_content"
-	          android:layout_height="wrap_content"
-              android:src="@drawable/ic_launcher"
+              android:id="@+id/icon"
+              android:layout_width="100dp"
+	          android:layout_height="100dp"
               />
           <LinearLayout 
               android:layout_width="wrap_content"
@@ -54,8 +56,10 @@
               android:layout_marginLeft="10dp"
               >
               <TextView 
+                  android:id="@+id/decript"
                   android:layout_width="wrap_content"
 	              android:layout_height="wrap_content"
+	              style="@style/inputbar_style2"
 	              android:text="test"
                   />
               <LinearLayout 
@@ -65,14 +69,17 @@
 	              android:layout_marginTop="15dp"
                   >
                   <TextView 
+                  style="@style/inputbar_style2"     
                   android:layout_width="wrap_content"
 	              android:layout_height="wrap_content"
 	              android:text="@string/state_book"
                   />
                    <TextView 
+                  android:id="@+id/order_state"
                   android:layout_width="wrap_content"
 	              android:layout_height="wrap_content"
 	              android:text="未付款"
+	              style="@style/inputbar_style2"
                   />
               </LinearLayout>
               <LinearLayout 
@@ -82,6 +89,7 @@
 	              android:layout_marginTop="10dp"
                   >
                   <Button 
+                       android:id="@+id/apply_drawback"
                        android:layout_width="wrap_content"
 	                   android:layout_height="@dimen/bt_height"
 	                   android:text="@string/apply_drawback"
@@ -89,6 +97,7 @@
 	                  
                       />
                    <Button 
+                       android:id="@+id/confirm_accept"
                        android:layout_width="wrap_content"
 	                   android:layout_height="@dimen/bt_height"
 	                   android:layout_marginLeft="10dp"
@@ -114,11 +123,14 @@
                   android:layout_width="wrap_content"
 	              android:layout_height="wrap_content"
 	              android:text="预定时间："
+	              style="@style/inputbar_style2"
                   />
             <TextView 
+                 android:id="@+id/order_time"
                   android:layout_width="wrap_content"
 	              android:layout_height="wrap_content"
 	              android:text="2015-05-16"
+	              style="@style/inputbar_style2"
                   />
             
         </LinearLayout>
