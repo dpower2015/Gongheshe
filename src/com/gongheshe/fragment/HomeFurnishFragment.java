@@ -25,6 +25,7 @@ public class HomeFurnishFragment extends BaseFragment implements
 	private int[] resIds = { R.id.bt_furnish_1, R.id.bt_furnish_2,
 			R.id.bt_furnish_3, R.id.bt_furnish_4, R.id.bt_furnish_5,
 			R.id.bt_furnish_6 };
+	private BrandClassFragment parentF;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,14 +38,20 @@ public class HomeFurnishFragment extends BaseFragment implements
 		layout_menu.setVisibility(View.GONE);
 		layout_toshow.setOnClickListener(this);
 		baseActivity = (BaseActivity) getActivity();
-		for(int i=0;i<resIds.length;i++){
+		for (int i = 0; i < resIds.length; i++) {
 			view.findViewById(resIds[i]).setOnClickListener(this);
+		}
+		if (getParentFragmentX() != null) {
+			if (getParentFragmentX() instanceof BrandClassFragment) {
+				parentF = (BrandClassFragment) getParentFragmentX();
+			}
 		}
 		return view;
 	}
-	
+
 	private CityMod cityMod;
-	public void setCityMod(CityMod cityMod){
+
+	public void setCityMod(CityMod cityMod) {
 		this.cityMod = cityMod;
 	}
 
@@ -58,18 +65,30 @@ public class HomeFurnishFragment extends BaseFragment implements
 			} else {
 				layout_toshow.setBackgroundResource(R.drawable.menu_bg);
 				layout_menu.setVisibility(View.VISIBLE);
-				((MainFragmentActivity) baseActivity).getHomefragment()
-						.scrollToBottom();
+				if (baseActivity != null) {
+					((MainFragmentActivity) baseActivity).getHomefragment()
+							.scrollToBottom();
+				}
+				if (parentF != null) {
+					parentF.scrollToBottom();
+				}
+
 			}
 			break;
 		default:
 			ShopDetail shopDetail;
-//			int cityId = 1;
-			for(int i=0;i<resIds.length;i++){
-				if(resIds[i] == v.getId()){
-					shopDetail = new ShopDetail().setIntentData(7, i+1,cityMod, ((Button) view.findViewById(v.getId()))
-							.getText().toString());
-					baseActivity.replaceFragment(shopDetail, true);
+			// int cityId = 1;
+			for (int i = 0; i < resIds.length; i++) {
+				if (resIds[i] == v.getId()) {
+					if (parentF != null) {
+						parentF.setOnBrankClickListener(7, i + 1);
+					} else {
+						shopDetail = new ShopDetail().setIntentData(7, i + 1,
+								cityMod,
+								((Button) view.findViewById(v.getId()))
+										.getText().toString());
+						baseActivity.replaceFragment(shopDetail, true);
+					}
 					break;
 				}
 			}

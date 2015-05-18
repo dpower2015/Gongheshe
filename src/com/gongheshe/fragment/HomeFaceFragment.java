@@ -23,6 +23,7 @@ public class HomeFaceFragment extends BaseFragment implements OnClickListener {
 	private int[] resIds = { R.id.bt_face_1, R.id.bt_face_2, R.id.bt_face_3,
 			R.id.bt_face_4, R.id.bt_face_5, R.id.bt_face_6, R.id.bt_face_7,
 			R.id.bt_face_8 };
+	private BrandClassFragment parentF;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,15 +34,21 @@ public class HomeFaceFragment extends BaseFragment implements OnClickListener {
 		layout_menu = view.findViewById(R.id.layout_menu);
 		layout_menu.setVisibility(View.GONE);
 		layout_toshow.setOnClickListener(this);
-		for(int i=0;i<resIds.length;i++){
+		for (int i = 0; i < resIds.length; i++) {
 			setOnClickListenerTo(resIds[i]);
 		}
 		baseActivity = (BaseActivity) getActivity();
+		if (getParentFragmentX() != null) {
+			if (getParentFragmentX() instanceof BrandClassFragment) {
+				parentF = (BrandClassFragment) getParentFragmentX();
+			}
+		}
 		return view;
 	}
-	
+
 	private CityMod cityMod;
-	public void setCityMod(CityMod cityMod){
+
+	public void setCityMod(CityMod cityMod) {
 		this.cityMod = cityMod;
 	}
 
@@ -59,12 +66,18 @@ public class HomeFaceFragment extends BaseFragment implements OnClickListener {
 			break;
 		default:
 			ShopDetail shopDetail;
-//			int cityId = 1;
-			for(int i=0;i<resIds.length;i++){
-				if(resIds[i] == v.getId()){
-					shopDetail = new ShopDetail().setIntentData(5, i+1,cityMod, ((Button) view.findViewById(v.getId()))
-							.getText().toString());
-					baseActivity.replaceFragment(shopDetail, true);
+			// int cityId = 1;
+			for (int i = 0; i < resIds.length; i++) {
+				if (resIds[i] == v.getId()) {
+					if (parentF != null) {
+						parentF.setOnBrankClickListener(5, i + 1);
+					} else {
+						shopDetail = new ShopDetail().setIntentData(5, i + 1,
+								cityMod,
+								((Button) view.findViewById(v.getId()))
+										.getText().toString());
+						baseActivity.replaceFragment(shopDetail, true);
+					}
 					break;
 				}
 			}

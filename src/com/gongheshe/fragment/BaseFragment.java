@@ -20,8 +20,9 @@ public class BaseFragment extends Fragment {
 		return parent;
 	}
 
-	public void setParent(BaseFragment parent) {
+	public BaseFragment setParent(BaseFragment parent) {
 		this.parent = parent;
+		return this;
 	}
 	
 	

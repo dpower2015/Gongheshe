@@ -105,12 +105,15 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		case R.id.ibtn_home:
 			onPageSelect(0);
 			mHomefragment = new HomePageFragment();
-			replaceFragment(mHomefragment,true);
+//			replaceFragment(mHomefragment,false);
+			replaceFragment(mHomefragment);
 			//viewPager.setCurrentItem(0);
 			break;
 		case R.id.ibtn_brand:
 			onPageSelect(1);
-			replaceFragment(new BrandFragment(),true);
+//			replaceFragment(new BrandFragment(),false);
+			replaceFragment(new BrandFragment());
+			
 			//viewPager.setCurrentItem(1);
 			break;
 		case R.id.ibtn_hotsell:
@@ -130,6 +133,16 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		
 	}
 	
+	
+	private void replaceFragment(Fragment fragment){
+		this.fragment = (BaseFragment) fragment;
+		FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+				.beginTransaction();
+		fragmentTransaction.setCustomAnimations(R.anim.fragment_left,
+				R.anim.fragment_right);
+		fragmentTransaction.replace(R.id.fragment, fragment);
+		fragmentTransaction.commit();
+	}
 	/**
 	 * ����
 	 * 
@@ -148,8 +161,9 @@ public class MainFragmentActivity extends BaseActivity implements OnClickListene
 		fragmentList.add(fragment);
 		fragmentTransaction.setCustomAnimations(R.anim.fragment_left,
 				R.anim.fragment_right);
-		fragmentTransaction.hide(fragmentList.get(fragmentList.size() - 2));
-		fragmentTransaction.add(R.id.fragment, fragment);
+//		fragmentTransaction.hide(fragmentList.get(fragmentList.size() - 2));
+//		fragmentTransaction.add(R.id.fragment, fragment);
+		fragmentTransaction.replace(R.id.fragment, fragment);
 		fragmentTransaction.commit();
 	}
 	@Override

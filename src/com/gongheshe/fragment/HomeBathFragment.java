@@ -10,10 +10,11 @@ import android.widget.Button;
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
 import com.gongheshe.javabean.CityMod;
+import com.gongheshe.util.LoggerSZ;
 
 /**
  * @author ZhengZhiying<br>
- * @function 棣栭〉鑿滃崟瑙嗗浘---鍗荡绫�
+ * @function HomeBathFragment
  */
 public class HomeBathFragment extends BaseFragment implements OnClickListener {
 
@@ -23,6 +24,7 @@ public class HomeBathFragment extends BaseFragment implements OnClickListener {
 	private BaseActivity baseActivity;
 	private int[] resId = { R.id.bt_bath1, R.id.bt_bath2, R.id.bt_bath3,
 			R.id.bt_bath4, R.id.bt_bath5, R.id.bt_bath6, R.id.bt_bath7 };
+	private BrandClassFragment parentF;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +38,11 @@ public class HomeBathFragment extends BaseFragment implements OnClickListener {
 
 		for (int i = 0; i < resId.length; i++) {
 			view.findViewById(resId[i]).setOnClickListener(this);
+		}
+		if (getParentFragmentX() != null) {
+			if (getParentFragmentX() instanceof BrandClassFragment) {
+				parentF = (BrandClassFragment) getParentFragmentX();
+			}
 		}
 		return view;
 	}
@@ -62,10 +69,13 @@ public class HomeBathFragment extends BaseFragment implements OnClickListener {
 //			int cityId = 1;
 			for (int i = 0; i < resId.length; i++) {
 				if (resId[i] == v.getId()) {
+					if (parentF != null) {
+						parentF.setOnBrankClickListener(3, i + 1);
+					} else {
 					shopDetail = new ShopDetail().setIntentData(3, i + 1,
 							cityMod, ((Button) view.findViewById(v.getId()))
 									.getText().toString());
-					baseActivity.replaceFragment(shopDetail, true);
+					baseActivity.replaceFragment(shopDetail, true);}
 					break;
 				}
 			}

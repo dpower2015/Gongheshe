@@ -29,6 +29,7 @@ public class HomeStructureFragment extends BaseFragment implements
 	private int[] resIds = { R.id.bt_structure_1, R.id.bt_structure_2,
 			R.id.bt_structure_3, R.id.bt_structure_4 };
 	private CityMod cityMod;
+	private BrandClassFragment parentF;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,9 +45,17 @@ public class HomeStructureFragment extends BaseFragment implements
 			view.findViewById(resIds[i]).setOnClickListener(this);
 		}
 		baseActivity = (BaseActivity) getActivity();
+
+		if (getParentFragmentX() != null) {
+			if (getParentFragmentX() instanceof BrandClassFragment) {
+				parentF = (BrandClassFragment) getParentFragmentX();
+			}
+		}
+
 		return view;
 	}
-	public void setCityMod(CityMod cityMod){
+
+	public void setCityMod(CityMod cityMod) {
 		this.cityMod = cityMod;
 	}
 
@@ -54,7 +63,7 @@ public class HomeStructureFragment extends BaseFragment implements
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.layout_toshow:
-			// 鏄剧ず瀛愯彍鍗�
+			// to show the item
 			if (layout_menu.getVisibility() == View.VISIBLE) {
 				layout_menu.setVisibility(View.GONE);
 				layout_toshow.setBackgroundResource(R.color.white);
@@ -63,32 +72,28 @@ public class HomeStructureFragment extends BaseFragment implements
 				layout_menu.setVisibility(View.VISIBLE);
 			}
 			break;
-		// case R.id.btn_cons_land:
-		// break;
-		// case R.id.btn_cons_sun:
-		// break;
-		// case R.id.btn_plastics_door_window:
-		// break;
-		// case R.id.btn_cons_garden:
-		// break;
 		default:
 			ShopDetail shopDetail;
-//			int cityId = ci;
 			for (int i = 0; i < resIds.length; i++) {
 				if (resIds[i] == v.getId()) {
-					shopDetail = new ShopDetail().setIntentData(1, i + 1,
-							cityMod, ((Button) view.findViewById(v.getId()))
-									.getText().toString());
-					baseActivity.replaceFragment(shopDetail, true);
+					if (parentF != null) {
+						parentF.setOnBrankClickListener(1, i + 1);
+					} else {
+						shopDetail = new ShopDetail().setIntentData(1, i + 1,
+								cityMod,
+								((Button) view.findViewById(v.getId()))
+										.getText().toString());
+						baseActivity.replaceFragment(shopDetail, true);
+					}
 					break;
 				}
 			}
 			break;
 		}
 	}
-
-	private void setOnClickListenerTo(int resId) {
-		view.findViewById(resId).setOnClickListener(this);
-	}
+	//
+	// private void setOnClickListenerTo(int resId) {
+	// view.findViewById(resId).setOnClickListener(this);
+	// }
 
 }
