@@ -1,63 +1,120 @@
 package com.gongheshe.adapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
+import com.gongheshe.javabean.BrandMainListMod;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class BussinessGridViewAdapter extends BaseAdapter {
 
 	private Context mContext;
 	private LayoutInflater inflater;
-	public BussinessGridViewAdapter(Context context) {
+	private List<BrandMainListMod> mods;
+	private List<BrandMainListModx2> datas;
+	private ImageLoader imgLoader;
 
+	public BussinessGridViewAdapter(Context context) {
 		this.mContext = context;
 		inflater = LayoutInflater.from(context);
+		imgLoader = ImageLoader.getInstance();
+		datas = new ArrayList<BrandMainListModx2>();
 	}
+
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
-		return 12;
+//		if (mods.size() % 2 == 0) {
+//			return mods.size() / 2;
+//		} else {
+//			return mods.size() / 2 + 1;
+//		}
+		return datas.size();
 	}
-	@Override
-	public Object getItem(int position) {
-		// TODO Auto-generated method stub
-		return position;
-	}
-    
-	@Override
-	public long getItemId(int position) {
-		// TODO Auto-generated method stub
-		return position;
-	}
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
-		final ViewHolder viewHolder;
-		if(convertView == null){
-			viewHolder = new ViewHolder();
-			convertView =inflater.inflate(R.layout.bussiness_gridview,null);
-			viewHolder.gridview_item_name = (TextView)convertView.findViewById(R.id.gridview_item_name);
 
-			
-			convertView.setTag(viewHolder);
-		}
-		else {
-			viewHolder = (ViewHolder)convertView.getTag();
-		}
-		viewHolder.gridview_item_name.setText("test");
-		viewHolder.gridview_item_name.setTag(position);
-		
-		return convertView;
-	}
-	class ViewHolder{
-		
-		TextView gridview_item_name;
+	public void cleanDatas(){
+		datas.clear();
 	}
 	
+	public void appendMods(List<BrandMainListMod> mods) {
+		this.mods = mods;
+		int i = 0;
+		BrandMainListModx2 data;
+		while (i < mods.size()) {
+			data = new BrandMainListModx2();
+			data.left = mods.get(i);
+			i++;
+			if (i >= mods.size()) {
+				datas.add(data);
+				break;
+			}
+			data.right = mods.get(i);
+			datas.add(data);
+			i++;
+		}
+	}
+
+	public List<BrandMainListMod> getMods() {
+		return mods;
+	}
+
+	@Override
+	public Object getItem(int position) {
+		return position;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		ViewHolder holder;
+
+		if (convertView == null) {
+			holder = new ViewHolder();
+			convertView = inflater.inflate(R.layout.bussiness_gridview, parent,
+					false);
+			holder.imgRight = (ImageView) convertView
+					.findViewById(R.id.img_left);
+			holder.imgLeft = (ImageView) convertView
+					.findViewById(R.id.img_right);
+			convertView.setTag(holder);
+		} else {
+			holder = (ViewHolder) convertView.getTag();
+		}
+		String uri;
+
+		uri = datas.get(position).left.topImages;
+		imgLoader.displayImage(uri, holder.imgLeft);
+
+		if (datas.get(position).right != null) {
+			holder.imgRight.setVisibility(View.VISIBLE);
+			uri = datas.get(position).right.topImages;
+			imgLoader.displayImage(uri, holder.imgRight);
+		} else {
+			holder.imgRight.setVisibility(View.INVISIBLE);
+		}
+		return convertView;
+	}
+
+	class ViewHolder {
+		ImageView imgLeft;
+		ImageView imgRight;
+	}
+
+	class BrandMainListModx2 {
+		public BrandMainListMod left;
+		public BrandMainListMod right;
+	}
 
 }

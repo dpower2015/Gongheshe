@@ -176,4 +176,5 @@
 	<string name="uploading">正在提交</string>
 	<string name="fail_to_book">预定失败</string>
 	<string name="success_to_book">预定成功</string>
+	<string name="no_data">该目录暂时没有数据</string>
 </resources>
