@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +15,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
 import com.gongheshe.adapter.ShopDetailAdapter;
 import com.gongheshe.dialog.CityListPopWindow;
 import com.gongheshe.javabean.CityMod;
-import com.gongheshe.javabean.ProductMod;
+import com.gongheshe.model.TypeClassMod;
 import com.gongheshe.util.PullStagGridViewUT;
 import com.gongheshe.util.PullStagGridViewUT.OnStagGridViewListener;
 import com.gongheshe.util.ToastUtil;
@@ -179,10 +182,10 @@ public class ShopDetail extends BaseFragment implements View.OnClickListener {
 							"data");
 					Gson gson;
 					gson = new Gson();
-					ProductMod data;
+					TypeClassMod data;
 					for (int i = 0; i < arr.length(); i++) {
 						data = gson.fromJson(arr.get(i).toString(),
-								ProductMod.class);
+								TypeClassMod.class);
 						adapter.datas.add(data);
 					}
 					adapter.notifyDataSetChanged();

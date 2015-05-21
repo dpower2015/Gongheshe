@@ -8,22 +8,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import u.aly.ad;
-import u.aly.ct;
 import zy.zh.xListView.XListView;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.GridView;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
@@ -35,7 +30,6 @@ import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.ToastUtil;
 import com.googheshe.entity.GhhConst;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -48,7 +42,6 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 	private String url = GhhConst.BASE_URL
 			+ "pByCompanyTypeAndCityId.htm?pagesize=20&";
 	private View view;
-	// private GridView mBussinesList;
 	private BussinessGridViewAdapter adapter;
 	private Button bt_showCity;
 	private CityListPopWindow cityListPopWindow;
@@ -59,11 +52,11 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 	private CityMod curCityMod = null;
 	private int curPageNumber = 1;
 	private String[] classId = new String[] { "1", "1" };
+	private BrandSecondFragment brandSecondF;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		// view = inflater.inflate(R.layout.my_collect, container, false);
 		view = inflater.inflate(R.layout.fragment_brand, container, false);
 		xlistview_brand = (XListView) view.findViewById(R.id.xlistview_brand);
 		adapter = new BussinessGridViewAdapter(getActivity());
@@ -77,23 +70,23 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 		xlistview_brand.setVisibility(View.VISIBLE);
 		setListenerCityListPopWindow();
 		setListenerXListView();
+		curPageNumber = 1;
 		requestWebData(curPageNumber, null, 1 + "", 1 + "");
+		brandSecondF = new BrandSecondFragment();
 		return view;
 	}
 
 	private void setListenerXListView() {
 		xlistview_brand.setPullLoadEnable(true);
 		xlistview_brand.setPullRefreshEnable(false);
-		xlistview_brand.setOnItemClickListener(new OnItemClickListener() {
+		adapter.setOnBussItemClickListener(new BussinessGridViewAdapter.OnBussItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// if (onPickItemListener != null) {
-				// onPickItemListener.onPickItem(adapter.data.data
-				// .get(position - 1));
-				// }
-
+			public void onBussItemClick(int position) {
+				BrandMainListMod data = adapter.getListData().get(position);
+				brandSecondF.setBrandMainListMod(data);
+				baseActivity.addFragment(brandSecondF);
+//				 baseActivity.replaceFragment(brandSecondF, true);
 			}
 		});
 
@@ -167,18 +160,10 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 
 	public void replaceFragment(BrandClassFragment fragment,
 			boolean isAddToBackStack) {
-
-		// this.fragment = (BaseFragment) fragment;
-
-		FragmentTransaction fragmentTransaction = getActivity()
-				.getSupportFragmentManager().beginTransaction();
-		// if (isAddToBackStack) {
-		// fragmentTransaction.addToBackStack(fragment.getClass().getName());
-		// }
-		// fragmentList.add(fragment);
-		// fragmentTransaction.setCustomAnimations(R.anim.fragment_left,
-		// R.anim.fragment_right);
-		// fragmentTransaction.hide(fragmentList.get(fragmentList.size() - 2));
+		FragmentTransaction fragmentTransaction;
+		fragmentTransaction = getActivity().getSupportFragmentManager()
+				.beginTransaction();
+//		fragmentTransaction = getChildFragmentManager().beginTransaction();
 		fragmentTransaction.replace(R.id.frame_class, fragment);
 		fragmentTransaction.commit();
 	}
@@ -204,7 +189,7 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 
 	private void requestWebData(int pagenumber, String cityId,
 			String typeOneId, String typeTwoId) {
-		if(pagenumber == 1){
+		if (pagenumber == 1) {
 			adapter.cleanDatas();
 		}
 		if (cityId == null) {
@@ -212,7 +197,6 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 		}
 		AsyncHttpClient httpClient;
 		httpClient = new AsyncHttpClient();
-		// AsyncHttpResponseHandler
 		StringBuffer buffer = new StringBuffer(url);
 		buffer.append("pagenumber=" + pagenumber);
 		buffer.append("&cityId=" + cityId);
@@ -232,7 +216,7 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 					JSONArray arr = jsonObject.getJSONArray("data");
 					if (arr == null || arr.length() == 0) {
 						adapter.notifyDataSetChanged();
-						if(curPageNumber == 1){
+						if (curPageNumber == 1) {
 							ToastUtil.showToast(getActivity(),
 									getString(R.string.no_data));
 							return;

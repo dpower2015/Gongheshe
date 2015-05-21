@@ -177,4 +177,5 @@
 	<string name="fail_to_book">预定失败</string>
 	<string name="success_to_book">预定成功</string>
 	<string name="no_data">该目录暂时没有数据</string>
+	<string name="brand_detail">品牌详情</string>
 </resources>

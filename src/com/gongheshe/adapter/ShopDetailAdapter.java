@@ -12,13 +12,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
-import com.gongheshe.javabean.ProductMod;
+import com.gongheshe.model.TypeClassMod;
+import com.gongheshe.util.AnimateFirstDisplayListener;
+import com.gongheshe.util.ImageLoderConfig;
 import com.gongheshe.util.ToolImgLoader;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class ShopDetailAdapter extends BaseAdapter {
 
 	private Context context;
-	public List<ProductMod> datas = new ArrayList<ProductMod>();
+	public List<TypeClassMod> datas = new ArrayList<TypeClassMod>();
 	private ToolImgLoader imgLoader = ToolImgLoader.get();
 	private LayoutInflater inflater;
 	public String title;
