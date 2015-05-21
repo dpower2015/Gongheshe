@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,8 +22,8 @@ import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
 import com.gongheshe.javabean.ProductAttr;
 import com.gongheshe.javabean.ProductDetailMod;
+import com.gongheshe.javabean.ProductMod;
 import com.gongheshe.javabean.ProjectContentMod;
-import com.gongheshe.model.TypeClassMod;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.ShareSave;
 import com.gongheshe.util.ToastUtil;
@@ -42,7 +41,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 	private static final String urlPost = GhhConst.BASE_URL + "pSave.htm";
 	private String urlIsCollect = GhhConst.BASE_URL + "isCollect.htm?";
 	private View view;
-	private TypeClassMod data;
+	private ProductMod data;
 	private ToolImgLoader imgLoader = ToolImgLoader.get();
 	private ProductDetailMod productDetailMod;
 	private ImageView img_picture;
@@ -135,7 +134,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		return ((TextView) view.findViewById(resId));
 	}
 
-	public void setTypeClassMod(TypeClassMod data) {
+	public void setTypeClassMod(ProductMod data) {
 		this.data = data;
 	}
 
@@ -265,7 +264,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		httpClient.post(urlPost, params, handler);
 	}
 
-	private void requestWebServer(int productId) {
+	private void requestWebServer(String productId) {
 		AsyncHttpClient httpClient;
 		httpClient = new AsyncHttpClient();
 		AsyncHttpResponseHandler handler;

@@ -84,7 +84,6 @@ public class HomeFaceFragment extends BaseFragment implements OnClickListener {
 			break;
 		}
 	}
-
 	private void setOnClickListenerTo(int resId) {
 		view.findViewById(resId).setOnClickListener(this);
 	}
