@@ -1,15 +1,3 @@
 eclipse.preferences.version=1
-encoding//src/com/gongheshe/activity/LoginActivity.java=UTF-8
-encoding//src/com/gongheshe/adapter/HotSelAdapter.java=UTF-8
-encoding//src/com/gongheshe/fragment/HomeBathFragment.java=UTF-8
-encoding//src/com/gongheshe/fragment/HomeElecFragment.java=UTF-8
 encoding//src/com/gongheshe/fragment/HomeFaceFragment.java=UTF-8
-encoding//src/com/gongheshe/fragment/HomeFurnishFragment.java=UTF-8
-encoding//src/com/gongheshe/fragment/HomeLampFragment.java=UTF-8
-encoding//src/com/gongheshe/fragment/HomeStructureFragment.java=UTF-8
-encoding//src/com/gongheshe/fragment/HomeWoodFragment.java=UTF-8
-encoding//src/com/gongheshe/fragment/HotSaleFragment.java=UTF-8
-encoding//src/zy/zh/xListView/XListView.java=UTF-8
-encoding//src/zy/zh/xListView/XListViewFooter.java=UTF-8
-encoding//src/zy/zh/xListView/XListViewHeader.java=UTF-8
 encoding/<project>=UTF-8
