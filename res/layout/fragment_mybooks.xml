@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="@dimen/actionbar_height"
+    	android:orientation="horizontal"
+    	android:layout_margin="5dp"
+        >
+         <ImageButton
+            android:id="@+id/ibtn_back"
+            android:layout_width="@dimen/ic_width"
+            android:layout_height="@dimen/ic_height"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/jt_left" 
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="@dimen/margin_bar"/>
+       	
+       	<LinearLayout 
+       	    android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:orientation="horizontal"
+    		android:layout_centerInParent="true"
+    		android:background="@color/hongse"
+       	    >
+       	 
+       	     <Button
+       	    android:id="@+id/finished"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+    		android:background="@color/red"
+    		android:gravity="center"
+    		android:textColor="@color/white"
+            android:text="@string/finished"
+            />
+       	     <Button
+       	    android:id="@+id/going"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+    		android:gravity="center"
+    		android:layout_margin="1dp"
+    		android:background="@color/white_nor"
+    		android:textColor="@color/red"
+            android:text="@string/going"
+            />
+       	</LinearLayout>
+       
+    </RelativeLayout>
+     <FrameLayout
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/line_width"
+           android:background="@color/grey_light_line" />
+     <zy.zh.xListView.XListView
+        android:id="@+id/xListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/translate"
+        android:scrollbars="none"
+        android:cacheColorHint="@color/translate" />
+
+</LinearLayout>
+
+<!-- 我的订单界面 -->
