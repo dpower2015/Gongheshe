@@ -470,64 +470,71 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_left_menu_light=0x7f02004a;
         public static final int ic_left_menu_wash=0x7f02004b;
         public static final int ic_left_menu_wooden=0x7f02004c;
-        public static final int ic_mine_off=0x7f02004d;
-        public static final int ic_mine_on=0x7f02004e;
-        public static final int ic_order=0x7f02004f;
-        public static final int ic_psd=0x7f020050;
-        public static final int ic_register_phone=0x7f020051;
-        public static final int ic_register_psd=0x7f020052;
-        public static final int ic_register_user=0x7f020053;
-        public static final int ic_right_corner_checked=0x7f020054;
-        public static final int ic_shop_cart=0x7f020055;
-        public static final int ic_username=0x7f020056;
-        public static final int ic_wash_bathtub=0x7f020057;
-        public static final int ic_wash_face=0x7f020058;
-        public static final int ic_wash_floordrain=0x7f020059;
-        public static final int ic_wash_pedestal=0x7f02005a;
-        public static final int ic_wash_pendant=0x7f02005b;
-        public static final int ic_wash_shower=0x7f02005c;
-        public static final int ic_wash_sprinkler=0x7f02005d;
-        public static final int ic_wood_cloth_hat=0x7f02005e;
-        public static final int ic_wood_floor=0x7f02005f;
-        public static final int ic_wood_indoor_system=0x7f020060;
-        public static final int ic_wood_stairs=0x7f020061;
-        public static final int ic_wood_wall_system=0x7f020062;
-        public static final int ic_wood_wash_broad=0x7f020063;
-        public static final int ic_wood_whole_broad=0x7f020064;
-        public static final int image_loading=0x7f020065;
-        public static final int img_on_fail=0x7f020066;
-        public static final int indicator_arrow=0x7f020067;
-        public static final int indicator_bg_bottom=0x7f020068;
-        public static final int indicator_bg_top=0x7f020069;
-        public static final int jt_down=0x7f02006a;
-        public static final int jt_down_grey=0x7f02006b;
-        public static final int jt_left=0x7f02006c;
-        public static final int jt_right=0x7f02006d;
-        public static final int jt_right_head=0x7f02006e;
-        public static final int jt_right_red=0x7f02006f;
-        public static final int jt_up=0x7f020070;
-        public static final int jt_up_grey=0x7f020071;
-        public static final int loading1=0x7f020072;
-        public static final int loading2=0x7f020073;
-        public static final int menu_bg=0x7f020074;
-        public static final int modify_admit=0x7f020075;
-        public static final int search_bg=0x7f020076;
-        public static final int search_product=0x7f020077;
-        public static final int selector_btn_login=0x7f020078;
-        public static final int separ=0x7f020079;
-        public static final int slibe=0x7f02007a;
-        public static final int test_user_image=0x7f02007b;
-        public static final int version=0x7f02007c;
-        public static final int visit=0x7f02007d;
-        public static final int xlistview_arrow=0x7f02007e;
+        public static final int ic_loading=0x7f02004d;
+        public static final int ic_mine_off=0x7f02004e;
+        public static final int ic_mine_on=0x7f02004f;
+        public static final int ic_order=0x7f020050;
+        public static final int ic_psd=0x7f020051;
+        public static final int ic_register_phone=0x7f020052;
+        public static final int ic_register_psd=0x7f020053;
+        public static final int ic_register_user=0x7f020054;
+        public static final int ic_right_corner_checked=0x7f020055;
+        public static final int ic_shop_cart=0x7f020056;
+        public static final int ic_username=0x7f020057;
+        public static final int ic_wash_bathtub=0x7f020058;
+        public static final int ic_wash_face=0x7f020059;
+        public static final int ic_wash_floordrain=0x7f02005a;
+        public static final int ic_wash_pedestal=0x7f02005b;
+        public static final int ic_wash_pendant=0x7f02005c;
+        public static final int ic_wash_shower=0x7f02005d;
+        public static final int ic_wash_sprinkler=0x7f02005e;
+        public static final int ic_wood_cloth_hat=0x7f02005f;
+        public static final int ic_wood_floor=0x7f020060;
+        public static final int ic_wood_indoor_system=0x7f020061;
+        public static final int ic_wood_stairs=0x7f020062;
+        public static final int ic_wood_wall_system=0x7f020063;
+        public static final int ic_wood_wash_broad=0x7f020064;
+        public static final int ic_wood_whole_broad=0x7f020065;
+        public static final int image_loading=0x7f020066;
+        public static final int img_on_fail=0x7f020067;
+        public static final int indicator_arrow=0x7f020068;
+        public static final int indicator_bg_bottom=0x7f020069;
+        public static final int indicator_bg_top=0x7f02006a;
+        public static final int jt_down=0x7f02006b;
+        public static final int jt_down_grey=0x7f02006c;
+        public static final int jt_left=0x7f02006d;
+        public static final int jt_right=0x7f02006e;
+        public static final int jt_right_head=0x7f02006f;
+        public static final int jt_right_red=0x7f020070;
+        public static final int jt_up=0x7f020071;
+        public static final int jt_up_grey=0x7f020072;
+        public static final int loading1=0x7f020073;
+        public static final int loading2=0x7f020074;
+        public static final int menu_bg=0x7f020075;
+        public static final int modify_admit=0x7f020076;
+        public static final int search_bg=0x7f020077;
+        public static final int search_product=0x7f020078;
+        public static final int selector_btn_login=0x7f020079;
+        public static final int separ=0x7f02007a;
+        public static final int slibe=0x7f02007b;
+        public static final int test_user_image=0x7f02007c;
+        public static final int version=0x7f02007d;
+        public static final int visit=0x7f02007e;
+        public static final int xlistview_arrow=0x7f02007f;
     }
     public static final class id {
         public static final int add_project=0x7f050032;
         public static final int admit_modify=0x7f050090;
         public static final int all_shower_room=0x7f050069;
+<<<<<<< HEAD
         public static final int apply_drawback=0x7f0500bb;
         public static final int both=0x7f050007;
         public static final int bt_back=0x7f050096;
+=======
+        public static final int apply_drawback=0x7f0500b9;
+        public static final int both=0x7f050007;
+        public static final int bt_back=0x7f050094;
+>>>>>>> origin/master
         public static final int bt_bath1=0x7f050047;
         public static final int bt_bath2=0x7f050048;
         public static final int bt_bath3=0x7f050049;
@@ -537,8 +544,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int bt_bath7=0x7f05004d;
         public static final int bt_brand_show_city=0x7f05003a;
         public static final int bt_class=0x7f050039;
+<<<<<<< HEAD
         public static final int bt_detail=0x7f0500b4;
         public static final int bt_down=0x7f0500af;
+=======
+        public static final int bt_detail=0x7f0500b2;
+        public static final int bt_down=0x7f0500ad;
+>>>>>>> origin/master
         public static final int bt_elec1=0x7f05004f;
         public static final int bt_elec10=0x7f050058;
         public static final int bt_elec11=0x7f050059;
@@ -570,14 +582,24 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int bt_lamp_3=0x7f05006c;
         public static final int bt_lamp_4=0x7f05006d;
         public static final int bt_lamp_5=0x7f05006e;
+<<<<<<< HEAD
         public static final int bt_return=0x7f0500b3;
+=======
+        public static final int bt_return=0x7f0500b1;
+>>>>>>> origin/master
         public static final int bt_structure_1=0x7f05006f;
         public static final int bt_structure_2=0x7f050070;
         public static final int bt_structure_3=0x7f050071;
         public static final int bt_structure_4=0x7f050072;
+<<<<<<< HEAD
         public static final int bt_submit=0x7f0500b2;
         public static final int bt_to_show_citys=0x7f05007a;
         public static final int bt_up=0x7f0500ae;
+=======
+        public static final int bt_submit=0x7f0500b0;
+        public static final int bt_to_show_citys=0x7f05007a;
+        public static final int bt_up=0x7f0500ac;
+>>>>>>> origin/master
         public static final int bt_wood_1=0x7f050073;
         public static final int bt_wood_2=0x7f050074;
         public static final int bt_wood_3=0x7f050075;
@@ -594,6 +616,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int charge_project=0x7f05002e;
         public static final int charge_tel_project=0x7f05002f;
         public static final int company_belong=0x7f05001e;
+<<<<<<< HEAD
         public static final int confirm_accept=0x7f0500bc;
         public static final int day=0x7f0500d7;
         public static final int decribe_project=0x7f050037;
@@ -605,6 +628,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int exit_curuser=0x7f05008c;
         public static final int finished=0x7f050093;
         public static final int fl_inner=0x7f0500d0;
+=======
+        public static final int confirm_accept=0x7f0500ba;
+        public static final int day=0x7f0500d4;
+        public static final int decribe_project=0x7f050037;
+        public static final int decript=0x7f0500b7;
+        public static final int delete_img=0x7f0500cc;
+        public static final int detail_img=0x7f0500b5;
+        public static final int disabled=0x7f050004;
+        public static final int edt_remarks=0x7f0500af;
+        public static final int exit_curuser=0x7f05008c;
+        public static final int fl_inner=0x7f0500cd;
+>>>>>>> origin/master
         public static final int flip=0x7f05000c;
         public static final int fragment=0x7f050016;
         public static final int frame_bath=0x7f05007d;
@@ -616,6 +651,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int frame_structure=0x7f05007b;
         public static final int frame_wood=0x7f05007e;
         public static final int fullscreen=0x7f050003;
+<<<<<<< HEAD
         public static final int gl_productAttr=0x7f0500a9;
         public static final int going=0x7f050094;
         public static final int good_icon=0x7f0500be;
@@ -624,6 +660,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int goods_yuan=0x7f0500c1;
         public static final int gridview=0x7f05000e;
         public static final int gridview_item_name=0x7f050026;
+=======
+        public static final int gl_productAttr=0x7f0500a7;
+        public static final int good_icon=0x7f0500bc;
+        public static final int goods_dollor=0x7f0500c0;
+        public static final int goods_title=0x7f0500bd;
+        public static final int goods_yuan=0x7f0500bf;
+        public static final int gridview=0x7f05000e;
+>>>>>>> origin/master
         public static final int homeBathFragment=0x7f050040;
         public static final int homeElecFragment=0x7f05003f;
         public static final int homeFaceFragment=0x7f050042;
@@ -637,6 +681,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ibtn_home=0x7f050017;
         public static final int ibtn_hotsell=0x7f050019;
         public static final int ibtn_mine=0x7f05001a;
+<<<<<<< HEAD
         public static final int icon=0x7f0500b8;
         public static final int img_check=0x7f0500b5;
         public static final int img_collect=0x7f05009c;
@@ -661,6 +706,32 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int modify_head_img=0x7f05008b;
         public static final int modify_pw=0x7f05008a;
         public static final int month=0x7f0500d9;
+=======
+        public static final int icon=0x7f0500b6;
+        public static final int img_check=0x7f0500b3;
+        public static final int img_collect=0x7f05009a;
+        public static final int img_del=0x7f050022;
+        public static final int img_left=0x7f050025;
+        public static final int img_picture=0x7f050095;
+        public static final int img_right=0x7f050026;
+        public static final int img_showDetail=0x7f05009d;
+        public static final int img_user=0x7f050086;
+        public static final int layout_collect=0x7f050099;
+        public static final int layout_detail=0x7f05009e;
+        public static final int layout_menu=0x7f050046;
+        public static final int layout_toshow=0x7f050045;
+        public static final int layout_toshow_params=0x7f05009c;
+        public static final int left=0x7f050000;
+        public static final int listView_myPro=0x7f050093;
+        public static final int listview_cates=0x7f0500c1;
+        public static final int listview_citys=0x7f0500c2;
+        public static final int manualOnly=0x7f050008;
+        public static final int margin=0x7f050002;
+        public static final int media_system=0x7f05004e;
+        public static final int modify_head_img=0x7f05008b;
+        public static final int modify_pw=0x7f05008a;
+        public static final int month=0x7f0500d6;
+>>>>>>> origin/master
         public static final int more_cate=0x7f050091;
         public static final int mybooks=0x7f050088;
         public static final int myproject=0x7f050089;
@@ -670,6 +741,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int newpw=0x7f05008e;
         public static final int newpw_again=0x7f05008f;
         public static final int oldpw=0x7f05008d;
+<<<<<<< HEAD
         public static final int order_state=0x7f0500ba;
         public static final int order_time=0x7f0500bd;
         public static final int partner_grid_ll=0x7f050025;
@@ -685,11 +757,28 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int product_title1=0x7f0500cc;
         public static final int product_yuan=0x7f0500c8;
         public static final int product_yuan1=0x7f0500cd;
+=======
+        public static final int order_state=0x7f0500b8;
+        public static final int order_time=0x7f0500bb;
+        public static final int password=0x7f050013;
+        public static final int phone_number=0x7f05001d;
+        public static final int photo_item=0x7f0500be;
+        public static final int price=0x7f050082;
+        public static final int product_dollor=0x7f0500c6;
+        public static final int product_dollor1=0x7f0500cb;
+        public static final int product_icon=0x7f0500c3;
+        public static final int product_icon1=0x7f0500c8;
+        public static final int product_title=0x7f0500c4;
+        public static final int product_title1=0x7f0500c9;
+        public static final int product_yuan=0x7f0500c5;
+        public static final int product_yuan1=0x7f0500ca;
+>>>>>>> origin/master
         public static final int progressBar1=0x7f05002b;
         public static final int pullDownFromTop=0x7f050009;
         public static final int pullFromEnd=0x7f050006;
         public static final int pullFromStart=0x7f050005;
         public static final int pullUpFromBottom=0x7f05000a;
+<<<<<<< HEAD
         public static final int pull_to_refresh_image=0x7f0500d1;
         public static final int pull_to_refresh_progress=0x7f0500d2;
         public static final int pull_to_refresh_sub_text=0x7f0500d4;
@@ -697,13 +786,26 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int register=0x7f05001f;
         public static final int right=0x7f050001;
         public static final int rightView=0x7f0500ca;
+=======
+        public static final int pull_to_refresh_image=0x7f0500ce;
+        public static final int pull_to_refresh_progress=0x7f0500cf;
+        public static final int pull_to_refresh_sub_text=0x7f0500d1;
+        public static final int pull_to_refresh_text=0x7f0500d0;
+        public static final int register=0x7f05001f;
+        public static final int right=0x7f050001;
+        public static final int rightView=0x7f0500c7;
+>>>>>>> origin/master
         public static final int rotate=0x7f05000b;
         public static final int sale_volume=0x7f050084;
         public static final int save_project=0x7f050038;
         public static final int scrollview=0x7f050010;
         public static final int selected_view=0x7f05000d;
         public static final int sentiment=0x7f050083;
+<<<<<<< HEAD
         public static final int stag_gridview=0x7f0500d5;
+=======
+        public static final int stag_gridview=0x7f0500d2;
+>>>>>>> origin/master
         public static final int staggeredGridView=0x7f050011;
         public static final int state=0x7f050035;
         public static final int sv_home=0x7f05003d;
@@ -711,6 +813,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int tel_client=0x7f050031;
         public static final int textTitle=0x7f050024;
         public static final int textView1=0x7f05002c;
+<<<<<<< HEAD
         public static final int time=0x7f0500da;
         public static final int time_begin=0x7f050033;
         public static final int time_end=0x7f050034;
@@ -718,6 +821,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int title_bar=0x7f0500d6;
         public static final int txt_belong_project=0x7f0500ac;
         public static final int txt_brand=0x7f0500a3;
+=======
+        public static final int time=0x7f0500d7;
+        public static final int time_begin=0x7f050033;
+        public static final int time_end=0x7f050034;
+        public static final int titile=0x7f0500b4;
+        public static final int title_bar=0x7f0500d3;
+        public static final int txt_belong_project=0x7f0500aa;
+        public static final int txt_brand=0x7f0500a1;
+>>>>>>> origin/master
         public static final int txt_cityname=0x7f050020;
         public static final int txt_class=0x7f0500a1;
         public static final int txt_collect=0x7f05009d;
@@ -739,6 +851,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int user_name=0x7f05001c;
         public static final int username=0x7f050012;
         public static final int webview=0x7f05000f;
+<<<<<<< HEAD
         public static final int weekday=0x7f0500d8;
         public static final int xListView=0x7f050092;
         public static final int xlistview_footer_content=0x7f0500db;
@@ -750,6 +863,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int xlistview_header_progressbar=0x7f0500e3;
         public static final int xlistview_header_text=0x7f0500df;
         public static final int xlistview_header_time=0x7f0500e1;
+=======
+        public static final int weekday=0x7f0500d5;
+        public static final int xListView=0x7f050092;
+        public static final int xlistview_brand=0x7f05003c;
+        public static final int xlistview_footer_content=0x7f0500d8;
+        public static final int xlistview_footer_hint_textview=0x7f0500da;
+        public static final int xlistview_footer_progressbar=0x7f0500d9;
+        public static final int xlistview_header_arrow=0x7f0500df;
+        public static final int xlistview_header_content=0x7f0500db;
+        public static final int xlistview_header_hint_textview=0x7f0500dd;
+        public static final int xlistview_header_progressbar=0x7f0500e0;
+        public static final int xlistview_header_text=0x7f0500dc;
+        public static final int xlistview_header_time=0x7f0500de;
+>>>>>>> origin/master
     }
     public static final class integer {
         public static final int num_cols=0x7f080000;
@@ -888,6 +1015,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int my_order=0x7f090019;
         public static final int my_zone=0x7f090017;
         public static final int myproject=0x7f09001c;
+        public static final int no_data=0x7f0900aa;
         public static final int no_more_data_loaded=0x7f090092;
         public static final int no_the_right_tel_number=0x7f09008c;
         public static final int ok=0x7f090086;
