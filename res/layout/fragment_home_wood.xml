@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey_main" >
+
+    <LinearLayout
+        android:id="@+id/layout_toshow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:padding="10dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_left_menu_wooden" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/wooden_class"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/jt_right_head" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_main"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/bt_wood_1"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_wood_whole_broad"
+                android:text="@string/whole_broad"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                android:id="@+id/bt_wood_2"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_wood_indoor_system"
+                android:text="@string/indoor_system"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                android:id="@+id/bt_wood_3"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_wood_wall_system"
+                android:text="@string/broad_system"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                android:id="@+id/bt_wood_4"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_wood_cloth_hat"
+                android:text="@string/cloth_hat_cupbroad"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/bt_wood_5"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_wood_wash_broad"
+                android:text="@string/wash_cupbroad"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                android:id="@+id/bt_wood_6"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_wood_stairs"
+                android:text="@string/stair_rail"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                android:id="@+id/bt_wood_7"
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_wood_floor"
+                android:text="@string/floor"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_elec_center_media"
+                android:text="@string/media_system"
+                android:visibility="invisible"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -47,8 +47,8 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 		view.findViewById(R.id.ibtn_back).setOnClickListener(this);
 		view.findViewById(R.id.add_project).setOnClickListener(this);
 		listView_myPro = (XListView) view.findViewById(R.id.listView_myPro);
-		listView_myPro.setPullLoadEnable(true);
-		listView_myPro.setPullRefreshEnable(false);
+		listView_myPro.setPullLoadEnable(false);
+		listView_myPro.setPullRefreshEnable(true);
 		// adapter =new MyProjectListAdapter(baseActivity);
 		adapter = new MyProjectListAdapter(baseActivity);
 		listView_myPro.setAdapter(adapter);

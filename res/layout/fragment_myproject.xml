@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white">
+      <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_height" >
+
+        <ImageButton
+            android:id="@+id/ibtn_back"
+            android:layout_width="@dimen/ic_width"
+            android:layout_height="@dimen/ic_height"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/jt_left" 
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="@dimen/margin_bar"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/myproject"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+        <ImageButton
+            android:id="@+id/add_project"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/add" />
+    </RelativeLayout>
+    <FrameLayout
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/line_width"
+           android:background="@color/grey_light_line" />
+	<zy.zh.xListView.XListView 
+        android:id="@+id/listView_myPro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@color/translate"
+        android:scrollbars="none"
+        />
+</LinearLayout>

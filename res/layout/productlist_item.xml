@@ -5,7 +5,6 @@
 	    android:orientation="horizontal" 
 	    android:background="@color/white">
      <LinearLayout 
-    android:id="@+id/leftView"
     android:layout_width="0dp"
     android:layout_weight="1"
     android:layout_height="wrap_content"
@@ -13,7 +12,7 @@
     <ImageView
         android:id="@+id/product_icon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:scaleType="fitXY"
         android:src="@drawable/ic_launcher"/>
      <TextView 
@@ -69,7 +68,7 @@
     <ImageView
         android:id="@+id/product_icon1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:scaleType="fitXY"
         android:src="@drawable/ic_launcher"/>
      <TextView 

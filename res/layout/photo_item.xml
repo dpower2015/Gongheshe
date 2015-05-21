@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@null"
+    android:orientation="vertical" 
+    android:padding="2.5dp">
+    <ImageView
+        android:id="@+id/good_icon"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:contentDescription="@null"
+        android:src="@drawable/bg_loading"/>
+     <TextView 
+         android:id="@+id/goods_title"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="titile"
+         android:background="@color/white"
+         android:singleLine="true"
+         style="@style/foot_stype"
+         android:gravity="center"
+         />
+     <RelativeLayout 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="@color/white"
+         android:id="@+id/photo_item"
+         >
+          <TextView 
+         android:id="@+id/goods_yuan"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="#2"
+         android:layout_marginLeft="10dp"
+         style="@style/foot_stype"
+         />
+         
+          
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:src="@drawable/visit"
+            android:layout_toLeftOf="@+id/goods_dollor"
+            android:layout_alignBottom="@id/goods_dollor"
+            />
+          <TextView 
+         android:id="@+id/goods_dollor"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_marginRight="10dp"
+         android:text="#12"
+         style="@style/foot_stype"
+         />
+     </RelativeLayout >
+</LinearLayout>

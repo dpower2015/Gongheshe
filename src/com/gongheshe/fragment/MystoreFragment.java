@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
 import com.gongheshe.adapter.MystoreListAdapter;
-import com.gongheshe.adapter.MystoreListAdapter.onClickListener;
 import com.gongheshe.dialog.CateListPopWindow;
 import com.gongheshe.dialog.LoadingDlg;
 import com.gongheshe.javabean.ProductMod;
@@ -43,7 +42,6 @@ public class MystoreFragment extends BaseFragment implements OnClickListener{
 	private ShareSave shareSave = ShareSave.get();
 	private String userId;
 	private MystoreListAdapter mystoreListAdapter;
-	private int cateId=0;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -55,39 +53,10 @@ public class MystoreFragment extends BaseFragment implements OnClickListener{
 		xListView=(XListView)view.findViewById(R.id.xListView);
 		mystoreListAdapter =new MystoreListAdapter(baseActivity);
 		xListView.setAdapter(mystoreListAdapter);
-		xListView.setPullLoadEnable(true);
-		xListView.setPullRefreshEnable(false);
-		mystoreListAdapter.setItemclickListener(new onClickListener() {
-			
-			@Override
-			public void onClick(int index) {
-				// TODO Auto-generated method stub
-				ArrayList<ProductMod> productList;
-				productList=mystoreListAdapter.getMystoreList();
-				ProductThirdDetailFragment productDetail = new ProductThirdDetailFragment();
-				productDetail.setTypeClassMod(productList.get(index));
-				baseActivity.replaceFragment(productDetail, true);
-			}
-		});
-		xListView.setXListViewListener(new XListView.IXListViewListener() {
-
-			@Override
-			public void onRefresh() {
-			}
-
-			@Override
-			public void onLoadMore() {
-				mPageNum++;
-				requestStoreData();
-				//requestWebServer(pageNumber);
-			}
-		});
 		cateListPopWindow =CateListPopWindow.getIns(baseActivity);
 		cateListPopWindow.setStoreFragment(this);
 		userId=shareSave.getUid();
-		cateId=-1;
-		mPageNum=1;
-		requestStoreData();
+		requestStoreData(-1);
 		return view;
 	}
 	@Override
@@ -113,19 +82,17 @@ public class MystoreFragment extends BaseFragment implements OnClickListener{
 	}
 	public void update(int id){
 		mPageNum=1;
-		cateId =id+1;
-		mystoreListAdapter.clearList();
-		requestStoreData();
+		requestStoreData(id+1);
 	}
-	public void requestStoreData(){
+	public void requestStoreData(int id){
 		String url=null;
 		RequestParams params = new RequestParams();
 		params.put("pagesize", PAGE_SIZE+"");
 		params.put("pagenumber",mPageNum+"");
 		params.put("memberId",userId+"");
-		if(cateId!=-1){
+		if(id!=-1){
 			url=GhhConst.GET_MY_STORE_LIST_BYCATE;
-			params.put("product.typeOneId",cateId+"");
+			params.put("product.typeOneId",id+"");
 		}
 		else {
 			
@@ -139,7 +106,6 @@ public class MystoreFragment extends BaseFragment implements OnClickListener{
 
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {
-				xListView.stopLoadMore();
 				LoggerSZ.e(TAG, "访问失败" + e.toString());
 				Toast.makeText(baseActivity, "获取数据失败", Toast.LENGTH_SHORT).show();
 				try {
@@ -152,7 +118,6 @@ public class MystoreFragment extends BaseFragment implements OnClickListener{
 			@Override
 			public void onSuccess(int statusCode, Header[] headers,
 					byte[] response) {
-				xListView.stopLoadMore();
 				 mPageNum++;
 				LoggerSZ.i(TAG, "result = " + new String(response));
 				try {
@@ -193,7 +158,7 @@ public class MystoreFragment extends BaseFragment implements OnClickListener{
 				datas.add(gson.fromJson(arr.getJSONObject(i)
 						.toString(), ProductMod.class));
 			}
-			mystoreListAdapter.addList(datas);
+			mystoreListAdapter.setMystoreList(datas);
 			mystoreListAdapter.notifyDataSetChanged();
 		} catch (JSONException e) {
 			e.printStackTrace();

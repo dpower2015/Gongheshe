@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey_main" >
+
+    <LinearLayout
+        android:id="@+id/layout_toshow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+         android:background="@color/white"
+        android:padding="10dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_left_menu_face" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/face_class"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/jt_right_head" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_main"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_face_meterial_01"
+                android:text="@string/stone"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/bt_face_1"/>
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_face_meterial_02"
+                android:text="@string/tile"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/bt_face_2"/>
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_face_meterial_03"
+                android:text="@string/wallpaper"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/bt_face_3" />
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_face_meterial_04"
+                android:text="@string/hard_soft_package"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/bt_face_4"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_face_meterial_05"
+                android:text="@string/paint"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/bt_face_5"/>
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_face_meterial_06"
+                android:text="@string/gyp_line"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/bt_face_6" />
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_face_meterial_07"
+                android:text="@string/glasses"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu" 
+                android:id="@+id/bt_face_7"/>
+
+            <Button
+                style="@null"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_face_meterial_08"
+                android:text="@string/special_material"
+                android:textColor="@color/home_menu_text"
+                android:textSize="@dimen/textsize_home_menu"
+                android:id="@+id/bt_face_8" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

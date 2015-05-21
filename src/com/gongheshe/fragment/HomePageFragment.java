@@ -13,13 +13,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ScrollView;
 
 import com.example.gongheshe.R;
 import com.gongheshe.dialog.CityListPopWindow;
 import com.gongheshe.javabean.CityMod;
+import com.gongheshe.model.TypeClassMod;
+import com.gongheshe.util.ToastUtil;
 import com.googheshe.entity.GhhConst;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;

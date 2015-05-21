@@ -79,7 +79,7 @@
                   android:layout_width="wrap_content"
 	              android:layout_height="wrap_content"
 	              android:text="未付款"
-	              style="@style/input_style"
+	              style="@style/inputbar_style2"
                   />
               </LinearLayout>
               <LinearLayout 
