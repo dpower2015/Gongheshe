@@ -36,6 +36,10 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+/**
+ * @author ZhengZhiying<br>
+ * @function  My product in 02:14:04
+ */
 public class ProductThirdDetailFragment extends BaseFragment implements
 		OnClickListener {
 
