@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,6 +25,7 @@ import com.gongheshe.javabean.ProductAttr;
 import com.gongheshe.javabean.ProductDetailMod;
 import com.gongheshe.javabean.ProductMod;
 import com.gongheshe.javabean.ProjectContentMod;
+import com.gongheshe.model.TypeClassMod;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.ShareSave;
 import com.gongheshe.util.ToastUtil;
@@ -78,7 +80,6 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 				container, false);
 		view.findViewById(R.id.bt_return).setOnClickListener(this);
 		img_picture = (ImageView) view.findViewById(R.id.img_picture);
-		imgLoader.show(data.androidNote2ImagesUrl, img_picture);
 		txt_price_retail = findText(R.id.txt_price_retail);
 		txt_price_mark = findText(R.id.txt_price_mark);
 		txt_class = findText(R.id.txt_class);
@@ -111,7 +112,8 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		img_showDetail = (ImageView) view.findViewById(R.id.img_showDetail);
 		gl_productAttr = (GridLayout) view.findViewById(R.id.gl_productAttr);
 		txt_describe = ((TextView) view.findViewById(R.id.txt_describe));
-		requestWebServer(data.id);
+		requestWebServerTotalInfo(data.id);
+		imgLoader.show(data.androidNote2ImagesUrl, img_picture);
 		myProjectListF = new MyProjectListForPickFragment();
 		setListenerTomyProjectListF();
 		return view;
@@ -183,8 +185,10 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 			break;
 		case R.id.layout_collect:
 			if (viewHolder.isCollect) {
+				requestCollectOrCancel(false);
 				img_collect.setImageResource(R.drawable.ic_collect_off);
 			} else {
+				requestCollectOrCancel(true);
 				img_collect.setImageResource(R.drawable.ic_collect_on);
 			}
 			break;
@@ -201,6 +205,35 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		default:
 			break;
 		}
+	}
+
+	private void requestCollectOrCancel(boolean isCollect) {
+		String url = GhhConst.BASE_URL + "pMemberCollect.htm";
+		AsyncHttpClient httpClient;
+		httpClient = new AsyncHttpClient();
+		AsyncHttpResponseHandler handler = null;
+		handler = new AsyncHttpResponseHandler() {
+
+			@Override
+			public void onSuccess(int statusCode, Header[] headers,
+					byte[] response) {
+				String data = new String(response);
+				ToastUtil.showToast(getActivity(), data);
+			}
+
+			@Override
+			public void onFailure(int statusCode, Header[] headers,
+					byte[] response, Throwable e) {
+			}
+		};
+		RequestParams params = new RequestParams();
+		ShareSave shareSave = ShareSave.get();
+		// params.put("userId", shareSave.getUid());
+		params.put("memberId", shareSave.getUserName());
+		params.put("productId", productDetailMod.productDeti.id);
+		params.put("state", isCollect);
+		Log.i("ProductThird", url);
+		httpClient.post(url, params, handler);
 	}
 
 	/**
@@ -235,7 +268,6 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 			}
 
 			@Override
@@ -264,7 +296,11 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		httpClient.post(urlPost, params, handler);
 	}
 
-	private void requestWebServer(String productId) {
+	/**
+	 * request webServer for this product all informations
+	 * @param productId
+	 */
+	private void requestWebServerTotalInfo(String productId) {
 		AsyncHttpClient httpClient;
 		httpClient = new AsyncHttpClient();
 		AsyncHttpResponseHandler handler;
@@ -273,17 +309,16 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 			@Override
 			public void onSuccess(int statusCode, Header[] headers,
 					byte[] response) {
-				// JSONObject jsonObject;
-				// jsonObject = new JSONObject(new String(response).replace(
-				// "\n", ""));
 				Gson gson;
 				gson = new Gson();
-				// ProductDetailMod data;
 				productDetailMod = gson.fromJson(
 						new String(response).replace("\n", ""),
 						ProductDetailMod.class);
+				if(productDetailMod.productAttr == null){
+					ToastUtil.showToast(getActivity(), "数据错误 : "+new String(response));
+					return;
+				}
 				updateView(productDetailMod);
-				// ToastUtil.showToast(getActivity(), "提交成功");
 			}
 
 			@Override

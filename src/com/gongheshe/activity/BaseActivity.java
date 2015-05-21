@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 
 import com.gongheshe.context.SZApplication;
+import com.gongheshe.fragment.BaseFragment;
 
 public class BaseActivity extends FragmentActivity {
 	
@@ -17,6 +18,11 @@ public class BaseActivity extends FragmentActivity {
 	}
 
 	public void replaceFragment(Fragment fragment, boolean isAddToBackStack){}
+	/**
+	 * @author ZhengZhiying
+	 * @param f
+	 */
+	public void addFragment(BaseFragment f) {};
 	
 	public void reSetView(){}
 	

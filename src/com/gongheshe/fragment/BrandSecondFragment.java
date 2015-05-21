@@ -109,6 +109,7 @@ public class BrandSecondFragment extends BaseFragment implements
 				ProductMod typedata = new ProductMod();
 				// typedata.id = Integer.valueOf(data.id);
 				typedata.id = datas.get(position).id;
+
 				// typedata.androidNote2ImagesUrl = data.androidNote2Top;
 				typedata.androidNote2ImagesUrl = datas.get(position).androidNote2ImagesMinUrl;
 				thirdlFragment.setTypeClassMod(typedata);
