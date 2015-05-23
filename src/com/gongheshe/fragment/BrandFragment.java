@@ -10,7 +10,6 @@ import org.json.JSONObject;
 
 import zy.zh.xListView.XListView;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.FrameLayout;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
@@ -26,6 +24,8 @@ import com.gongheshe.adapter.BussinessGridViewAdapter;
 import com.gongheshe.dialog.CityListPopWindow;
 import com.gongheshe.javabean.BrandMainListMod;
 import com.gongheshe.javabean.CityMod;
+import com.gongheshe.util.HomeBrandClassView;
+import com.gongheshe.util.HomeBrandClassView.OnBrandClickListener;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.ToastUtil;
 import com.googheshe.entity.GhhConst;
@@ -46,13 +46,14 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 	private Button bt_showCity;
 	private CityListPopWindow cityListPopWindow;
 	private BaseActivity baseActivity;
-	private BrandClassFragment classFragment;
-	private FrameLayout frame_class;
+	// private BrandClassFragment classFragment;
+	private View frame_class;
 	private XListView xlistview_brand;
-	private CityMod curCityMod = null;
+	private static CityMod curCityMod = null;
 	private int curPageNumber = 1;
 	private String[] classId = new String[] { "1", "1" };
 	private BrandSecondFragment brandSecondF;
+	private HomeBrandClassView brandClassView;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,15 +66,42 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 		bt_showCity.setOnClickListener(this);
 		view.findViewById(R.id.bt_class).setOnClickListener(this);
 		baseActivity = (BaseActivity) getActivity();
-		frame_class = (FrameLayout) view.findViewById(R.id.frame_class);
+		frame_class = view.findViewById(R.id.frame_class);
 		frame_class.setVisibility(View.GONE);
 		xlistview_brand.setVisibility(View.VISIBLE);
+		initHomeBrandClassView();
 		setListenerCityListPopWindow();
 		setListenerXListView();
 		curPageNumber = 1;
+		if (cityListPopWindow.citys != null) {
+			if (curCityMod == null || curCityMod.id == 1) {
+				curCityMod = cityListPopWindow.citys.get(0);
+			}
+		} else {
+			curCityMod = new CityMod();
+			curCityMod.id = 1;
+			curCityMod.name = "error";
+		}
 		requestWebData(curPageNumber, null, 1 + "", 1 + "");
 		brandSecondF = new BrandSecondFragment();
+		// requestWebData(1, curCityMod.id + "", classId[0], classId[1]);
 		return view;
+	}
+
+	private void initHomeBrandClassView() {
+		brandClassView = new HomeBrandClassView(view);
+		brandClassView.setOnBrandClickListener(new OnBrandClickListener() {
+
+			@Override
+			public void onBrandClick(String firstClassId, String secondClassId,
+					String name) {
+				frame_class.setVisibility(View.GONE);
+				xlistview_brand.setVisibility(View.VISIBLE);
+				adapter.cleanDatas();
+				requestWebData(1, curCityMod.id + "", firstClassId,
+						secondClassId);
+			}
+		});
 	}
 
 	private void setListenerXListView() {
@@ -84,9 +112,14 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 			@Override
 			public void onBussItemClick(int position) {
 				BrandMainListMod data = adapter.getListData().get(position);
+				brandSecondF = new BrandSecondFragment();
 				brandSecondF.setBrandMainListMod(data);
+				// if(getActivity().getSupportFragmentManager().getFragments().contains(brandSecondF)){
+				// getActivity().getSupportFragmentManager().beginTransaction().remove(brandSecondF).commit();
+				// ToastUtil.showToast(getActivity(), "已经包含");
+				// }
 				baseActivity.addFragment(brandSecondF);
-//				 baseActivity.replaceFragment(brandSecondF, true);
+				// baseActivity.replaceFragment(brandSecondF, true);
 			}
 		});
 
@@ -111,25 +144,25 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 				});
 	}
 
-	private void initBrandClassFragment() {
-		classFragment = new BrandClassFragment();
-		classFragment
-				.setOnBrankClickListener(new BrandClassFragment.OnBrankClickListener() {
-
-					@Override
-					public void onBrankClick(int firstClassId, int secondClassId) {
-						classId[0] = firstClassId + "";
-						classId[1] = secondClassId + "";
-						String cityId = null;
-						if (curCityMod != null) {
-							cityId = curCityMod.id + "";
-						}
-						view.findViewById(R.id.bt_class).performClick();
-						adapter.cleanDatas();
-						requestWebData(1, cityId, classId[0], classId[1]);
-					}
-				});
-	}
+	// private void initBrandClassFragment() {
+	// classFragment = new BrandClassFragment();
+	// classFragment
+	// .setOnBrankClickListener(new BrandClassFragment.OnBrankClickListener() {
+	//
+	// @Override
+	// public void onBrankClick(int firstClassId, int secondClassId) {
+	// classId[0] = firstClassId + "";
+	// classId[1] = secondClassId + "";
+	// String cityId = null;
+	// if (curCityMod != null) {
+	// cityId = curCityMod.id + "";
+	// }
+	// view.findViewById(R.id.bt_class).performClick();
+	// adapter.cleanDatas();
+	// requestWebData(1, cityId, classId[0], classId[1]);
+	// }
+	// });
+	// }
 
 	@Override
 	public void onClick(View v) {
@@ -148,8 +181,8 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 			} else {
 				frame_class.setVisibility(View.VISIBLE);
 				xlistview_brand.setVisibility(View.GONE);
-				initBrandClassFragment();
-				replaceFragment(classFragment, true);
+				// initBrandClassFragment();
+				// replaceFragment(classFragment, true);
 			}
 
 			break;
@@ -158,15 +191,15 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 		}
 	}
 
-	public void replaceFragment(BrandClassFragment fragment,
-			boolean isAddToBackStack) {
-		FragmentTransaction fragmentTransaction;
-		fragmentTransaction = getActivity().getSupportFragmentManager()
-				.beginTransaction();
-//		fragmentTransaction = getChildFragmentManager().beginTransaction();
-		fragmentTransaction.replace(R.id.frame_class, fragment);
-		fragmentTransaction.commit();
-	}
+	// public void replaceFragment(BrandClassFragment fragment,
+	// boolean isAddToBackStack) {
+	// FragmentTransaction fragmentTransaction;
+	// fragmentTransaction = getActivity().getSupportFragmentManager()
+	// .beginTransaction();
+	// // fragmentTransaction = getChildFragmentManager().beginTransaction();
+	// fragmentTransaction.replace(R.id.frame_class, fragment);
+	// fragmentTransaction.commit();
+	// }
 
 	private void setListenerCityListPopWindow() {
 		cityListPopWindow = CityListPopWindow.getIns(getActivity());
@@ -228,6 +261,8 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 					Gson gson = new Gson();
 					BrandMainListMod mod;
 					List<BrandMainListMod> mods;
+					ToastUtil.showToast(getActivity(),
+							getString(R.string.load_finish));
 					mods = new ArrayList<BrandMainListMod>();
 					for (int i = 0; i < arr.length(); i++) {
 						mod = gson.fromJson(arr.get(i).toString(),

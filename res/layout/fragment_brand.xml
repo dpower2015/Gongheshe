@@ -45,11 +45,11 @@
             android:text="杭州" />
     </LinearLayout>
 
-    <FrameLayout
+    <include 
         android:id="@+id/frame_class"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
+        layout="@layout/include_home_brand"
+        android:visibility="gone" 
+        />
 
     <zy.zh.xListView.XListView
         android:id="@+id/xlistview_brand"

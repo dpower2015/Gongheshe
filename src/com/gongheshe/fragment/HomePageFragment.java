@@ -6,23 +6,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ScrollView;
+import android.widget.Button;
 
 import com.example.gongheshe.R;
+import com.gongheshe.activity.MainFragmentActivity;
 import com.gongheshe.dialog.CityListPopWindow;
 import com.gongheshe.javabean.CityMod;
-import com.gongheshe.model.TypeClassMod;
-import com.gongheshe.util.ToastUtil;
+import com.gongheshe.util.HomeBrandClassView;
+import com.gongheshe.util.HomeBrandClassView.OnBrandClickListener;
 import com.googheshe.entity.GhhConst;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
@@ -37,16 +35,18 @@ public class HomePageFragment extends BaseFragment implements
 
 	protected static final String tag = "HomePageFragment";
 	private static View view;
-	private ScrollView sv_home;
+	// private ScrollView sv_home;
 	private CityListPopWindow cityListPopWindow;
 	private Button bt_showCity;
-	private HomeStructureFragment f_stru;
-	private HomeElecFragment f_elec;
-	private HomeBathFragment f_bath;
-	private HomeWoodFragment f_wood;
-	private HomeFaceFragment f_face;
-	private HomeLampFragment f_lamp;
-	private HomeFurnishFragment f_furnish;
+	// private HomeStructureFragment f_stru;
+	// private HomeElecFragment f_elec;
+	// private HomeBathFragment f_bath;
+	// private HomeWoodFragment f_wood;
+	// private HomeFaceFragment f_face;
+	// private HomeLampFragment f_lamp;
+	// private HomeFurnishFragment f_furnish;
+	private HomeBrandClassView brandClassView;
+	private CityMod cityMod = new CityMod();
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,42 +63,70 @@ public class HomePageFragment extends BaseFragment implements
 		} catch (InflateException e) {
 			/* map is already there, just return view as it is */
 		}
-		sv_home = (ScrollView) view.findViewById(R.id.sv_home);
+		cityMod.id = 1;
+		brandClassView = new HomeBrandClassView(view);
+		initHomeBrandClassView();
+		// sv_home = (ScrollView) view.findViewById(R.id.sv_home);
 		bt_showCity = (Button) view.findViewById(R.id.bt_to_show_citys);
 		view.findViewById(R.id.bt_to_show_citys).setOnClickListener(this);
 		cityListPopWindow = CityListPopWindow.getIns(getActivity());
 		// view = inflater.inflate(R.layout.fragment_homepage, container,
 		// false);
+
 		requestWebServer();
 		// setListenerListView();
-//		HomeStructureFragment f = 
-		f_stru = ((HomeStructureFragment) getFragmentManager()
-				.findFragmentById(R.id.frame_structure));
-		f_elec = ((HomeElecFragment) getFragmentManager()
-				.findFragmentById(R.id.frame_electrome));
-		f_bath = ((HomeBathFragment) getFragmentManager()
-				.findFragmentById(R.id.frame_bath));
-		f_wood = ((HomeWoodFragment) getFragmentManager()
-				.findFragmentById(R.id.frame_wood));
-		f_face = ((HomeFaceFragment) getFragmentManager()
-				.findFragmentById(R.id.frame_face));
-		f_lamp = ((HomeLampFragment) getFragmentManager()
-				.findFragmentById(R.id.frame_lamp));
-		f_furnish = ((HomeFurnishFragment) getFragmentManager()
-				.findFragmentById(R.id.frame_furnish));
-				
+		// HomeStructureFragment f =
+		// f_stru = ((HomeStructureFragment) getFragmentManager()
+		// .findFragmentById(R.id.frame_structure));
+		// f_elec = ((HomeElecFragment) getFragmentManager().findFragmentById(
+		// R.id.frame_electrome));
+		// f_bath = ((HomeBathFragment) getFragmentManager().findFragmentById(
+		// R.id.frame_bath));
+		// f_wood = ((HomeWoodFragment) getFragmentManager().findFragmentById(
+		// R.id.frame_wood));
+		// f_face = ((HomeFaceFragment) getFragmentManager().findFragmentById(
+		// R.id.frame_face));
+		// f_lamp = ((HomeLampFragment) getFragmentManager().findFragmentById(
+		// R.id.frame_lamp));
+		// f_furnish = ((HomeFurnishFragment) getFragmentManager()
+		// .findFragmentById(R.id.frame_furnish));
+
 		return view;
 	}
-	
-	private void setCityToChild(CityMod cityMod) {
-		f_stru.setCityMod(cityMod);
-		f_elec.setCityMod(cityMod);
-		f_bath.setCityMod(cityMod);
-		f_wood.setCityMod(cityMod);
-		f_face.setCityMod(cityMod);
-		f_lamp.setCityMod(cityMod);
-		f_furnish.setCityMod(cityMod);
+
+	private void initHomeBrandClassView() {
+		brandClassView = new HomeBrandClassView(view);
+		brandClassView.setOnBrandClickListener(new OnBrandClickListener() {
+
+			@Override
+			public void onBrandClick(String firstClassId, String secondClassId,
+					String name) {
+				// frame_class.setVisibility(View.GONE);
+				// xlistview_brand.setVisibility(View.VISIBLE);
+				// adapter.cleanDatas();
+				// requestWebData(1, curCityMod.id + "", firstClassId,
+				// secondClassId);
+				ShopDetail shopDetail;
+				shopDetail = new ShopDetail().setIntentData(firstClassId,
+						secondClassId, cityMod, name);
+//				((MainFragmentActivity) getActivity()).replaceFragment(
+//						shopDetail, true);
+				((MainFragmentActivity) getActivity()).addFragment(shopDetail);
+//				 requestWebData(1, curCityMod.id + "", firstClassId,
+//				 secondClassId);
+			}
+		});
 	}
+
+	// private void setCityToChild(CityMod cityMod) {
+	// f_stru.setCityMod(cityMod);
+	// f_elec.setCityMod(cityMod);
+	// f_bath.setCityMod(cityMod);
+	// f_wood.setCityMod(cityMod);
+	// f_face.setCityMod(cityMod);
+	// f_lamp.setCityMod(cityMod);
+	// f_furnish.setCityMod(cityMod);
+	// }
 
 	private void setListenerListView() {
 		cityListPopWindow.setOnItemClickListener(new OnItemClickListener() {
@@ -108,25 +136,35 @@ public class HomePageFragment extends BaseFragment implements
 					int position, long id) {
 				if (isVisible()) {
 					cityListPopWindow.dismiss();
-					bt_showCity.setText(cityListPopWindow.citys.get(position).name);
-					setCityToChild(cityListPopWindow.citys.get(position));
-//					((HomeStructureFragment) getFragmentManager()
-//							.findFragmentById(R.id.frame_structure)).setCityMod(cityMod)
+					cityMod = cityListPopWindow.citys.get(position);
+					bt_showCity.setText(cityMod.name);
+					
+//					ShopDetail shopDetail;
+//					shopDetail = new ShopDetail().setIntentData(firstClassId,
+//							secondClassId, cityMod, name);
+//					((MainFragmentActivity) getActivity()).replaceFragment(
+//							shopDetail, true);
+//					((MainFragmentActivity) getActivity()).addFragment(shopDetail);
+					
+//					setCityToChild(cityListPopWindow.citys.get(position));
+
+					// ((HomeStructureFragment) getFragmentManager()
+					// .findFragmentById(R.id.frame_structure)).setCityMod(cityMod)
 				}
 
 			}
 		});
 	}
 
-	public void scrollToBottom() {
-		new Handler().post(new Runnable() {
-
-			@Override
-			public void run() {
-				sv_home.fullScroll(ScrollView.FOCUS_DOWN);
-			}
-		});
-	}
+	// public void scrollToBottom() {
+	// new Handler().post(new Runnable() {
+	//
+	// @Override
+	// public void run() {
+	// sv_home.fullScroll(ScrollView.FOCUS_DOWN);
+	// }
+	// });
+	// }
 
 	@Override
 	public void onClick(View v) {
@@ -177,7 +215,7 @@ public class HomePageFragment extends BaseFragment implements
 					if (cityListPopWindow.isShowing()) {
 						cityListPopWindow.notifyDataSetChanged();
 					}
-					setCityToChild(cityListPopWindow.citys.get(0));
+					// setCityToChild(cityListPopWindow.citys.get(0));
 					// adapter.notifyDataSetChanged();
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block

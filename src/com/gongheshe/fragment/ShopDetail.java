@@ -39,8 +39,8 @@ public class ShopDetail extends BaseFragment implements View.OnClickListener {
 	private ShopDetailAdapter adapter;
 	protected String tag = "ShopDetail";
 	private StringBuffer url = new StringBuffer(GhhConst.HomeSecondActivity);
-	private int firstClassId = 1;
-	private int secondClassId = 1;
+	private String firstClassId = "1";
+	private String secondClassId = "1";
 	private CityMod cityMod;
 	private int pageNumber = 1;
 
@@ -123,7 +123,7 @@ public class ShopDetail extends BaseFragment implements View.OnClickListener {
 	 * @param secondClassId
 	 * @return
 	 */
-	public ShopDetail setIntentData(int firstClassId, int secondClassId,
+	public ShopDetail setIntentData(String firstClassId, String secondClassId,
 			CityMod cityMod, String title) {
 		this.firstClassId = firstClassId;
 		this.secondClassId = secondClassId;

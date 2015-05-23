@@ -57,6 +57,8 @@ public class BussinessGridViewAdapter extends BaseAdapter {
 
 	public void cleanDatas() {
 		datas.clear();
+		isEmptyRight = false;
+		notifyDataSetChanged();
 	}
 
 	public void appendMods(List<BrandMainListMod> mods) {

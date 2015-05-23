@@ -68,6 +68,8 @@ public class BrandSecondListAdapter extends BaseAdapter {
 	public void cleanListData() {
 		datas.clear();
 		datas2.clear();
+		isEmptyRight = false;
+		notifyDataSetChanged();
 	}
 
 	public void appendData(List<BrandSecondMod> datas) {
@@ -122,13 +124,13 @@ public class BrandSecondListAdapter extends BaseAdapter {
 			url = datas2.get(index).mod1.androidNote2ImagesMinUrl;
 			imgLoader.displayImage(url, holder.img_left);
 			holder.txt_num1.setText(datas2.get(index).mod1.saleNum);
-			holder.txt_price1.setText(datas2.get(index).mod1.minprice);
+			holder.txt_price1.setText("￥"+datas2.get(index).mod1.minprice);
 			if (null != datas2.get(index).mod2) {
 				holder.layout2.setVisibility(View.VISIBLE);
 				url = datas2.get(index).mod2.androidNote2ImagesMinUrl;
 				imgLoader.displayImage(url, holder.img_right);
-				holder.txt_num1.setText(datas2.get(index).mod2.saleNum);
-				holder.txt_price1.setText(datas2.get(index).mod2.minprice);
+				holder.txt_num2.setText(datas2.get(index).mod2.saleNum);
+				holder.txt_price2.setText("￥"+datas2.get(index).mod2.minprice);
 				holder.img_right.setOnClickListener(new OnClickListener() {
 
 					@Override

@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -110,14 +111,11 @@ public class MainFragmentActivity extends BaseActivity implements
 			mHomefragment = new HomePageFragment();
 			// replaceFragment(mHomefragment,false);
 			replaceFragment(mHomefragment);
-			// viewPager.setCurrentItem(0);
 			break;
 		case R.id.ibtn_brand:
 			onPageSelect(1);
-			// replaceFragment(new BrandFragment(),false);
-			replaceFragment(new BrandFragment());
-
-			// viewPager.setCurrentItem(1);
+			 replaceFragment(new BrandFragment(),false);
+			// replaceFragment(new BrandFragment());
 			break;
 		case R.id.ibtn_hotsell:
 			onPageSelect(2);
@@ -147,8 +145,6 @@ public class MainFragmentActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ����
-	 * 
 	 * @param fragment
 	 * @param isAddToBackStack
 	 */
@@ -164,9 +160,15 @@ public class MainFragmentActivity extends BaseActivity implements
 		fragmentList.add(fragment);
 		fragmentTransaction.setCustomAnimations(R.anim.fragment_left,
 				R.anim.fragment_right);
-		// fragmentTransaction.hide(fragmentList.get(fragmentList.size() - 2));
-		// fragmentTransaction.add(R.id.fragment, fragment);
-		fragmentTransaction.replace(R.id.fragment, fragment);
+//		{
+//			List<Fragment> f = getSupportFragmentManager().getFragments();
+//			for(int i=0;i<f.size();i++){
+//				Log.i("MainFragmentActivity", "主Activity包含：f("+i+")="+f.get(i).getClass().getSimpleName());
+//			}
+//		}
+//		 fragmentTransaction.hide(fragmentList.get(fragmentList.size() - 2));
+		 fragmentTransaction.add(R.id.fragment, fragment);
+//		fragmentTransaction.replace(R.id.fragment, fragment);
 		fragmentTransaction.commit();
 	}
 
@@ -177,11 +179,20 @@ public class MainFragmentActivity extends BaseActivity implements
 	@Override
 	public void addFragment(BaseFragment f) {
 		super.addFragment(f);
+
 		FragmentTransaction trans;
 		trans = getSupportFragmentManager().beginTransaction();
+		if (getSupportFragmentManager().getFragments().contains(f)) {
+			trans.remove(f);
+			trans.commit();
+			trans = getSupportFragmentManager().beginTransaction();
+		}
 		trans.addToBackStack(f.getClass().getName());
 		trans.setCustomAnimations(R.anim.fragment_left, R.anim.fragment_right);
 		trans.add(R.id.fragment, f);
+//		if (fragmentList.size() > 2) {
+//			trans.hide(fragmentList.get(fragmentList.size() - 2));
+//		}
 		fragmentList.add(f);
 		trans.commit();
 	}
@@ -212,7 +223,7 @@ public class MainFragmentActivity extends BaseActivity implements
 					.remove(fragmentList.get(fragmentList.size() - 1));
 			fragmentTransaction.commit();
 			// by ZhengZhiying
-			 fragmentManager.popBackStack();
+			// fragmentManager.popBackStack();
 			fragmentList.remove(fragmentList.size() - 1);
 		} else {
 
@@ -220,7 +231,7 @@ public class MainFragmentActivity extends BaseActivity implements
 			spaceTime = firstTime - secondTime;
 			secondTime = firstTime;
 			if (spaceTime > 2000) {
-				ToastUtil.showToast(this, "�ٰ�һ���˳�����");
+				ToastUtil.showToast(this, getString(R.string.click_again_exit));
 			} else {
 				super.onBackPressed();
 				System.exit(0);
