@@ -18,8 +18,9 @@ public class GhhConst {
 	public final static String GET_MY_STORE_LIST=BASE_URL+"pProductByMemberId.htm";
 	public final static String GET_MY_STORE_LIST_BYCATE=BASE_URL+"pMemberIdAndType.htm";
 	public final static String MODIFY_PASSWORD=BASE_URL+"modifyPwd.htm";
-	public final static String ADD_PROJECT=BASE_URL+"pmpfindById.htm";
-	public final static String GET_PROJECT_LIST="pmpList.htm";
+	public final static String ADD_PROJECT=BASE_URL+"pmpsave.htm";
+	public final static String GET_PROJECT_LIST=BASE_URL+"pmpList.htm";
+	public final static String DEL_PROJECT =BASE_URL+"pmpdelete.htm";
 	public final static String GET_PROJECT_DETAIL=BASE_URL+"pmpfindById.htm";
 	public final static String GET_ORDER_LIST=BASE_URL+"pOrderByMemberId.htm";
 	public final static String POST_CONFIRM_ACCEPT=BASE_URL+"pconfirmHarvest.htm";

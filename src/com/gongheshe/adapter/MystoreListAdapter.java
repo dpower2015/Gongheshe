@@ -97,7 +97,7 @@ public class MystoreListAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup arg2) {
 		// TODO Auto-generated method stub
 		final  Holder holder;
-		final  int curPosition=position;
+		final  int curPosition=position*2;
 		boolean flag=false;
 		if(convertView == null){
 			holder=new Holder();
@@ -119,10 +119,10 @@ public class MystoreListAdapter extends BaseAdapter{
 			holder = (Holder)convertView.getTag();
 		}
 		
-		holder.product_dollor.setText(mystoreList.get(position).clickNum);
-		holder.product_yuan.setText("￥"+mystoreList.get(position).minprice);
-		holder.product_title.setText(mystoreList.get(position).name);
-		imgLoader.displayImage(mystoreList.get(position).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
+		holder.product_dollor.setText(mystoreList.get(position*2).clickNum);
+		holder.product_yuan.setText("￥"+mystoreList.get(position*2).minprice);
+		holder.product_title.setText(mystoreList.get(position*2).name);
+		imgLoader.displayImage(mystoreList.get(position*2).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
 				holder.product_icon, // ImageView鎺т欢瀹炰緥
 				ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
 				AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
@@ -151,10 +151,10 @@ public class MystoreListAdapter extends BaseAdapter{
 			}
 		}
 		if(flag){
-			holder.product_dollor1.setText(mystoreList.get(position+1).clickNum);
-			holder.product_yuan1.setText("￥"+mystoreList.get(position+1).minprice);
-			holder.product_title1.setText(mystoreList.get(position+1).name);
-			imgLoader.displayImage(mystoreList.get(position+1).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
+			holder.product_dollor1.setText(mystoreList.get(position*2+1).clickNum);
+			holder.product_yuan1.setText("￥"+mystoreList.get(position*2+1).minprice);
+			holder.product_title1.setText(mystoreList.get(position*2+1).name);
+			imgLoader.displayImage(mystoreList.get(position*2+1).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
 					holder.product_icon1, // ImageView鎺т欢瀹炰緥
 					ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
 					AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾

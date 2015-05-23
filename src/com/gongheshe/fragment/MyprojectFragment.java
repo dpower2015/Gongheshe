@@ -25,14 +25,12 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 public class MyprojectFragment extends BaseFragment implements OnClickListener {
-
-	private String url = GhhConst.BASE_URL + "pmpList.htm?";
 	private View view;
 	private BaseActivity baseActivity;
 	private AsyncHttpClient client;
 	private final String TAG = "CopyrightFragment";
 	private XListView listView_myPro;
-	private int pageNumber = 1;
+	private int pageNumber ;
 	private int currentPos = 0;
 
 	// private XListView xListView;
@@ -53,6 +51,7 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 		adapter = new MyProjectListAdapter(baseActivity);
 		listView_myPro.setAdapter(adapter);
 		// requestData();
+		pageNumber = 1;
 		requestWebServer(pageNumber);
 		setOnClickToListView();
 		return view;
@@ -64,6 +63,7 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 			@Override
 			public void onItemDeleteClick(int position) {
 				currentPos = position;
+				System.out.println("11111");
 				ToastUtil.showToast(getActivity(),
 						"删除" + adapter.data.data.get(currentPos).prjName);
 				// ToastUtil.showToast(getActivity(), "删除" + (position - 1));
@@ -73,6 +73,7 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 			@Override
 			public void onItemClick(int position) {
 				
+				System.out.println("2222");
 				String id=adapter.data.data.get(position).id;
 				AddProjectFragment myproject = new AddProjectFragment();
 				Bundle bundle = new Bundle();
@@ -106,6 +107,10 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 	 * @param projectContentMod
 	 */
 	protected void requestForDeleteProject(ProjectContentMod projectContentMod) {
+		StringBuffer buffer = new StringBuffer(GhhConst.DEL_PROJECT);
+		buffer.append("?pwd=" + ShareSave.get().getPsdword());
+		buffer.append("&userName=" + ShareSave.get().getUserName());
+		buffer.append("&id=" + projectContentMod.id);
 		AsyncHttpClient httpClient;
 		httpClient = new AsyncHttpClient();
 		AsyncHttpResponseHandler handler;
@@ -114,6 +119,8 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers,
 					byte[] response) {
+				
+				ToastUtil.showToast(getActivity(),"删除成功");		
 				adapter.data.data.remove(currentPos);
 				adapter.notifyDataSetChanged();
 			}
@@ -121,9 +128,10 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 			@Override
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {
+				ToastUtil.showToast(getActivity(),"删除失败");
 			}
 		};
-//		httpClient.get("", handler);
+		httpClient.get(buffer.toString(), handler);
 	}
 
 	@Override
@@ -140,8 +148,8 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 	}
 
 	private void requestWebServer(int pageNumber) {
-		StringBuffer buffer = new StringBuffer(url);
-		buffer.append("memberId=" + ShareSave.get().getUid());
+		StringBuffer buffer = new StringBuffer(GhhConst.GET_PROJECT_LIST);
+		buffer.append("?memberId=" + ShareSave.get().getUid());
 		buffer.append("&pagesize=" + 20);
 		buffer.append("&pagenumber=" + pageNumber);
 		AsyncHttpClient httpClient;

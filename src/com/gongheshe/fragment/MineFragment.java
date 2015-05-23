@@ -10,12 +10,15 @@ import android.view.ViewGroup;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
+import com.gongheshe.activity.LoginActivity;
+import com.gongheshe.util.ShareSave;
 
 public class MineFragment extends BaseFragment implements OnClickListener{
 	
 	View view;
 	private BaseActivity baseActivity;
 	private final int REQUEST_IMG=1;
+	private ShareSave shareSave = ShareSave.get();
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -56,7 +59,11 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 			baseActivity.replaceFragment(mystoreFragment, true);
 			break;
 		case R.id.exit_curuser:
-			
+			shareSave.setPsdword("");
+			shareSave.setUserName("");
+			shareSave.setUid("");
+			baseActivity.startActivity(new Intent(baseActivity, LoginActivity.class));
+			baseActivity.finish();
 			break;
 		default:
 			break;

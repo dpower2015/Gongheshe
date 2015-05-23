@@ -50,13 +50,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 		context = this;
 		findViewById(R.id.btn_login).setOnClickListener(this);
 		findViewById(R.id.btn_register).setOnClickListener(this);
+		initDataByLocalData();
 	}
 	
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_login:
-			initDataByLocalData();
 			if(inputValidCheck()){
 				loginserver(edt_psd.getText().toString(),edt_psd.getText().toString());
 			}
