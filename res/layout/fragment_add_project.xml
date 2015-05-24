@@ -1,320 +1,323 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-<LinearLayout 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-      <RelativeLayout
+    android:background="@color/grey_main" >
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/actionbar_height" >
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-        <ImageButton
-            android:id="@+id/ibtn_back"
-            android:layout_width="@dimen/ic_width"
-            android:layout_height="@dimen/ic_height"
-            android:background="@null"
-            android:contentDescription="@null"
-            android:src="@drawable/jt_left" 
-            android:layout_centerVertical="true"
-            android:scaleType="fitXY"
-            android:layout_marginLeft="@dimen/margin_bar"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actionbar_height" >
 
-        <TextView
-            android:layout_width="wrap_content"
+            <ImageButton
+                android:id="@+id/ibtn_back"
+                android:layout_width="@dimen/ic_width"
+                android:layout_height="@dimen/ic_height"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_bar"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/jt_left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/addproject"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/grey_light_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/project_name" />
+
+            <EditText
+                android:id="@+id/name_project"
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@null"
+                android:hint="@string/project_name" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/grey_light_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/project_charge" />
+
+            <EditText
+                android:id="@+id/charge_project"
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@null"
+                android:hint="@string/project_charge" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/grey_light_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/project_charge_tel" />
+
+            <EditText
+                android:id="@+id/charge_tel_project"
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@null"
+                android:hint="@string/project_charge_tel" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/grey_light_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/project_client_name" />
+
+            <EditText
+                android:id="@+id/name_client"
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@null"
+                android:hint="@string/project_client_name" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/grey_light_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/project_client_tel" />
+
+            <EditText
+                android:id="@+id/tel_client"
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@null"
+                android:hint="@string/project_client_tel" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/grey_light_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/project_addr" />
+
+            <EditText
+                android:id="@+id/add_project"
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@null"
+                android:hint="@string/project_addr" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/grey_light_line" />
+
+        <LinearLayout
+            android:id="@+id/layout_startTime"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/project_begin_time" />
+
+            <TextView
+                android:id="@+id/time_begin"
+                style="@style/inputbar_style1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="2015-05-16" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/grey_light_line" />
+
+        <LinearLayout
+            android:id="@+id/layout_endTime"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/project_end_time" />
+
+            <TextView
+                android:id="@+id/time_end"
+                style="@style/inputbar_style1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="2015-05-16" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/grey_light_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/project_status" />
+
+            <TextView
+                android:id="@+id/state"
+                style="@style/inputbar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/project_going" />
+
+            <ToggleButton
+                android:id="@+id/switch_state"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/decribe_project"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bt_white"
+            android:hint="@string/project_descripte"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/save_project"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/addproject"
-            android:textColor="@color/black"
+            android:layout_margin="5dp"
+            android:background="@color/red"
+            android:gravity="center"
+            android:text="@string/project_save"
+            android:textColor="@color/white"
             android:textSize="20sp" />
-    </RelativeLayout>
-    <FrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/line_width"
-           android:background="@color/grey_light_line" />
-	<LinearLayout 
-	     android:layout_width="match_parent"
-         android:layout_height="@dimen/input_height"
-         android:orientation="horizontal"
-         android:gravity="center_vertical"
-	    >
-	    <TextView 
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:text="@string/project_name"
-            style="@style/inputbar_style"
-            
-	        />
-	    <EditText 
-	        android:id="@+id/name_project"
-	        android:layout_weight="3"
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/project_name"
-            style="@style/inputbar_style"
-            android:background="@null"
-	        />
-	</LinearLayout>
-      <FrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/line_width"
-           android:background="@color/grey_light_line" />
-     <LinearLayout 
-	     android:layout_width="match_parent"
-         android:layout_height="@dimen/input_height"
-         android:orientation="horizontal"
-         android:gravity="center_vertical"
-	    >
-	    <TextView 
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:text="@string/project_charge"
-            style="@style/inputbar_style"
-            
-	        />
-	    <EditText 
-	        android:id="@+id/charge_project"
-	        android:layout_weight="3"
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/project_charge"
-            style="@style/inputbar_style"
-            android:background="@null"
-	        />
-	</LinearLayout>
-      <FrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/line_width"
-           android:background="@color/grey_light_line" /> 
-       <LinearLayout 
-	     android:layout_width="match_parent"
-         android:layout_height="@dimen/input_height"
-         android:orientation="horizontal"
-         android:gravity="center_vertical"
-	    >
-	    <TextView 
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:text="@string/project_charge_tel"
-            style="@style/inputbar_style"
-            
-	        />
-	    <EditText 
-	        android:id="@+id/charge_tel_project"
-	        android:layout_weight="3"
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/project_charge_tel"
-            style="@style/inputbar_style"
-            android:background="@null"
-	        />
-	</LinearLayout>
-      <FrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/line_width"
-           android:background="@color/grey_light_line" /> 
-            <LinearLayout 
-	     android:layout_width="match_parent"
-         android:layout_height="@dimen/input_height"
-         android:orientation="horizontal"
-         android:gravity="center_vertical"
-	    >
-	    <TextView 
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:text="@string/project_client_name"
-            style="@style/inputbar_style"
-            
-	        />
-	    <EditText 
-	        android:id="@+id/name_client"
-	        android:layout_weight="3"
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/project_client_name"
-            style="@style/inputbar_style"
-            android:background="@null"
-	        />
-	</LinearLayout>
-      <FrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/line_width"
-           android:background="@color/grey_light_line" /> 
-            <LinearLayout 
-	     android:layout_width="match_parent"
-         android:layout_height="@dimen/input_height"
-         android:orientation="horizontal"
-         android:gravity="center_vertical"
-	    >
-	    <TextView 
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:text="@string/project_client_tel"
-            style="@style/inputbar_style"
-            
-	        />
-	    <EditText 
-	        android:id="@+id/tel_client"
-	        android:layout_weight="3"
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/project_client_tel"
-            style="@style/inputbar_style"
-            android:background="@null"
-	        />
-	</LinearLayout>
-      <FrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/line_width"
-           android:background="@color/grey_light_line" /> 
-            <LinearLayout 
-	     android:layout_width="match_parent"
-         android:layout_height="@dimen/input_height"
-         android:orientation="horizontal"
-         android:gravity="center_vertical"
-	    >
-	    <TextView 
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:text="@string/project_addr"
-            style="@style/inputbar_style"
-            
-	        />
-	    <EditText 
-	        android:id="@+id/add_project"
-	        android:layout_weight="3"
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/project_addr"
-            style="@style/inputbar_style"
-            android:background="@null"
-	        />
-	</LinearLayout>
-      <FrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/line_width"
-           android:background="@color/grey_light_line" /> 
-            <LinearLayout 
-	     android:layout_width="match_parent"
-         android:layout_height="@dimen/input_height"
-         android:orientation="horizontal"
-         android:gravity="center_vertical"
-	    >
-	    <TextView 
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:text="@string/project_begin_time"
-            style="@style/inputbar_style"
-           />
-	    <TextView
-	        android:id="@+id/time_begin"
-	        android:layout_weight="3"
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/inputbar_style1"
-            android:text="2015-05-16"
-	        />
-	</LinearLayout>
-      <FrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/line_width"
-           android:background="@color/grey_light_line" /> 
-            <LinearLayout 
-	     android:layout_width="match_parent"
-         android:layout_height="@dimen/input_height"
-         android:orientation="horizontal"
-         android:gravity="center_vertical"
-	    >
-	    <TextView 
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:text="@string/project_end_time"
-            style="@style/inputbar_style"
-            
-	        />
-	    <TextView
-	        android:id="@+id/time_end"
-	        android:layout_weight="3"
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="2015-05-16"
-            style="@style/inputbar_style1"
-          
-	        />
-	</LinearLayout>
-      <FrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/line_width"
-           android:background="@color/grey_light_line" /> 
-              <LinearLayout 
-	     android:layout_width="match_parent"
-         android:layout_height="@dimen/input_height"
-         android:orientation="horizontal"
-         android:gravity="center_vertical"
-	    >
-	    <TextView 
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:text="@string/project_status"
-            style="@style/inputbar_style"
-            
-	        />
-	    <TextView  
-	        android:id="@+id/state"
-	        android:layout_weight="1"
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/project_going"
-            style="@style/inputbar_style"
-	        />
-	    <ToggleButton
-	        android:id="@+id/switch_state"
-	        android:layout_weight="1"
-	        android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@null"
-	        />
-	  
-	</LinearLayout>
-	<EditText 
-	    android:id="@+id/decribe_project"
-	    android:layout_width="match_parent"
-	    android:layout_height="100dp"
-	    android:layout_margin="5dp"
-	    android:hint="@string/project_descripte"
-	    android:background="@drawable/bt_white"
-	    android:inputType="textMultiLine"
-	    />
-	<Button 
-	    android:id="@+id/save_project"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_margin="5dp"
-	    android:background="@color/red"
-	    android:text="@string/project_save"
-	    android:textColor="@color/white"
-	    android:textSize="20sp"
-	    android:gravity="center"
-	    />
-     
-</LinearLayout>
+    </LinearLayout>
+
 </ScrollView>
