@@ -25,6 +25,8 @@ public class GhhConst {
 	public final static String GET_ORDER_LIST=BASE_URL+"pOrderByMemberId.htm";
 	public final static String POST_CONFIRM_ACCEPT=BASE_URL+"pconfirmHarvest.htm";
 	public final static String POST_APPLY_BACKWARD=BASE_URL+"papplicationDrawback.htm";
+	public final static String ADMIT_PICTURE="http://121.40.219.222:80/file/upload.htm";
+	public final static String MODIFYICON=BASE_URL+"modifyIcon.htm";
 	//http://localhost:88/phone/data/pProductByPrice.htm?pagesize=20&pagenumber=1&sortType=1
 	/** 图片头部 */
 	public final static String headPicUrl = "http://s-145217.abc188.com";

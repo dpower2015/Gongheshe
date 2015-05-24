@@ -43,7 +43,15 @@ public class ShareSave {
 		writer.putString("password", password);
 		writer.commit();
 	}
-	
+	public void setUserIconUrl(String url){
+		
+		
+		writer.putString("icon_url",url);
+		writer.commit();
+	}
+	public String getUserIconUrl(){
+		return reader.getString("icon_url", null);
+	}
 	public String getPsdword(){
 		return reader.getString("password", null);
 	}
