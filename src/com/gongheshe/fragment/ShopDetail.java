@@ -93,7 +93,8 @@ public class ShopDetail extends BaseFragment implements View.OnClickListener {
 			public void onItemClick(int position) {
 				if(position > 0){
 					thirdlFragment.setTypeClassMod(adapter.datas.get(position-1));
-					baseActivity.replaceFragment(thirdlFragment, true);
+					
+					baseActivity.replaceFragment(thirdlFragment,false);
 				}
 				
 				// ToastUtil.showToast(getActivity(), "点击事件" + position);

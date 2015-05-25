@@ -15,7 +15,7 @@ public class BaseFragment extends Fragment {
 			Bundle savedInstanceState) {
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
-	
+	//
 	public BaseFragment getParentFragmentX(){
 		return parent;
 	}

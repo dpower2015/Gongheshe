@@ -75,7 +75,9 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 		curPageNumber = 1;
 		if (cityListPopWindow.citys != null) {
 			if (curCityMod == null || curCityMod.id == 1) {
-				curCityMod = cityListPopWindow.citys.get(0);
+				if(cityListPopWindow.citys.size()>0){
+					curCityMod = cityListPopWindow.citys.get(0);
+				}
 			}
 		} else {
 			curCityMod = new CityMod();

@@ -26,12 +26,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:background="@color/grey_main"
+            android:background="@drawable/search_bg"
             android:drawableLeft="@drawable/search_product"
             android:hint="@string/search_hint"
             android:inputType="@null"
             android:singleLine="true"
             android:textSize="@dimen/input_size" />
+        
+        
 
         <Button
             android:id="@+id/bt_brand_show_city"
@@ -54,6 +56,6 @@
     <zy.zh.xListView.XListView
         android:id="@+id/xlistview_brand"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

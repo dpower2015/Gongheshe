@@ -374,25 +374,26 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int zhongse=0x7f07000b;
     }
     public static final class dimen {
-        public static final int actionbar_height=0x7f080008;
+        public static final int actionbar_height=0x7f080009;
         public static final int bt_height=0x7f080005;
-        public static final int header_footer_bottom_padding=0x7f080013;
-        public static final int header_footer_left_right_padding=0x7f080011;
-        public static final int header_footer_top_padding=0x7f080012;
-        public static final int ic_height=0x7f080009;
-        public static final int ic_width=0x7f08000a;
-        public static final int indicator_corner_radius=0x7f08000f;
-        public static final int indicator_internal_padding=0x7f080010;
-        public static final int indicator_right_padding=0x7f08000e;
+        public static final int header_footer_bottom_padding=0x7f080014;
+        public static final int header_footer_left_right_padding=0x7f080012;
+        public static final int header_footer_top_padding=0x7f080013;
+        public static final int ic_height=0x7f08000a;
+        public static final int ic_width=0x7f08000b;
+        public static final int icon_distance=0x7f080008;
+        public static final int indicator_corner_radius=0x7f080010;
+        public static final int indicator_internal_padding=0x7f080011;
+        public static final int indicator_right_padding=0x7f08000f;
         public static final int input_height=0x7f080004;
-        public static final int input_size=0x7f08000c;
+        public static final int input_size=0x7f08000d;
         public static final int item_size=0x7f080006;
         public static final int line_width=0x7f080003;
         public static final int list_padding=0x7f080001;
-        public static final int margin_bar=0x7f08000d;
+        public static final int margin_bar=0x7f08000e;
         public static final int shadow_width=0x7f080002;
         public static final int slidingmenu_offset=0x7f080000;
-        public static final int textsize_home_menu=0x7f08000b;
+        public static final int textsize_home_menu=0x7f08000c;
         public static final int title_size=0x7f080007;
     }
     public static final class drawable {

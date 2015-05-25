@@ -64,6 +64,11 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 		img=(ImageView)view.findViewById(R.id.img_user);
 		baseActivity=(BaseActivity)getActivity();
 		getPhotoDlg = new GetPhotoDlg(baseActivity);
+		String img_url=shareSave.getUserIconUrl();
+		if(img_url!=null){
+			
+			ImageLoader.getInstance().displayImage(img_url, img);
+		}
 		return view;
 	}
 	@Override 

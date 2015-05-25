@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@null"
+            android:background="@color/grey_main"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -59,8 +59,10 @@
                 android:background="@null"
                 android:columnCount="4"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 android:padding="5dp"
-                android:visibility="gone" >
+                
+              >
 
                 <Button
                     android:id="@+id/bt_structure_1"
@@ -71,7 +73,8 @@
                     android:drawableTop="@drawable/ic_cons_land"
                     android:text="@string/land_construct"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                     android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_structure_2"
@@ -82,7 +85,8 @@
                     android:drawableTop="@drawable/ic_cons_sun"
                     android:text="@string/sun_room"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_structure_3"
@@ -93,7 +97,8 @@
                     android:drawableTop="@drawable/ic_cons_door_win"
                     android:text="@string/plastics_door_window"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_structure_4"
@@ -104,7 +109,7 @@
                     android:drawableTop="@drawable/ic_cons_garden"
                     android:text="@string/garden_view"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"/>
             </GridLayout>
 
             <LinearLayout
@@ -148,6 +153,7 @@
                 android:layout_gravity="center_horizontal"
                 android:columnCount="4"
                 android:orientation="horizontal"
+               
                 android:visibility="gone" >
 
                 <Button
@@ -159,7 +165,8 @@
                     android:drawableTop="@drawable/ic_elec_center_air"
                     android:text="@string/land_construct"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_elec2"
@@ -170,7 +177,8 @@
                     android:drawableTop="@drawable/ic_elec_ground_warm"
                     android:text="@string/ground_warm"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_elec3"
@@ -181,7 +189,8 @@
                     android:drawableTop="@drawable/ic_elec_clean_water"
                     android:text="@string/water_purification"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_elec4"
@@ -192,7 +201,8 @@
                     android:drawableTop="@drawable/ic_elec_center_dust"
                     android:text="@string/center_dust"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_elec5"
@@ -203,7 +213,8 @@
                     android:drawableTop="@drawable/ic_elec_center_wind"
                     android:text="@string/fresh_wind"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_elec6"
@@ -214,7 +225,8 @@
                     android:drawableTop="@drawable/ic_elec_center_security"
                     android:text="@string/security"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_elec7"
@@ -225,7 +237,8 @@
                     android:drawableTop="@drawable/ic_elec_center_lamp"
                     android:text="@string/lamp_system"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_elec8"
@@ -236,7 +249,8 @@
                     android:drawableTop="@drawable/ic_elec_center_media"
                     android:text="@string/media_system"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_elec9"
@@ -247,7 +261,8 @@
                     android:drawableTop="@drawable/ic_elec_center_intelligence"
                     android:text="@string/smart_system"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_elec10"
@@ -258,7 +273,8 @@
                     android:drawableTop="@drawable/ic_elec_center_curtain"
                     android:text="@string/curtain_electron"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_elec11"
@@ -269,7 +285,8 @@
                     android:drawableTop="@drawable/ic_elec_center_lift"
                     android:text="@string/lift"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_elec12"
@@ -280,7 +297,8 @@
                     android:drawableTop="@drawable/ic_elec_center_swim"
                     android:text="@string/swimming_devices"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
             </GridLayout>
 
             <LinearLayout
@@ -336,7 +354,8 @@
                     android:drawableTop="@drawable/ic_wash_pedestal"
                     android:text="@string/pedestal_toilet"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_bath2"
@@ -347,7 +366,8 @@
                     android:drawableTop="@drawable/ic_wash_face"
                     android:text="@string/face_pot"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_bath3"
@@ -358,7 +378,8 @@
                     android:drawableTop="@drawable/ic_wash_bathtub"
                     android:text="@string/bathtab"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_bath4"
@@ -369,7 +390,8 @@
                     android:drawableTop="@drawable/ic_wash_sprinkler"
                     android:text="@string/sprinkler"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_bath5"
@@ -380,7 +402,8 @@
                     android:drawableTop="@drawable/ic_wash_floordrain"
                     android:text="@string/floor_drain"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_bath6"
@@ -391,7 +414,8 @@
                     android:drawableTop="@drawable/ic_wash_pendant"
                     android:text="@string/hanging_drop"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_bath7"
@@ -402,7 +426,8 @@
                     android:drawableTop="@drawable/ic_wash_shower"
                     android:text="@string/all_shower_room"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                     />
 
             </GridLayout>
 
@@ -458,7 +483,8 @@
                     android:drawableTop="@drawable/ic_wood_whole_broad"
                     android:text="@string/whole_broad"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_wood_2"
@@ -469,7 +495,8 @@
                     android:drawableTop="@drawable/ic_wood_indoor_system"
                     android:text="@string/indoor_system"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_wood_3"
@@ -480,7 +507,8 @@
                     android:drawableTop="@drawable/ic_wood_wall_system"
                     android:text="@string/broad_system"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_wood_4"
@@ -491,7 +519,8 @@
                     android:drawableTop="@drawable/ic_wood_cloth_hat"
                     android:text="@string/cloth_hat_cupbroad"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_wood_5"
@@ -502,7 +531,8 @@
                     android:drawableTop="@drawable/ic_wood_wash_broad"
                     android:text="@string/wash_cupbroad"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_wood_6"
@@ -513,7 +543,8 @@
                     android:drawableTop="@drawable/ic_wood_stairs"
                     android:text="@string/stair_rail"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_wood_7"
@@ -524,7 +555,8 @@
                     android:drawableTop="@drawable/ic_wood_floor"
                     android:text="@string/floor"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
             </GridLayout>
 
@@ -580,7 +612,8 @@
                     android:drawableTop="@drawable/ic_face_meterial_01"
                     android:text="@string/stone"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_face_2"
@@ -591,7 +624,8 @@
                     android:drawableTop="@drawable/ic_face_meterial_02"
                     android:text="@string/tile"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_face_3"
@@ -602,7 +636,8 @@
                     android:drawableTop="@drawable/ic_face_meterial_03"
                     android:text="@string/wallpaper"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_face_4"
@@ -613,7 +648,8 @@
                     android:drawableTop="@drawable/ic_face_meterial_04"
                     android:text="@string/hard_soft_package"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_face_5"
@@ -624,7 +660,8 @@
                     android:drawableTop="@drawable/ic_face_meterial_05"
                     android:text="@string/paint"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_face_6"
@@ -635,7 +672,8 @@
                     android:drawableTop="@drawable/ic_face_meterial_06"
                     android:text="@string/gyp_line"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_face_7"
@@ -646,7 +684,8 @@
                     android:drawableTop="@drawable/ic_face_meterial_07"
                     android:text="@string/glasses"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_face_8"
@@ -657,7 +696,8 @@
                     android:drawableTop="@drawable/ic_face_meterial_08"
                     android:text="@string/special_material"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
             </GridLayout>
 
             <LinearLayout
@@ -712,7 +752,8 @@
                     android:drawableTop="@drawable/ic_lamp_01"
                     android:text="@string/flush_light_panel"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_lamp_2"
@@ -723,7 +764,8 @@
                     android:drawableTop="@drawable/ic_lamp_02"
                     android:text="@string/spot_light"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_lamp_3"
@@ -734,7 +776,8 @@
                     android:drawableTop="@drawable/ic_lamp_03"
                     android:text="@string/light_emitting_lamp"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_lamp_4"
@@ -745,7 +788,8 @@
                     android:drawableTop="@drawable/ic_lamp_04"
                     android:text="@string/floor_lamp"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_lamp_5"
@@ -756,7 +800,8 @@
                     android:drawableTop="@drawable/ic_lamp_05"
                     android:text="@string/switch_board"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
             </GridLayout>
 
             <LinearLayout
@@ -771,7 +816,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@null"
-                    android:src="@drawable/ic_left_menu_decorate" />
+                    android:src="@drawable/ic_left_menu_decorate"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <TextView
                     android:layout_width="0px"
@@ -810,7 +856,8 @@
                     android:drawableTop="@drawable/ic_furniture_01"
                     android:text="@string/furniture"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_furnish_2"
@@ -821,7 +868,8 @@
                     android:drawableTop="@drawable/ic_furniture_02"
                     android:text="@string/lamp"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_furnish_3"
@@ -832,7 +880,8 @@
                     android:drawableTop="@drawable/ic_furniture_03"
                     android:text="@string/decoration"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu"
+                    android:layout_marginRight="@dimen/icon_distance" />
 
                 <Button
                     android:id="@+id/bt_furnish_4"
@@ -843,7 +892,8 @@
                     android:drawableTop="@drawable/ic_furniture_04"
                     android:text="@string/carpet"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_furnish_5"
@@ -854,7 +904,8 @@
                     android:drawableTop="@drawable/ic_furniture_05"
                     android:text="@string/curtain_art"
                     android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:textSize="@dimen/textsize_home_menu" 
+                    android:layout_marginRight="@dimen/icon_distance"/>
 
                 <Button
                     android:id="@+id/bt_furnish_6"

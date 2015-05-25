@@ -40,6 +40,11 @@ public class HotSelAdapter extends BaseAdapter{
 		this.timeMod=timeMod;
 		
 	}
+    public ArrayList<ProductMod>  getHotSetList(){
+    	
+    	
+    	return hotsetList;
+    }
 	public void clearHotSels(){
 		
 		if(hotsetList!=null){
