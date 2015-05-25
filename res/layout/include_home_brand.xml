@@ -15,8 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@null"
             android:layout_marginTop="1dp"
+            android:background="@null"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -52,22 +52,22 @@
                     android:src="@drawable/jt_right_head" />
             </LinearLayout>
 
-            <GridLayout
+            <LinearLayout
                 android:id="@+id/gl_01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@null"
-                android:columnCount="4"
                 android:orientation="horizontal"
                 android:padding="5dp"
-                android:visibility="visible" >
+                android:visibility="gone" >
 
                 <Button
                     android:id="@+id/bt_structure_1"
                     style="@null"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:drawableTop="@drawable/ic_cons_land"
                     android:text="@string/land_construct"
@@ -79,6 +79,7 @@
                     style="@null"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:drawableTop="@drawable/ic_cons_sun"
                     android:text="@string/sun_room"
@@ -90,6 +91,7 @@
                     style="@null"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:drawableTop="@drawable/ic_cons_door_win"
                     android:text="@string/plastics_door_window"
@@ -101,12 +103,13 @@
                     style="@null"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:drawableTop="@drawable/ic_cons_garden"
                     android:text="@string/garden_view"
                     android:textColor="@color/home_menu_text"
                     android:textSize="@dimen/textsize_home_menu" />
-            </GridLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_toshow2"
@@ -142,147 +145,178 @@
                     android:src="@drawable/jt_right_head" />
             </LinearLayout>
 
-            <GridLayout
+            <LinearLayout
                 android:id="@+id/gl_02"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:columnCount="4"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:visibility="gone" >
 
-                <Button
-                    android:id="@+id/bt_elec1"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_center_air"
-                    android:text="@string/land_construct"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_elec2"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_ground_warm"
-                    android:text="@string/ground_warm"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_elec1"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_center_air"
+                        android:text="@string/land_construct"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_elec3"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_clean_water"
-                    android:text="@string/water_purification"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_elec2"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_ground_warm"
+                        android:text="@string/ground_warm"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_elec4"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_center_dust"
-                    android:text="@string/center_dust"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_elec3"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_clean_water"
+                        android:text="@string/water_purification"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_elec5"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_center_wind"
-                    android:text="@string/fresh_wind"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_elec4"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_center_dust"
+                        android:text="@string/center_dust"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+                </LinearLayout>
 
-                <Button
-                    android:id="@+id/bt_elec6"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_center_security"
-                    android:text="@string/security"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_elec7"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_center_lamp"
-                    android:text="@string/lamp_system"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_elec5"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_center_wind"
+                        android:text="@string/fresh_wind"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_elec8"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_center_media"
-                    android:text="@string/media_system"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_elec6"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_center_security"
+                        android:text="@string/security"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_elec9"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_center_intelligence"
-                    android:text="@string/smart_system"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_elec7"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_center_lamp"
+                        android:text="@string/lamp_system"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_elec10"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_center_curtain"
-                    android:text="@string/curtain_electron"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_elec8"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_center_media"
+                        android:text="@string/media_system"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+                </LinearLayout>
 
-                <Button
-                    android:id="@+id/bt_elec11"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_center_lift"
-                    android:text="@string/lift"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_elec12"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_elec_center_swim"
-                    android:text="@string/swimming_devices"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
-            </GridLayout>
+                    <Button
+                        android:id="@+id/bt_elec9"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_center_intelligence"
+                        android:text="@string/smart_system"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        android:id="@+id/bt_elec10"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_center_curtain"
+                        android:text="@string/curtain_electron"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        android:id="@+id/bt_elec11"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_center_lift"
+                        android:text="@string/lift"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        android:id="@+id/bt_elec12"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_elec_center_swim"
+                        android:text="@string/swimming_devices"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_toshow3"
@@ -319,92 +353,120 @@
                     android:src="@drawable/jt_right_head" />
             </LinearLayout>
 
-            <GridLayout
+            <LinearLayout
                 android:id="@+id/gl_03"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:columnCount="4"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone" >
 
-                <Button
-                    android:id="@+id/bt_bath1"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wash_pedestal"
-                    android:text="@string/pedestal_toilet"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_bath2"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wash_face"
-                    android:text="@string/face_pot"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_bath1"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wash_pedestal"
+                        android:text="@string/pedestal_toilet"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_bath3"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wash_bathtub"
-                    android:text="@string/bathtab"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_bath2"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wash_face"
+                        android:text="@string/face_pot"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_bath4"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wash_sprinkler"
-                    android:text="@string/sprinkler"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_bath3"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wash_bathtub"
+                        android:text="@string/bathtab"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_bath5"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wash_floordrain"
-                    android:text="@string/floor_drain"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_bath4"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wash_sprinkler"
+                        android:text="@string/sprinkler"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+                </LinearLayout>
 
-                <Button
-                    android:id="@+id/bt_bath6"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wash_pendant"
-                    android:text="@string/hanging_drop"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_bath7"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wash_shower"
-                    android:text="@string/all_shower_room"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
-            </GridLayout>
+                    <Button
+                        android:id="@+id/bt_bath5"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wash_floordrain"
+                        android:text="@string/floor_drain"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        android:id="@+id/bt_bath6"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wash_pendant"
+                        android:text="@string/hanging_drop"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        android:id="@+id/bt_bath7"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wash_shower"
+                        android:text="@string/all_shower_room"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wash_shower"
+                        android:text="@string/all_shower_room"
+                        android:textSize="@dimen/textsize_home_menu"
+                        android:visibility="invisible" />
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_toshow4"
@@ -440,92 +502,121 @@
                     android:src="@drawable/jt_right_head" />
             </LinearLayout>
 
-            <GridLayout
+            <LinearLayout
                 android:id="@+id/gl_04"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:columnCount="4"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone" >
 
-                <Button
-                    android:id="@+id/bt_wood_1"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wood_whole_broad"
-                    android:text="@string/whole_broad"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_wood_2"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wood_indoor_system"
-                    android:text="@string/indoor_system"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_wood_1"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wood_whole_broad"
+                        android:text="@string/whole_broad"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_wood_3"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wood_wall_system"
-                    android:text="@string/broad_system"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_wood_2"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wood_indoor_system"
+                        android:text="@string/indoor_system"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_wood_4"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wood_cloth_hat"
-                    android:text="@string/cloth_hat_cupbroad"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_wood_3"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wood_wall_system"
+                        android:text="@string/broad_system"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_wood_5"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wood_wash_broad"
-                    android:text="@string/wash_cupbroad"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_wood_4"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wood_cloth_hat"
+                        android:text="@string/cloth_hat_cupbroad"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+                </LinearLayout>
 
-                <Button
-                    android:id="@+id/bt_wood_6"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wood_stairs"
-                    android:text="@string/stair_rail"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_wood_7"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_wood_floor"
-                    android:text="@string/floor"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
-            </GridLayout>
+                    <Button
+                        android:id="@+id/bt_wood_5"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wood_wash_broad"
+                        android:text="@string/wash_cupbroad"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        android:id="@+id/bt_wood_6"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wood_stairs"
+                        android:text="@string/stair_rail"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        android:id="@+id/bt_wood_7"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wood_floor"
+                        android:text="@string/floor"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_wood_floor"
+                        android:text="@string/floor"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu"
+                        android:visibility="invisible" />
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_toshow5"
@@ -561,103 +652,121 @@
                     android:src="@drawable/jt_right_head" />
             </LinearLayout>
 
-            <GridLayout
+            <LinearLayout
                 android:id="@+id/gl_05"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:columnCount="4"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone" >
 
-                <Button
-                    android:id="@+id/bt_face_1"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_face_meterial_01"
-                    android:text="@string/stone"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_face_2"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_face_meterial_02"
-                    android:text="@string/tile"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_face_1"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_face_meterial_01"
+                        android:text="@string/stone"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_face_3"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_face_meterial_03"
-                    android:text="@string/wallpaper"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_face_2"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_face_meterial_02"
+                        android:text="@string/tile"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_face_4"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_face_meterial_04"
-                    android:text="@string/hard_soft_package"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_face_3"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_face_meterial_03"
+                        android:text="@string/wallpaper"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_face_5"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_face_meterial_05"
-                    android:text="@string/paint"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_face_4"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_face_meterial_04"
+                        android:text="@string/hard_soft_package"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+                </LinearLayout>
 
-                <Button
-                    android:id="@+id/bt_face_6"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_face_meterial_06"
-                    android:text="@string/gyp_line"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_face_7"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_face_meterial_07"
-                    android:text="@string/glasses"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_face_5"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_face_meterial_05"
+                        android:text="@string/paint"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_face_8"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_face_meterial_08"
-                    android:text="@string/special_material"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
-            </GridLayout>
+                    <Button
+                        android:id="@+id/bt_face_6"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_face_meterial_06"
+                        android:text="@string/gyp_line"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        android:id="@+id/bt_face_7"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_face_meterial_07"
+                        android:text="@string/glasses"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        android:id="@+id/bt_face_8"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_face_meterial_08"
+                        android:text="@string/special_material"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_toshow6"
@@ -693,70 +802,112 @@
                     android:src="@drawable/jt_right_head" />
             </LinearLayout>
 
-            <GridLayout
+            <LinearLayout
                 android:id="@+id/gl_06"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:columnCount="4"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone" >
 
-                <Button
-                    android:id="@+id/bt_lamp_1"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_lamp_01"
-                    android:text="@string/flush_light_panel"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_lamp_2"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_lamp_02"
-                    android:text="@string/spot_light"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_lamp_1"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_lamp_01"
+                        android:text="@string/flush_light_panel"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_lamp_3"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_lamp_03"
-                    android:text="@string/light_emitting_lamp"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_lamp_2"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_lamp_02"
+                        android:text="@string/spot_light"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_lamp_4"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_lamp_04"
-                    android:text="@string/floor_lamp"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_lamp_3"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_lamp_03"
+                        android:text="@string/light_emitting_lamp"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_lamp_5"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                    <Button
+                        android:id="@+id/bt_lamp_4"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_lamp_04"
+                        android:text="@string/floor_lamp"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_lamp_05"
-                    android:text="@string/switch_board"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
-            </GridLayout>
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/bt_lamp_5"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_lamp_05"
+                        android:text="@string/switch_board"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_lamp_05"
+                        android:visibility="invisible" />
+
+                    <Button
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_lamp_05"
+                        android:visibility="invisible" />
+
+                    <Button
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_lamp_05"
+                        android:visibility="invisible" />
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_toshow7"
@@ -792,81 +943,113 @@
                     android:src="@drawable/jt_right_head" />
             </LinearLayout>
 
-            <GridLayout
+            <LinearLayout
                 android:id="@+id/gl_07"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:columnCount="4"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone" >
 
-                <Button
-                    android:id="@+id/bt_furnish_1"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_furniture_01"
-                    android:text="@string/furniture"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/bt_furnish_2"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_furniture_02"
-                    android:text="@string/lamp"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_furnish_1"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_furniture_01"
+                        android:text="@string/furniture"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_furnish_3"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_furniture_03"
-                    android:text="@string/decoration"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_furnish_2"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_furniture_02"
+                        android:text="@string/lamp"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_furnish_4"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_furniture_04"
-                    android:text="@string/carpet"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_furnish_3"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_furniture_03"
+                        android:text="@string/decoration"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
 
-                <Button
-                    android:id="@+id/bt_furnish_5"
-                    style="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_furniture_05"
-                    android:text="@string/curtain_art"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
+                    <Button
+                        android:id="@+id/bt_furnish_4"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_furniture_04"
+                        android:text="@string/carpet"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+                </LinearLayout>
 
-                <Button
-                    android:id="@+id/bt_furnish_6"
-                    style="@null"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableTop="@drawable/ic_furniture_06"
-                    android:text="@string/decoration_picture"
-                    android:textColor="@color/home_menu_text"
-                    android:textSize="@dimen/textsize_home_menu" />
-            </GridLayout>
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/bt_furnish_5"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_furniture_05"
+                        android:text="@string/curtain_art"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        android:id="@+id/bt_furnish_6"
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/ic_furniture_06"
+                        android:text="@string/decoration_picture"
+                        android:textColor="@color/home_menu_text"
+                        android:textSize="@dimen/textsize_home_menu" />
+
+                    <Button
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:visibility="invisible" />
+
+                    <Button
+                        style="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:visibility="invisible" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

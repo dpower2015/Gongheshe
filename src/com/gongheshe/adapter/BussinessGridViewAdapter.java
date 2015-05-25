@@ -117,12 +117,14 @@ public class BussinessGridViewAdapter extends BaseAdapter {
 		}
 		String uri;
 
-		uri = datas.get(position).left.middleImages;// topImages;
+		uri = datas.get(position).left.logo;// topImages;
 		imgLoader.displayImage(uri, holder.imgLeft);
 
 		if (datas.get(position).right != null) {
 			holder.imgRight.setVisibility(View.VISIBLE);
-			uri = datas.get(position).right.middleImages;// topImages;
+			//middleImages,topImages,iphone56Top,topImages,iphone6plusTop
+			//androidNote2Top
+			uri = datas.get(position).right.logo;
 			imgLoader.displayImage(uri, holder.imgRight);
 			holder.imgRight.setOnClickListener(new OnClickListener() {
 				@Override

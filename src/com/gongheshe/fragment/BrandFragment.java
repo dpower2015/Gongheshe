@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 import zy.zh.xListView.XListView;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,6 +18,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 import com.example.gongheshe.R;
 import com.gongheshe.activity.BaseActivity;
@@ -44,6 +48,7 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 	private View view;
 	private BussinessGridViewAdapter adapter;
 	private Button bt_showCity;
+	private EditText edt_search;
 	private CityListPopWindow cityListPopWindow;
 	private BaseActivity baseActivity;
 	// private BrandClassFragment classFragment;
@@ -64,6 +69,7 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 		xlistview_brand.setAdapter(adapter);
 		bt_showCity = (Button) view.findViewById(R.id.bt_brand_show_city);
 		bt_showCity.setOnClickListener(this);
+		initEditTextSearch();
 		view.findViewById(R.id.bt_class).setOnClickListener(this);
 		baseActivity = (BaseActivity) getActivity();
 		frame_class = view.findViewById(R.id.frame_class);
@@ -86,6 +92,21 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 		brandSecondF = new BrandSecondFragment();
 		// requestWebData(1, curCityMod.id + "", classId[0], classId[1]);
 		return view;
+	}
+
+	private void initEditTextSearch() {
+		edt_search = (EditText) view.findViewById(R.id.edt_search);
+		edt_search.setOnEditorActionListener(new OnEditorActionListener() {
+			
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				// if(KeyEvent.KEYCODE_ENTER == actionId){
+				if (KeyEvent.KEYCODE_UNKNOWN == actionId) {
+					ToastUtil.showToast(getActivity(), "启动搜索");
+				}
+				return true;
+			}
+		});
 	}
 
 	private void initHomeBrandClassView() {

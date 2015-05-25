@@ -115,7 +115,9 @@ public class BrandSecondListAdapter extends BaseAdapter {
 			holder.layout_content.setVisibility(View.GONE);
 			holder.img_title.setVisibility(View.VISIBLE);
 			imgLoader.displayImage(//brandMainListMod.androidNote3Top,
-					brandMainListMod.middleImages,
+					//middleImages
+					//topImages
+					brandMainListMod.topImages,
 					holder.img_title);
 		} else {
 			holder.layout_content.setVisibility(View.VISIBLE);
