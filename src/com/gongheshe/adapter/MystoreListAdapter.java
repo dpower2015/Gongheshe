@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
@@ -106,8 +107,8 @@ public class MystoreListAdapter extends BaseAdapter{
 			holder.product_dollor=(TextView)convertView.findViewById(R.id.product_dollor);
 			holder.product_title=(TextView)convertView.findViewById(R.id.product_title);
 			holder.product_yuan=(TextView)convertView.findViewById(R.id.product_yuan);
-			holder.rightView=(LinearLayout)convertView.findViewById(R.id.rightView);
-			holder.leftView=(LinearLayout)convertView.findViewById(R.id.leftView);
+			holder.rightView=(RelativeLayout)convertView.findViewById(R.id.rightView);
+			holder.leftView=(RelativeLayout)convertView.findViewById(R.id.leftView);
 			holder.product_icon1=(ImageView)convertView.findViewById(R.id.product_icon1);
 			holder.product_dollor1=(TextView)convertView.findViewById(R.id.product_dollor1);
 			holder.product_title1=(TextView)convertView.findViewById(R.id.product_title1);
@@ -175,8 +176,8 @@ public class MystoreListAdapter extends BaseAdapter{
 		TextView  product_title;
 		TextView  product_dollor;
 		TextView  product_yuan;
-		LinearLayout leftView;
-		LinearLayout rightView;
+		RelativeLayout leftView;
+		RelativeLayout rightView;
 		ImageView product_icon1;
 		TextView  product_title1;
 		TextView  product_dollor1;

@@ -80,7 +80,7 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 				bundle.putString(AddProjectFragment.MODIFY_ID, id);
 				bundle.putBoolean(AddProjectFragment.MODIFY_OR_ADD,true);
 				myproject.setArguments(bundle);
-				baseActivity.replaceFragment(myproject, true);
+				baseActivity.replaceFragment(myproject,false);
 				ToastUtil.showToast(getActivity(), "点击" + (position));
 			}
 		});
@@ -143,7 +143,7 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 		} else if (id == R.id.add_project) {
 			AddProjectFragment myproject = new AddProjectFragment();
 			
-			baseActivity.replaceFragment(myproject, true);
+			baseActivity.replaceFragment(myproject,false);
 		}
 	}
 

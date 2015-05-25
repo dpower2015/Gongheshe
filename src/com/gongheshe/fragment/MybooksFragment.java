@@ -73,7 +73,7 @@ public class MybooksFragment extends BaseFragment implements OnClickListener{
 				orderList=mybooksListAdapter.getBookList();
 				ProductThirdDetailFragment productDetail = new ProductThirdDetailFragment();
 				productDetail.setTypeClassMod(orderList.get(index).products.get(0));
-				baseActivity.replaceFragment(productDetail, true);
+				baseActivity.replaceFragment(productDetail, false);
 			}
 
 			@Override

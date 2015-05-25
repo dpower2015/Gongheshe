@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gongheshe.R;
@@ -50,6 +51,7 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 	/** 相机返回 */
 	public final static int requestCamera = 0x22;
 	private Handler handler = new Handler();
+	private TextView userNameText;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,14 +63,16 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 		view.findViewById(R.id.mybooks).setOnClickListener(this);
 		view.findViewById(R.id.mystore).setOnClickListener(this);
 		view.findViewById(R.id.exit_curuser).setOnClickListener(this);
+		userNameText =(TextView)view.findViewById(R.id.user_name);
 		img=(ImageView)view.findViewById(R.id.img_user);
 		baseActivity=(BaseActivity)getActivity();
 		getPhotoDlg = new GetPhotoDlg(baseActivity);
-		String img_url=shareSave.getUserIconUrl();
-		if(img_url!=null){
-			
-			ImageLoader.getInstance().displayImage(img_url, img);
-		}
+		getUserInfo();
+//		String img_url=shareSave.getUserIconUrl();
+//		if(img_url!=null){
+//			
+//			ImageLoader.getInstance().displayImage(img_url, img);
+//		}
 		return view;
 	}
 	@Override 
@@ -77,7 +81,7 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 		switch(arg0.getId()){
 		case R.id.myproject:
 			MyprojectFragment myproject=new MyprojectFragment();
-			baseActivity.replaceFragment(myproject, true);
+			baseActivity.replaceFragment(myproject, false);
 			break;
 		case R.id.modify_head_img:
 			/*Intent innerIntent = new Intent(Intent.ACTION_GET_CONTENT); // "android.intent.action.GET_CONTENT"
@@ -93,15 +97,15 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 			break;
 		case R.id.modify_pw:
 			ModifypwFragment modifyFragment = new ModifypwFragment();
-			baseActivity.replaceFragment(modifyFragment, true);
+			baseActivity.replaceFragment(modifyFragment,false);
 			break;
 		case R.id.mybooks:
 			MybooksFragment mybooksFragment =new MybooksFragment();
-			baseActivity.replaceFragment(mybooksFragment, true);
+			baseActivity.replaceFragment(mybooksFragment,false);
 			break;
 		case R.id.mystore:
 			MystoreFragment mystoreFragment =new MystoreFragment();
-			baseActivity.replaceFragment(mystoreFragment, true);
+			baseActivity.replaceFragment(mystoreFragment, false);
 			break;
 		case R.id.exit_curuser:
 			shareSave.setPsdword("");
@@ -116,6 +120,56 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 		}
 		
 	}
+	
+	private void getUserInfo(){
+		
+		AsyncHttpClient httpClient = new AsyncHttpClient();
+		RequestParams params = new RequestParams();
+		params.add("id", ShareSave.get().getUid());
+		httpClient.post(GhhConst.GET_USER_INFO, params, new AsyncHttpResponseHandler() {
+
+			@Override
+			public void onFailure(int statusCode, Header[] headers,
+					byte[] response, Throwable e) {
+				LoggerSZ.e(TAG, "获取数据失败：" + new String(response));
+				//Toast.makeText(TAG, "提交失败", Toast.LENGTH_SHORT).show();
+				LoadingDlg.get().hide();
+			}
+
+			@Override
+			public void onSuccess(int statusCode, Header[] headers,
+					byte[] response) {
+				LoadingDlg.get().hide();
+				LoggerSZ.i(TAG, "获取数据成功：" + new String(response));
+				JSONObject jsonObject;
+				try {
+					jsonObject = new JSONObject(new String(response));
+					boolean status;
+					status=jsonObject.getBoolean("status");
+					if(status){
+						jsonObject =jsonObject.getJSONObject("userInfo");
+						String userName=jsonObject.getString("userName");
+						String icon_url=jsonObject.getString("icon");
+						userNameText.setText(userName);
+						if(icon_url!=null){
+							
+							ImageLoader.getInstance().displayImage(icon_url, img);
+							
+						}
+						
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+
+		});
+		
+		
+	}
+	
 	
 
 	/**
@@ -174,8 +228,8 @@ public class MineFragment extends BaseFragment implements OnClickListener{
 					boolean status;
 					status=jsonObject.getBoolean("status");
 					if(status){
-						String iconUrl=jsonObject.getString("userphoto");
-						shareSave.setUserIconUrl(iconUrl);
+						//String iconUrl=jsonObject.getString("userphoto");
+						//shareSave.setUserIconUrl(iconUrl);
 						Toast.makeText(baseActivity, "修改图标成功", Toast.LENGTH_SHORT).show();
 					}
 				} catch (JSONException e) {

@@ -82,7 +82,7 @@ public class HotSelAdapter extends BaseAdapter{
 			
 			if(hotsetList.get(position).id.equals("-1")){
 				
-				 holder_title=new HolderTitle();
+				holder_title=new HolderTitle();
 				convertView = inflater.inflate(R.layout.title_item, null);
 				holder_title.day=(TextView)convertView.findViewById(R.id.day);
 				holder_title.month=(TextView)convertView.findViewById(R.id.month);
@@ -106,7 +106,7 @@ public class HotSelAdapter extends BaseAdapter{
 				holder.goods_yuan=(TextView)convertView.findViewById(R.id.goods_yuan);
 				convertView.setTag(holder);
 				// #杩欓噷鏄庢樉瑕佷娇鐢ㄥ浘鐗囧簱浜嗐�傚湪缃戜笂闅忎究down浜涘浘鐗囧惂
-				imgLoader.displayImage(hotsetList.get(position).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
+				imgLoader.displayImage(hotsetList.get(position).androidNote3ImagesMinUrl, // 涓嬭浇鍦板潃
 						holder.goods_icon, // ImageView鎺т欢瀹炰緥
 						ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
 						AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
@@ -127,7 +127,7 @@ public class HotSelAdapter extends BaseAdapter{
 			}else {
 				holder=(Holder)convertView.getTag();
 				imgLoader.displayImage(GhhConst.headPicUrl
-						+ hotsetList.get(position).androidNote2ImagesMinUrl, // 涓嬭浇鍦板潃
+						+ hotsetList.get(position).androidNote3ImagesMinUrl, // 涓嬭浇鍦板潃
 						holder.goods_icon, // ImageView鎺т欢瀹炰緥
 						ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
 						AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾

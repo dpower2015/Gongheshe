@@ -66,7 +66,7 @@ public class MystoreFragment extends BaseFragment implements OnClickListener{
 				productList=mystoreListAdapter.getMystoreList();
 				ProductThirdDetailFragment productDetail = new ProductThirdDetailFragment();
 				productDetail.setTypeClassMod(productList.get(index));
-				baseActivity.replaceFragment(productDetail, true);
+				baseActivity.replaceFragment(productDetail, false);
 			}
 		});
 		xListView.setXListViewListener(new XListView.IXListViewListener() {
