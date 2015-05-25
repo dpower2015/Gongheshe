@@ -917,6 +917,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int load_finish=0x7f0a00ad;
         public static final int loading=0x7f0a0084;
         public static final int loading_fail=0x7f0a0085;
+        public static final int login_fail=0x7f0a00af;
+        public static final int login_success=0x7f0a00ae;
         public static final int media_system=0x7f0a0049;
         public static final int mianliao=0x7f0a002e;
         public static final int modify_passwd=0x7f0a007a;

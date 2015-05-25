@@ -21,7 +21,6 @@ import com.gongheshe.adapter.ShopDetailAdapter;
 import com.gongheshe.dialog.CityListPopWindow;
 import com.gongheshe.javabean.CityMod;
 import com.gongheshe.javabean.ProductMod;
-import com.gongheshe.model.TypeClassMod;
 import com.gongheshe.util.PullStagGridViewUT;
 import com.gongheshe.util.PullStagGridViewUT.OnStagGridViewListener;
 import com.gongheshe.util.ToastUtil;
@@ -93,8 +92,12 @@ public class ShopDetail extends BaseFragment implements View.OnClickListener {
 			public void onItemClick(int position) {
 				if(position > 0){
 					thirdlFragment.setTypeClassMod(adapter.datas.get(position-1));
+<<<<<<< HEAD
 					
 					baseActivity.replaceFragment(thirdlFragment,false);
+=======
+					baseActivity.replaceFragment(thirdlFragment, false);
+>>>>>>> origin/master
 				}
 				
 				// ToastUtil.showToast(getActivity(), "点击事件" + position);
