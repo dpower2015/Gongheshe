@@ -214,12 +214,21 @@ public class MainFragmentActivity extends BaseActivity implements
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
-
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		if (fragmentManager.getBackStackEntryCount() > 0) {
 
 			if (fragmentList.size() < 2) {
-				return;
+				firstTime = System.currentTimeMillis();
+				spaceTime = firstTime - secondTime;
+				secondTime = firstTime;
+				if (spaceTime > 2000) {
+					ToastUtil.showToast(this, getString(R.string.click_again_exit));
+					
+				} else {
+					super.onBackPressed();
+					System.exit(0);
+				}
+				return ;
 			}
 
 			FragmentTransaction fragmentTransaction = getSupportFragmentManager()
