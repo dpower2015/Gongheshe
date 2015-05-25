@@ -15,12 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-<<<<<<< HEAD
-            android:background="@color/grey_main"
-=======
             android:background="@null"
             android:layout_marginTop="1dp"
->>>>>>> origin/master
             android:orientation="vertical" >
 
             <LinearLayout
@@ -66,12 +62,8 @@
                 android:orientation="horizontal"
                 android:visibility="gone"
                 android:padding="5dp"
-<<<<<<< HEAD
-                
               >
-=======
-                android:visibility="visible" >
->>>>>>> origin/master
+
 
                 <Button
                     android:id="@+id/bt_structure_1"
@@ -435,13 +427,8 @@
                     android:drawableTop="@drawable/ic_wash_shower"
                     android:text="@string/all_shower_room"
                     android:textColor="@color/home_menu_text"
-<<<<<<< HEAD
                     android:textSize="@dimen/textsize_home_menu"
                      />
-
-=======
-                    android:textSize="@dimen/textsize_home_menu" />
->>>>>>> origin/master
             </GridLayout>
 
             <LinearLayout
@@ -568,13 +555,9 @@
                     android:drawableTop="@drawable/ic_wood_floor"
                     android:text="@string/floor"
                     android:textColor="@color/home_menu_text"
-<<<<<<< HEAD
                     android:textSize="@dimen/textsize_home_menu" 
                     android:layout_marginRight="@dimen/icon_distance"/>
 
-=======
-                    android:textSize="@dimen/textsize_home_menu" />
->>>>>>> origin/master
             </GridLayout>
 
             <LinearLayout
