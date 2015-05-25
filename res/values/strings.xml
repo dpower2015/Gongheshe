@@ -180,4 +180,6 @@
 	<string name="brand_detail">品牌详情</string>
 	<string name="click_again_exit">再点击一次退出</string>
 	<string name="load_finish">加载完成</string>
+	<string name="login_success">登录成功</string>
+	<string name="login_fail">登录失败</string>
 </resources>

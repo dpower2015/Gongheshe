@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@null"
+            android:layout_marginTop="1dp"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -53,14 +54,14 @@
 
             <GridLayout
                 android:id="@+id/gl_01"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@null"
                 android:columnCount="4"
                 android:orientation="horizontal"
                 android:padding="5dp"
-                android:visibility="gone" >
+                android:visibility="visible" >
 
                 <Button
                     android:id="@+id/bt_structure_1"
@@ -403,7 +404,6 @@
                     android:text="@string/all_shower_room"
                     android:textColor="@color/home_menu_text"
                     android:textSize="@dimen/textsize_home_menu" />
-
             </GridLayout>
 
             <LinearLayout
@@ -525,7 +525,6 @@
                     android:text="@string/floor"
                     android:textColor="@color/home_menu_text"
                     android:textSize="@dimen/textsize_home_menu" />
-
             </GridLayout>
 
             <LinearLayout
@@ -763,6 +762,7 @@
                 android:id="@+id/layout_toshow7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
                 android:background="@color/white"
                 android:orientation="horizontal"
                 android:padding="10dp" >
@@ -866,7 +866,6 @@
                     android:text="@string/decoration_picture"
                     android:textColor="@color/home_menu_text"
                     android:textSize="@dimen/textsize_home_menu" />
-
             </GridLayout>
         </LinearLayout>
     </LinearLayout>
