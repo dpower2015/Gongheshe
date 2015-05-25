@@ -81,7 +81,9 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 		curPageNumber = 1;
 		if (cityListPopWindow.citys != null) {
 			if (curCityMod == null || curCityMod.id == 1) {
-				curCityMod = cityListPopWindow.citys.get(0);
+				if(cityListPopWindow.citys.size()>0){
+					curCityMod = cityListPopWindow.citys.get(0);
+				}
 			}
 		} else {
 			curCityMod = new CityMod();
@@ -100,7 +102,6 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 			
 			@Override
 			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-				// if(KeyEvent.KEYCODE_ENTER == actionId){
 				if (KeyEvent.KEYCODE_UNKNOWN == actionId) {
 					ToastUtil.showToast(getActivity(), "启动搜索");
 				}

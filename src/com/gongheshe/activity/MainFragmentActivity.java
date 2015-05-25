@@ -38,6 +38,7 @@ public class MainFragmentActivity extends BaseActivity implements
 	private long firstTime;
 	private long secondTime;
 	private long spaceTime;
+	private int curPage=0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -107,24 +108,37 @@ public class MainFragmentActivity extends BaseActivity implements
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.ibtn_home:
-			onPageSelect(0);
-			mHomefragment = new HomePageFragment();
-			// replaceFragment(mHomefragment,false);
-			replaceFragment(mHomefragment);
+			if(curPage!=0){
+				onPageSelect(0);
+				mHomefragment = new HomePageFragment();
+				replaceFragment(mHomefragment);
+			}
+			curPage =0;
 			break;
 		case R.id.ibtn_brand:
-			onPageSelect(1);
-			 replaceFragment(new BrandFragment(),false);
+			if(curPage!=1){
+				
+				onPageSelect(1);
+				 replaceFragment(new BrandFragment(),false);
+			
+			}
+			 curPage =1;
 			// replaceFragment(new BrandFragment());
 			break;
 		case R.id.ibtn_hotsell:
-			onPageSelect(2);
-			replaceFragment(new HotSaleFragment(), true);
+			if(curPage!=2){
+				onPageSelect(2);
+				replaceFragment(new HotSaleFragment(), true);
+			}
+				curPage =2;
 			// viewPager.setCurrentItem(2);
 			break;
 		case R.id.ibtn_mine:
-			onPageSelect(3);
-			replaceFragment(new MineFragment(), true);
+			if(curPage!=3){
+				onPageSelect(3);
+				replaceFragment(new MineFragment(), true);
+			}
+			curPage =3;
 			// viewPager.setCurrentItem(3);
 			break;
 
@@ -158,8 +172,8 @@ public class MainFragmentActivity extends BaseActivity implements
 			fragmentTransaction.addToBackStack(fragment.getClass().getName());
 		}
 		fragmentList.add(fragment);
-		fragmentTransaction.setCustomAnimations(R.anim.fragment_left,
-				R.anim.fragment_right);
+		//fragmentTransaction.setCustomAnimations(R.anim.fragment_left,
+			//	R.anim.fragment_right);
 //		{
 //			List<Fragment> f = getSupportFragmentManager().getFragments();
 //			for(int i=0;i<f.size();i++){
@@ -188,7 +202,7 @@ public class MainFragmentActivity extends BaseActivity implements
 			trans = getSupportFragmentManager().beginTransaction();
 		}
 		trans.addToBackStack(f.getClass().getName());
-		trans.setCustomAnimations(R.anim.fragment_left, R.anim.fragment_right);
+		//trans.setCustomAnimations(R.anim.fragment_left, R.anim.fragment_right);
 		trans.add(R.id.fragment, f);
 //		if (fragmentList.size() > 2) {
 //			trans.hide(fragmentList.get(fragmentList.size() - 2));
@@ -210,8 +224,8 @@ public class MainFragmentActivity extends BaseActivity implements
 
 			FragmentTransaction fragmentTransaction = getSupportFragmentManager()
 					.beginTransaction();
-			fragmentTransaction.setCustomAnimations(R.anim.fragment_back_left,
-					R.anim.fragment_back_right);
+			//fragmentTransaction.setCustomAnimations(R.anim.fragment_back_left,
+					//R.anim.fragment_back_right);
 
 			this.fragment = (BaseFragment) fragmentList
 					.get(fragmentList.size() - 2);
@@ -254,8 +268,8 @@ public class MainFragmentActivity extends BaseActivity implements
 
 			FragmentTransaction fragmentTransaction = getSupportFragmentManager()
 					.beginTransaction();
-			fragmentTransaction.setCustomAnimations(R.anim.fragment_back_left,
-					R.anim.fragment_back_right);
+			//fragmentTransaction.setCustomAnimations(R.anim.fragment_back_left,
+				//	R.anim.fragment_back_right);
 
 			this.fragment = (BaseFragment) fragmentList
 					.get(fragmentList.size() - 2);

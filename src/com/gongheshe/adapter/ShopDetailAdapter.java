@@ -77,7 +77,7 @@ public class ShopDetailAdapter extends BaseAdapter {
 			holder.goods_yuan = (TextView) convertView
 					.findViewById(R.id.goods_yuan);
 			convertView.setTag(holder);
-			imgLoader.show(datas.get(position).androidNote2ImagesMinUrl,
+			imgLoader.show(datas.get(position).androidNote3ImagesMinUrl,
 					holder.goods_icon);
 
 			holder.goods_dollor.setText(datas.get(position).saleNum+"");

@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.example.gongheshe.R;
@@ -13,6 +14,7 @@ public class HomeBrandClassView implements OnClickListener {
 	private View view;
 	private OnBrandClickListener listener;
 	private ScrollView sv_homebrand;
+	private View gl_00; // 当前显示
 	private View gl_01;
 	private View gl_02;
 	private View gl_03;
@@ -20,6 +22,13 @@ public class HomeBrandClassView implements OnClickListener {
 	private View gl_05;
 	private View gl_06;
 	private View gl_07;
+	private LinearLayout showlayout1;
+	private LinearLayout showlayout2;
+	private LinearLayout showlayout3;
+	private LinearLayout showlayout4;
+	private LinearLayout showlayout5;
+	private LinearLayout showlayout6;
+	private LinearLayout showlayout7;
 
 	public interface OnBrandClickListener {
 		public void onBrandClick(String firstClassId, String secondClassId,
@@ -110,13 +119,21 @@ public class HomeBrandClassView implements OnClickListener {
 		initViewById(R.id.bt_furnish_5, firstId, ++secondId);
 		initViewById(R.id.bt_furnish_6, firstId, ++secondId);
 		//
-		view.findViewById(R.id.layout_toshow1).setOnClickListener(this);
-		view.findViewById(R.id.layout_toshow2).setOnClickListener(this);
-		view.findViewById(R.id.layout_toshow3).setOnClickListener(this);
-		view.findViewById(R.id.layout_toshow4).setOnClickListener(this);
-		view.findViewById(R.id.layout_toshow5).setOnClickListener(this);
-		view.findViewById(R.id.layout_toshow6).setOnClickListener(this);
-		view.findViewById(R.id.layout_toshow7).setOnClickListener(this);
+
+		showlayout1 = (LinearLayout) view.findViewById(R.id.layout_toshow1);
+		showlayout1.setOnClickListener(this);
+		showlayout2 = (LinearLayout) view.findViewById(R.id.layout_toshow2);
+		showlayout2.setOnClickListener(this);
+		showlayout3 = (LinearLayout) view.findViewById(R.id.layout_toshow3);
+		showlayout3.setOnClickListener(this);
+		showlayout4 = (LinearLayout) view.findViewById(R.id.layout_toshow4);
+		showlayout4.setOnClickListener(this);
+		showlayout5 = (LinearLayout) view.findViewById(R.id.layout_toshow5);
+		showlayout5.setOnClickListener(this);
+		showlayout6 = (LinearLayout) view.findViewById(R.id.layout_toshow6);
+		showlayout6.setOnClickListener(this);
+		showlayout7 = (LinearLayout) view.findViewById(R.id.layout_toshow7);
+		showlayout7.setOnClickListener(this);
 	}
 
 	private void initViewById(int resId, int firstClassId, int secondClassId) {
@@ -141,30 +158,75 @@ public class HomeBrandClassView implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		Boolean ret = false;
 		switch (v.getId()) {
 		case R.id.layout_toshow1:
-			setVisibleView(gl_01);
+
+			ret = setVisibleView(gl_01);
+			if (ret) {
+				showlayout1.setBackgroundResource(R.drawable.menu_bg);
+			} else {
+				showlayout1.setBackgroundResource(R.color.white);
+
+			}
 			break;
 		case R.id.layout_toshow2:
-			setVisibleView(gl_02);
+
+			ret = setVisibleView(gl_02);
+			if (ret) {
+				showlayout2.setBackgroundResource(R.drawable.menu_bg);
+			} else {
+				showlayout2.setBackgroundResource(R.color.white);
+
+			}
 			break;
 		case R.id.layout_toshow3:
-			setVisibleView(gl_03);
+			ret = setVisibleView(gl_03);
+			if (ret) {
+				showlayout3.setBackgroundResource(R.drawable.menu_bg);
+			} else {
+				showlayout3.setBackgroundResource(R.color.white);
+
+			}
 			break;
 		case R.id.layout_toshow4:
-			setVisibleView(gl_04);
+			ret = setVisibleView(gl_04);
+			if (ret) {
+				showlayout4.setBackgroundResource(R.drawable.menu_bg);
+			} else {
+				showlayout4.setBackgroundResource(R.color.white);
+
+			}
 			break;
 		case R.id.layout_toshow5:
-			setVisibleView(gl_05);
+			ret = setVisibleView(gl_05);
 			scrollToBottom();
+			if (ret) {
+				showlayout5.setBackgroundResource(R.drawable.menu_bg);
+			} else {
+				showlayout5.setBackgroundResource(R.color.white);
+
+			}
 			break;
 		case R.id.layout_toshow6:
-			setVisibleView(gl_06);
+			ret = setVisibleView(gl_06);
 			scrollToBottom();
+			if (ret) {
+				showlayout6.setBackgroundResource(R.drawable.menu_bg);
+			} else {
+				showlayout6.setBackgroundResource(R.color.white);
+
+			}
 			break;
 		case R.id.layout_toshow7:
-			setVisibleView(gl_07);
+			ret = setVisibleView(gl_07);
 			scrollToBottom();
+			if (ret) {
+				showlayout7.setBackgroundResource(R.drawable.menu_bg);
+			} else {
+				showlayout7.setBackgroundResource(R.color.white);
+
+			}
 			break;
 		default:
 			ViewHolder holder;
@@ -173,16 +235,28 @@ public class HomeBrandClassView implements OnClickListener {
 				listener.onBrandClick(holder.firstClassId,
 						holder.secondClassId, ((Button) v).getText().toString());
 			}
+
 			break;
 		}
+
 	}
 
-	private void setVisibleView(View view) {
+	private boolean setVisibleView(View view) {
+		if(gl_00 == null){
+			gl_00 = view;
+		}else if(view != gl_00){
+			gl_00.setVisibility(View.GONE);
+		}
+		boolean ret = false;
 		if (view.getVisibility() == View.VISIBLE) {
 			view.setVisibility(View.GONE);
+			ret = false;
 		} else {
 			view.setVisibility(View.VISIBLE);
+			ret = true;
 		}
+		gl_00 = view;
+		return ret;
 	}
 
 	private void scrollToBottom() {

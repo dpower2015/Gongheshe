@@ -28,6 +28,8 @@ import com.gongheshe.dialog.LoadingDlg;
 import com.gongheshe.javabean.ProductMod;
 import com.gongheshe.javabean.HotSelTimeMod;
 import com.gongheshe.util.LoggerSZ;
+import com.gongheshe.util.PullStagGridViewUT;
+import com.gongheshe.util.PullStagGridViewUT.OnStagGridViewListener;
 import com.gongheshe.util.cache.ACache;
 import com.googheshe.entity.GhhConst;
 import com.google.gson.Gson;
@@ -56,6 +58,11 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 	private final static int GET_SENTIMENT_LIST=1;
 	private final static int GET_SALE_LIST=2;
 	private int mCurFlag=GET_PRICE_LIST;
+	
+	private PullStagGridViewUT stagGridViewUT;
+	private ProductThirdDetailFragment thirdlFragment;
+	
+	
 	//
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,17 +75,52 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 		sale_volume.setOnCheckedChangeListener(this);
 		sentiment.setOnCheckedChangeListener(this);
 		price.setOnCheckedChangeListener(this);
+		
+		stagGridViewUT = new PullStagGridViewUT(getActivity(), hotselList);
 		mHotselAdapter=new HotSelAdapter(getActivity());
-		hotselList.setAdapter(mHotselAdapter);
-		hotselList.setOnRefreshListener(this);
-		hotselList.setMode(Mode.PULL_UP_TO_REFRESH); 
-		hotselList.setOnScrollListener(this);
-		hotselList.setOnItemClickListener(this);
+		//hotselList.setAdapter(mHotselAdapter);
+		stagGridViewUT.setAdapter(mHotselAdapter);
+		setListenerStagGridViewUT();
+		thirdlFragment = new ProductThirdDetailFragment();
+		
+		
+		//hotselList.setOnRefreshListener(this);
+		//hotselList.setMode(Mode.PULL_UP_TO_REFRESH); 
+		//hotselList.setOnScrollListener(this);
+		//hotselList.setOnItemClickListener(this);
 		mCache = ACache.get(getActivity());
 		baseActivity =(BaseActivity)getActivity();
 		getUpProductTime();
 		requestHotSelGoodsList(GET_PRICE_LIST);
 		return view;
+	}
+	
+	
+	private void setListenerStagGridViewUT() {
+		stagGridViewUT.setGridViewListener(new OnStagGridViewListener() {
+
+			@Override
+			public void onRefreshStart() {
+				//requestWebServer(++pageNumber);
+				
+				requestHotSelGoodsList(mCurFlag);
+				
+			}
+
+			@Override
+			public void onItemClick(int position) {
+				if(position > 0){
+					ArrayList<ProductMod> list=mHotselAdapter.getHotSetList();
+					
+					if(list!=null){
+						thirdlFragment.setTypeClassMod(list.get(position));
+						
+						baseActivity.replaceFragment(thirdlFragment,false);
+					}
+				}
+
+			}
+		});
 	}
 	@Override
 	public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
@@ -173,7 +215,8 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {
-				hotselList.onRefreshComplete();
+				stagGridViewUT.dismissLoadingView();
+				//hotselList.onRefreshComplete();
 				LoggerSZ.e(TAG, "访问失败" + e.toString());
 				Toast.makeText(baseActivity, "获取数据失败", Toast.LENGTH_SHORT).show();
 				try {
@@ -186,7 +229,8 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			@Override
 			public void onSuccess(int statusCode, Header[] headers,
 					byte[] response) {
-				hotselList.onRefreshComplete();
+				stagGridViewUT.dismissLoadingView();
+				//hotselList.onRefreshComplete();
 				 mPageNum++;
 				LoggerSZ.i(TAG, "result = " + new String(response));
 				try {

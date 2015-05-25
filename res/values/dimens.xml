@@ -24,6 +24,7 @@
     <dimen name="bt_height">30dp</dimen>
 	<dimen name="item_size">16sp</dimen>
 	<dimen name="title_size">20sp</dimen>
+	<dimen name="icon_distance">18dp</dimen>
     <integer name="num_cols">1</integer>
     
     <dimen name="actionbar_height">45dp</dimen>
