@@ -115,15 +115,17 @@ public class HotSelAdapter extends BaseAdapter{
 				holder.goods_yuan=(TextView)convertView.findViewById(R.id.goods_yuan);
 				convertView.setTag(holder);
 				// #杩欓噷鏄庢樉瑕佷娇鐢ㄥ浘鐗囧簱浜嗐�傚湪缃戜笂闅忎究down浜涘浘鐗囧惂
-				imgLoader.displayImage(hotsetList.get(position-1).androidNote3ImagesMinUrl, // 涓嬭浇鍦板潃
-						holder.goods_icon, // ImageView鎺т欢瀹炰緥
-						ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
-						AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
-						);
-				
-				holder.goods_dollor.setText(hotsetList.get(position-1).clickNum);
-				holder.goods_yuan.setText("￥"+hotsetList.get(position-1).minprice);
-				holder.goods_title.setText(hotsetList.get(position-1).name);
+				if(position>0){
+					imgLoader.displayImage(hotsetList.get(position-1).androidNote3ImagesMinUrl, // 涓嬭浇鍦板潃
+							holder.goods_icon, // ImageView鎺т欢瀹炰緥
+							ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
+							AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
+							);
+					
+					holder.goods_dollor.setText(hotsetList.get(position-1).clickNum);
+					holder.goods_yuan.setText("￥"+hotsetList.get(position-1).minprice);
+					holder.goods_title.setText(hotsetList.get(position-1).name);
+				}
 			}
 			
 		}else {
@@ -132,16 +134,29 @@ public class HotSelAdapter extends BaseAdapter{
 			if(flag){
 				
 				holder_title=(HolderTitle)convertView.getTag();
-				
+				if(timeMod!=null){
+					holder_title.day.setText(timeMod.day);
+					holder_title.month.setText("/"+timeMod.month+"月");
+					holder_title.weekday.setText(timeMod.week);
+					holder_title.time.setText(timeMod.time+"发布");
+				}
 			}else {
-				holder=(Holder)convertView.getTag();
-				imgLoader.displayImage(GhhConst.headPicUrl
-						+ hotsetList.get(position).androidNote3ImagesMinUrl, // 涓嬭浇鍦板潃
-						holder.goods_icon, // ImageView鎺т欢瀹炰緥
-						ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
-						AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
-						);
+				if(position>0){
+					holder=(Holder)convertView.getTag();
+					imgLoader.displayImage(hotsetList.get(position-1).androidNote3ImagesMinUrl, // 涓嬭浇鍦板潃
+							holder.goods_icon, // ImageView鎺т欢瀹炰緥
+							ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
+							AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
+							);
+					
+					holder.goods_dollor.setText(hotsetList.get(position-1).clickNum);
+					holder.goods_yuan.setText("￥"+hotsetList.get(position-1).minprice);
+					holder.goods_title.setText(hotsetList.get(position-1).name);
+				}
 			}
+			
+			
+			
 		}
 		return convertView;
 	}
