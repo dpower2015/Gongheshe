@@ -6,12 +6,16 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
@@ -96,6 +100,25 @@ public class AddProjectFragment extends BaseFragment implements OnClickListener 
 		}
 		// add by ZhengZhiying
 		initSelectBirthdayPop();
+		
+		
+		desclibeProjectEdit.setOnKeyListener(new OnKeyListener() {
+
+			@Override
+			public boolean onKey(View arg0, int arg1, KeyEvent arg2) {
+				// TODO Auto-generated method stub
+				if(arg1==KeyEvent.KEYCODE_ENTER){
+						((InputMethodManager) baseActivity.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(
+								baseActivity
+								.getCurrentFocus()
+								.getWindowToken(),
+								InputMethodManager.HIDE_NOT_ALWAYS);
+				}
+				return false;
+			}
+				
+		});
+		
 
 		return view;
 	}

@@ -40,6 +40,15 @@ public class HotSelAdapter extends BaseAdapter{
 		this.timeMod=timeMod;
 		
 	}
+	public void addHotList(ArrayList<ProductMod> lists){
+		
+		
+		if(hotsetList!=null){
+			
+			hotsetList.addAll(lists);
+		}
+		else hotsetList=lists;
+	}
     public ArrayList<ProductMod>  getHotSetList(){
     	
     	
@@ -58,7 +67,7 @@ public class HotSelAdapter extends BaseAdapter{
 		// TODO Auto-generated method stub
 		if(hotsetList!=null){
 			
-			return hotsetList.size();
+			return hotsetList.size()+1;
 			
 		}
 		return 0;
@@ -80,7 +89,7 @@ public class HotSelAdapter extends BaseAdapter{
 		Holder holder;
 		if(true){
 			
-			if(hotsetList.get(position).id.equals("-1")){
+			if(position==0){
 				
 				holder_title=new HolderTitle();
 				convertView = inflater.inflate(R.layout.title_item, null);
@@ -106,15 +115,15 @@ public class HotSelAdapter extends BaseAdapter{
 				holder.goods_yuan=(TextView)convertView.findViewById(R.id.goods_yuan);
 				convertView.setTag(holder);
 				// #杩欓噷鏄庢樉瑕佷娇鐢ㄥ浘鐗囧簱浜嗐�傚湪缃戜笂闅忎究down浜涘浘鐗囧惂
-				imgLoader.displayImage(hotsetList.get(position).androidNote3ImagesMinUrl, // 涓嬭浇鍦板潃
+				imgLoader.displayImage(hotsetList.get(position-1).androidNote3ImagesMinUrl, // 涓嬭浇鍦板潃
 						holder.goods_icon, // ImageView鎺т欢瀹炰緥
 						ImageLoderConfig.getOptions(), // 閰嶇疆淇℃伅
 						AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
 						);
 				
-				holder.goods_dollor.setText(hotsetList.get(position).clickNum);
-				holder.goods_yuan.setText("￥"+hotsetList.get(position).minprice);
-				holder.goods_title.setText(hotsetList.get(position).name);
+				holder.goods_dollor.setText(hotsetList.get(position-1).clickNum);
+				holder.goods_yuan.setText("￥"+hotsetList.get(position-1).minprice);
+				holder.goods_title.setText(hotsetList.get(position-1).name);
 			}
 			
 		}else {

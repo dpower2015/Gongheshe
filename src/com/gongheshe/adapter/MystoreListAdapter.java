@@ -140,15 +140,14 @@ public class MystoreListAdapter extends BaseAdapter{
 		if(position<(count-1)){
 			
 			flag=true;
-			
+			holder.rightView.setVisibility(View.VISIBLE);
 		}else {
 			if((mystoreList.size()%2)==0){
 				flag=true;
-				//holder.rightView.setVisibility(View.VISIBLE);
+				holder.rightView.setVisibility(View.VISIBLE);
 			}else {
 				flag=false;
 				holder.rightView.setVisibility(View.INVISIBLE);
-				
 			}
 		}
 		if(flag){

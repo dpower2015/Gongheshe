@@ -132,8 +132,11 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.red));
 			sale_volume.setBackgroundResource(R.color.white);
 			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.red));
-			requestHotSelGoodsList(GET_PRICE_LIST);
+			mHotselAdapter.clearHotSels();
+			mHotselAdapter.notifyDataSetChanged();
 			mCurFlag=GET_PRICE_LIST;
+			requestHotSelGoodsList(GET_PRICE_LIST);
+			
 		}else if(arg0.getId()==R.id.sentiment){
 			price.setBackgroundResource(R.color.white);
 			price.setTextColor(baseActivity.getResources().getColor(R.color.red));
@@ -141,8 +144,11 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.white));
 			sale_volume.setBackgroundResource(R.color.white);
 			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.red));
-			requestHotSelGoodsList(GET_SENTIMENT_LIST);
+			mHotselAdapter.clearHotSels();
+			mHotselAdapter.notifyDataSetChanged();
 			mCurFlag=GET_SENTIMENT_LIST;
+			requestHotSelGoodsList(GET_SENTIMENT_LIST);
+			
 			
 		}else if(arg0.getId()==R.id.sale_volume){
 			price.setBackgroundResource(R.color.white);
@@ -151,8 +157,11 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			sentiment.setTextColor(baseActivity.getResources().getColor(R.color.red));
 			sale_volume.setBackgroundResource(R.color.red);
 			sale_volume.setTextColor(baseActivity.getResources().getColor(R.color.white));
-			requestHotSelGoodsList(GET_SALE_LIST);
+			mHotselAdapter.clearHotSels();
+			mHotselAdapter.notifyDataSetChanged();
 			mCurFlag=GET_SALE_LIST;
+			requestHotSelGoodsList(GET_SALE_LIST);
+			
 		} 
 	}
 	//����������Ʒ�б�	
@@ -271,15 +280,16 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 				JSONArray arr = jsonObject.getJSONArray("data");
 				ArrayList<ProductMod> datas;
 				datas = new ArrayList<ProductMod>();
-				ProductMod temp=new ProductMod();
-				temp.id="-1";
-				datas.add(temp);
+				//ProductMod temp=new ProductMod();
+				//temp.id="-1";
+				//datas.add(temp);
 				Gson gson = new Gson();
 				for (int i = 0; i < arr.length(); i++) {
 					datas.add(gson.fromJson(arr.getJSONObject(i)
 							.toString(), ProductMod.class));
 				}
-				mHotselAdapter.setHotSetList(datas);
+				
+				mHotselAdapter.addHotList(datas);
 				mHotselAdapter.notifyDataSetChanged();
 			} catch (JSONException e) {
 				e.printStackTrace();

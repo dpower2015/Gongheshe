@@ -64,7 +64,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.gongheshe.activity.LoginActivity"/>
-        <activity android:name="com.gongheshe.activity.MainFragmentActivity"/>
+        <activity 
+            android:name="com.gongheshe.activity.MainFragmentActivity"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity android:name="com.gongheshe.activity.RegisterActivity"/>
     </application>
 
