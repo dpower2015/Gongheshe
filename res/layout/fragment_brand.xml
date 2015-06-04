@@ -31,7 +31,8 @@
             android:drawableLeft="@drawable/search_product"
             android:hint="@string/search_hint"
             android:inputType="@null"
-            android:maxLength="12"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             android:textSize="@dimen/input_size" />
 
         <Button

@@ -182,4 +182,5 @@
 	<string name="load_finish">加载完成</string>
 	<string name="login_success">登录成功</string>
 	<string name="login_fail">登录失败</string>
+	<string name="search_should_not_null">搜索内容不能为空</string>
 </resources>

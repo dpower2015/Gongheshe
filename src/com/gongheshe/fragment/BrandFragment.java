@@ -9,12 +9,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import zy.zh.xListView.XListView;
+import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -59,6 +63,10 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 	private String[] classId = new String[] { "1", "1" };
 	private BrandSecondFragment brandSecondF;
 	private HomeBrandClassView brandClassView;
+	/**
+	 * 已经启动搜索 , 默认 false
+	 */
+	private boolean isSearchBegin = false;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,7 +89,7 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 		curPageNumber = 1;
 		if (cityListPopWindow.citys != null) {
 			if (curCityMod == null || curCityMod.id == 1) {
-				if(cityListPopWindow.citys.size()>0){
+				if (cityListPopWindow.citys.size() > 0) {
 					curCityMod = cityListPopWindow.citys.get(0);
 				}
 			}
@@ -98,17 +106,72 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 
 	private void initEditTextSearch() {
 		edt_search = (EditText) view.findViewById(R.id.edt_search);
-		edt_search.setOnEditorActionListener(new OnEditorActionListener() {
+		edt_search.setOnKeyListener(new View.OnKeyListener() {
 			
 			@Override
-			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-				if (KeyEvent.KEYCODE_UNKNOWN == actionId) {
-					ToastUtil.showToast(getActivity(), "启动搜索");
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				if(isSearchBegin){
+					return true;
+				}
+				if(keyCode == KeyEvent.KEYCODE_ENTER){
+					if (TextUtils.isEmpty(edt_search.getText().toString())) {
+						ToastUtil.showToast(getActivity(),
+								getString(R.string.search_should_not_null));
+						return true;
+					}
+
+					((InputMethodManager) getActivity().getSystemService(
+							Activity.INPUT_METHOD_SERVICE))
+							.hideSoftInputFromWindow(getActivity()
+									.getCurrentFocus().getWindowToken(),
+									InputMethodManager.HIDE_NOT_ALWAYS);
+
+					// edt_search.setCursorVisible(false);
+//					bt_showCity.requestFocus();
+					BrandSearchFragment brandSearchF = new BrandSearchFragment();
+					brandSearchF.setTitle(edt_search.getText().toString(),curCityMod.id);
+					baseActivity.addFragment(brandSearchF);
+					isSearchBegin = true;
+					new Handler().postDelayed(new Runnable() {
+						
+						@Override
+						public void run() {
+							isSearchBegin = false;
+						}
+					}, 1000);
 				}
 				return true;
 			}
 		});
+//		edt_search.setOnEditorActionListener(new OnEditorActionListener() {
+//
+//			@Override
+//			public boolean onEditorAction(TextView v, int actionId,
+//					KeyEvent event) {
+//				if (KeyEvent.KEYCODE_UNKNOWN == actionId) {
+//					if (TextUtils.isEmpty(edt_search.getText().toString())) {
+//						ToastUtil.showToast(getActivity(),
+//								getString(R.string.search_should_not_null));
+//						return true;
+//					}
+//
+//					((InputMethodManager) getActivity().getSystemService(
+//							Activity.INPUT_METHOD_SERVICE))
+//							.hideSoftInputFromWindow(getActivity()
+//									.getCurrentFocus().getWindowToken(),
+//									InputMethodManager.HIDE_NOT_ALWAYS);
+//
+//					// edt_search.setCursorVisible(false);
+//					bt_showCity.requestFocus();
+//					BrandSearchFragment brandSearchF = new BrandSearchFragment();
+//					brandSearchF.setTitle(edt_search.getText().toString());
+//					baseActivity.addFragment(brandSearchF);
+//				}
+//				return true;
+//			}
+//		});
 	}
+
 
 	private void initHomeBrandClassView() {
 		brandClassView = new HomeBrandClassView(view);
