@@ -142,7 +142,7 @@
     <string name="open_picture">打开图库</string>
     <string name="open_camera">打开摄像头</string>
     
-    
+    <string name="forgetPw">忘记密码</string>
     <string name="username_is_null">用户名为空</string>
 	<string name="telphone_number_is_null">手机号不能为空</string>
 	<string name="no_the_right_tel_number">手机号不完整</string>
@@ -183,4 +183,5 @@
 	<string name="login_success">登录成功</string>
 	<string name="login_fail">登录失败</string>
 	<string name="search_should_not_null">搜索内容不能为空</string>
+	
 </resources>

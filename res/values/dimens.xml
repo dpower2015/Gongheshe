@@ -31,6 +31,7 @@
     <dimen name="ic_height">25dp</dimen>
     <dimen name="ic_width">25dp</dimen>
     <dimen name="textsize_home_menu">15sp</dimen>
+   	<dimen name="gadsize">15dp</dimen>
     <dimen name="input_size">13sp</dimen>
     <dimen name="margin_bar">15dp</dimen>
 

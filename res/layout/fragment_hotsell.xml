@@ -50,7 +50,7 @@
 	    		android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/line_width"
-                android:background="@color/grey_main" />
+                android:background="@color/grey_light_line" />
     
 	<com.handmark.pulltorefresh.library.PullToRefreshStaggeredGridView
          android:id="@+id/hotsel_shop_list"

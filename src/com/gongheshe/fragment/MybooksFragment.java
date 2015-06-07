@@ -8,13 +8,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import zy.zh.xListView.XListView;
-import android.R.string;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gongheshe.R;
@@ -23,7 +25,6 @@ import com.gongheshe.adapter.MybooksListAdapter;
 import com.gongheshe.adapter.MybooksListAdapter.onClickListener;
 import com.gongheshe.dialog.LoadingDlg;
 import com.gongheshe.javabean.OrderMod;
-import com.gongheshe.javabean.ProductMod;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.ShareSave;
 import com.googheshe.entity.GhhConst;
@@ -68,6 +69,7 @@ public class MybooksFragment extends BaseFragment implements OnClickListener{
 			
 			@Override
 			public void onClick(int index) {
+				
 				// TODO Auto-generated method stub
 				ArrayList<OrderMod> orderList;
 				orderList=mybooksListAdapter.getBookList();
@@ -77,18 +79,57 @@ public class MybooksFragment extends BaseFragment implements OnClickListener{
 			}
 
 			@Override
-			public void onBackward(int index) {
+			public void onBackward(final int index) {
 				// TODO Auto-generated method stub
-				ArrayList<OrderMod> orderList;
-				orderList=mybooksListAdapter.getBookList();
-				postData(orderList.get(index).id,APPLY_BACKWARD_FLAG);
+				final AlertDialog  dialog = new AlertDialog.Builder(baseActivity).create();
+				dialog.show();  
+				dialog.getWindow().setContentView(R.layout.dlg_for_sure);
+				((TextView)dialog.getWindow().findViewById(R.id.txt_title)).setText("确定要申请退款?");
+				dialog.getWindow().findViewById(R.id.btn_ok).setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						ArrayList<OrderMod> orderList;
+						orderList=mybooksListAdapter.getBookList();
+						postData(orderList.get(index).id,APPLY_BACKWARD_FLAG);
+						dialog.dismiss();
+					}
+				});
+				dialog.getWindow().findViewById(R.id.btn_cancel).setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						dialog.dismiss();
+					}
+				});
 			}
 			@Override
-			public void onConfirmAccept(int index) {
-				// TODO Auto-generated method stub
-				ArrayList<OrderMod> orderList;
-				orderList=mybooksListAdapter.getBookList();
-				postData(orderList.get(index).id,CONFIRM_ACCEPT_FLAG);
+			public void onConfirmAccept(final int index) {
+				final AlertDialog  dialog = new AlertDialog.Builder(baseActivity).create();
+				dialog.show();  
+				dialog.getWindow().setContentView(R.layout.dlg_for_sure);
+				((TextView)dialog.getWindow().findViewById(R.id.txt_title)).setText("确认收货?");
+				dialog.getWindow().findViewById(R.id.btn_ok).setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						ArrayList<OrderMod> orderList;
+						orderList=mybooksListAdapter.getBookList();
+						postData(orderList.get(index).id,CONFIRM_ACCEPT_FLAG);
+						dialog.dismiss();
+					}
+				});
+				dialog.getWindow().findViewById(R.id.btn_cancel).setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						dialog.dismiss();
+					}
+				});
 			}
 		});
 		xListView.setXListViewListener(new XListView.IXListViewListener() {
@@ -130,6 +171,7 @@ public class MybooksFragment extends BaseFragment implements OnClickListener{
 			mPageNum=1;
 			curOrderFlag=ORDER_FLAG_FINISHED;
 			mybooksListAdapter.clear();
+			mybooksListAdapter.setFinishFlag(true);
 			getOrderListData(curOrderFlag);
 			break;
 		case R.id.going:
@@ -140,6 +182,7 @@ public class MybooksFragment extends BaseFragment implements OnClickListener{
 			curOrderFlag=ORDER_FLAG_GOING;
 			mPageNum=1;
 			mybooksListAdapter.clear();
+			mybooksListAdapter.setFinishFlag(false);
 			getOrderListData(curOrderFlag);
 			
 			break;
@@ -185,8 +228,18 @@ public class MybooksFragment extends BaseFragment implements OnClickListener{
 				try {
 					JSONObject jsonObject = new JSONObject(new String(response));
 					Boolean state=jsonObject.getBoolean("status");
-					String msg=jsonObject.getString("msg");
-					Toast.makeText(baseActivity,msg, Toast.LENGTH_SHORT).show();
+					if(!state){
+						String msg=jsonObject.getString("msg");
+						Toast.makeText(baseActivity,msg, Toast.LENGTH_SHORT).show();
+					}else {
+						
+						if(flag==CONFIRM_ACCEPT_FLAG){
+							Toast.makeText(baseActivity,"确认收货成功", Toast.LENGTH_SHORT).show();
+						}else if(flag==APPLY_BACKWARD_FLAG){
+							Toast.makeText(baseActivity,"成功申请退款", Toast.LENGTH_SHORT).show();
+						}
+						
+					}
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

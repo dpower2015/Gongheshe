@@ -311,7 +311,10 @@ public class BrandFragment extends BaseFragment implements OnClickListener {
 			adapter.cleanDatas();
 		}
 		if (cityId == null) {
-			cityId = cityListPopWindow.citys.get(0).id + "";
+			if(cityListPopWindow.citys.size()>0){
+				cityId = cityListPopWindow.citys.get(0).id + "";
+			}
+			else cityId="1";
 		}
 		AsyncHttpClient httpClient;
 		httpClient = new AsyncHttpClient();

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.gongheshe.R;
@@ -25,6 +26,7 @@ public class MybooksListAdapter extends BaseAdapter{
 	private ArrayList<OrderMod> datas;
 	private ImageLoader imgLoader = ImageLoader.getInstance();
 	private onClickListener  itemclickListener;
+	private Boolean isFinished=true;
 	public  MybooksListAdapter(Context context) {
 		this.mContext = context;
 		inflater = LayoutInflater.from(context);
@@ -34,6 +36,11 @@ public class MybooksListAdapter extends BaseAdapter{
 		
 		this.itemclickListener=listener;
 		
+	}
+	public void setFinishFlag(Boolean flag){
+		
+		
+		isFinished=flag;
 	}
 	public void setBooksList(ArrayList<OrderMod> datas){
 		
@@ -102,7 +109,9 @@ public class MybooksListAdapter extends BaseAdapter{
 			viewHolder.applydrawback=(Button)convertView.findViewById(R.id.apply_drawback);
 			viewHolder.confirmAccept=(Button)convertView.findViewById(R.id.confirm_accept);
 			viewHolder.ordierTime=(TextView)convertView.findViewById(R.id.order_time);
+			viewHolder.viewforsure=(LinearLayout)convertView.findViewById(R.id.view_forsure);
 			convertView.setTag(viewHolder);
+			
 			viewHolder.applydrawback.setOnClickListener(new OnClickListener() {
 				
 				@Override
@@ -141,7 +150,13 @@ public class MybooksListAdapter extends BaseAdapter{
 				AnimateFirstDisplayListener.getIns()// 鍔犺浇鍔ㄧ敾
 				);
 		
-		
+		if(isFinished){
+			
+			viewHolder.viewforsure.setVisibility(View.INVISIBLE);
+		}
+		else {
+			viewHolder.viewforsure.setVisibility(View.VISIBLE);
+		}
 		
 		return convertView;
 	}
@@ -155,6 +170,7 @@ public class MybooksListAdapter extends BaseAdapter{
 		Button applydrawback;
 		Button confirmAccept;
 		TextView ordierTime;
+		LinearLayout viewforsure;
 	}
 
 	public interface onClickListener {

@@ -152,8 +152,8 @@ public class MainFragmentActivity extends BaseActivity implements
 		this.fragment = (BaseFragment) fragment;
 		FragmentTransaction fragmentTransaction = getSupportFragmentManager()
 				.beginTransaction();
-		fragmentTransaction.setCustomAnimations(R.anim.fragment_left,
-				R.anim.fragment_right);
+		//fragmentTransaction.setCustomAnimations(R.anim.fragment_left,
+		//		R.anim.fragment_right);
 		fragmentTransaction.replace(R.id.fragment, fragment);
 		fragmentTransaction.commit();
 	}

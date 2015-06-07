@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_main"
+    android:background="@color/white"
     android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/white" >
+        android:background="@color/grey_main" >
 
         <Button
             android:layout_width="match_parent"
@@ -34,10 +34,14 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
     </RelativeLayout>
-
+	<View 
+	    android:layout_width="match_parent"
+        android:layout_height="@dimen/line_width"
+        android:background="@color/grey_light_line"
+	    />
     <zy.zh.xListView.XListView
         android:id="@+id/xlistview_branddetail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

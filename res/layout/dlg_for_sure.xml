@@ -1,50 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
-    android:layout_height="170dp"
-    android:background="@color/grey_main"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_gravity="center"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:textColor="#AA190435"
+        android:textColor="@color/black_qian"
         android:textSize="20sp"
-        android:text="@string/loading" />
+        android:text=""
+        android:gravity="center" />
 
     <ImageView 
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:src="@color/white"
+        android:src="@color/grey_light_line"
         />
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:padding="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btn_cancel"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_btn_login"
-            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blule"
             android:textSize="20sp"
-            android:text="@string/cancel" />
-        
+            android:text="@string/cancel" 
+            android:layout_weight="1"
+            android:background="@null"/>
+         <ImageView 
+        android:layout_width="1dip"
+        android:layout_height="match_parent"
+        android:src="@color/grey_light_line"
+        />
         <Button
             android:id="@+id/btn_ok"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_btn_login"
-            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/blule"
             android:textSize="20sp"
             android:layout_marginLeft="10dp"
-            android:text="@string/ok" />
+            android:text="@string/ok"
+            android:background="@null" />
     </LinearLayout>
 
 </LinearLayout>

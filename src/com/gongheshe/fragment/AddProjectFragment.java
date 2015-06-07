@@ -19,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -39,7 +40,7 @@ import com.loopj.android.http.RequestParams;
 public class AddProjectFragment extends BaseFragment implements OnClickListener {
 	private View view;
 	private BaseActivity baseActivity;
-	private ToggleButton switchState;
+	private RadioButton switchState;
 	private AsyncHttpClient httpClient;
 	private ShareSave shareSave = ShareSave.get();
 	private final static String TAG = "AddProjectFragment";
@@ -76,7 +77,7 @@ public class AddProjectFragment extends BaseFragment implements OnClickListener 
 		timeEndEdit = (TextView) view.findViewById(R.id.time_end);
 		desclibeProjectEdit = (EditText) view
 				.findViewById(R.id.decribe_project);
-		switchState = (ToggleButton) view.findViewById(R.id.switch_state);
+		switchState = (RadioButton) view.findViewById(R.id.switch_state);
 		stateText = (TextView) view.findViewById(R.id.state);
 
 		view.findViewById(R.id.layout_startTime).setOnClickListener(this);

@@ -29,6 +29,8 @@ public class HomeBrandClassView implements OnClickListener {
 	private LinearLayout showlayout5;
 	private LinearLayout showlayout6;
 	private LinearLayout showlayout7;
+	private LinearLayout lastShowlayout;
+	
 
 	public interface OnBrandClickListener {
 		public void onBrandClick(String firstClassId, String secondClassId,
@@ -167,8 +169,12 @@ public class HomeBrandClassView implements OnClickListener {
 				showlayout1.setBackgroundResource(R.drawable.menu_bg);
 			} else {
 				showlayout1.setBackgroundResource(R.color.white);
-
 			}
+			if(lastShowlayout!=null){
+				
+				lastShowlayout.setBackgroundResource(R.color.white);
+			}
+			lastShowlayout=showlayout1;
 			break;
 		case R.id.layout_toshow2:
 
@@ -179,6 +185,11 @@ public class HomeBrandClassView implements OnClickListener {
 				showlayout2.setBackgroundResource(R.color.white);
 
 			}
+			if(lastShowlayout!=null){
+				
+				lastShowlayout.setBackgroundResource(R.color.white);
+			}
+			lastShowlayout=showlayout2;
 			break;
 		case R.id.layout_toshow3:
 			ret = setVisibleView(gl_03);
@@ -188,6 +199,11 @@ public class HomeBrandClassView implements OnClickListener {
 				showlayout3.setBackgroundResource(R.color.white);
 
 			}
+			if(lastShowlayout!=null){
+				
+				lastShowlayout.setBackgroundResource(R.color.white);
+			}
+			lastShowlayout=showlayout3;
 			break;
 		case R.id.layout_toshow4:
 			ret = setVisibleView(gl_04);
@@ -197,6 +213,11 @@ public class HomeBrandClassView implements OnClickListener {
 				showlayout4.setBackgroundResource(R.color.white);
 
 			}
+			if(lastShowlayout!=null){
+				
+				lastShowlayout.setBackgroundResource(R.color.white);
+			}
+			lastShowlayout=showlayout4;
 			break;
 		case R.id.layout_toshow5:
 			ret = setVisibleView(gl_05);
@@ -207,6 +228,11 @@ public class HomeBrandClassView implements OnClickListener {
 				showlayout5.setBackgroundResource(R.color.white);
 
 			}
+			if(lastShowlayout!=null){
+				
+				lastShowlayout.setBackgroundResource(R.color.white);
+			}
+			lastShowlayout=showlayout5;
 			break;
 		case R.id.layout_toshow6:
 			ret = setVisibleView(gl_06);
@@ -217,6 +243,11 @@ public class HomeBrandClassView implements OnClickListener {
 				showlayout6.setBackgroundResource(R.color.white);
 
 			}
+			if(lastShowlayout!=null){
+				
+				lastShowlayout.setBackgroundResource(R.color.white);
+			}
+			lastShowlayout=showlayout6;
 			break;
 		case R.id.layout_toshow7:
 			ret = setVisibleView(gl_07);
@@ -227,6 +258,11 @@ public class HomeBrandClassView implements OnClickListener {
 				showlayout7.setBackgroundResource(R.color.white);
 
 			}
+			if(lastShowlayout!=null){
+				
+				lastShowlayout.setBackgroundResource(R.color.white);
+			}
+			lastShowlayout=showlayout7;
 			break;
 		default:
 			ViewHolder holder;

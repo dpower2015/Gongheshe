@@ -60,7 +60,10 @@
                 android:background="@null"
                 android:orientation="horizontal"
                 android:padding="5dp"
-                android:visibility="gone" >
+                android:layout_marginTop="@dimen/gadsize"
+                android:layout_marginBottom="@dimen/gadsize"
+                android:visibility="gone"
+                 >
 
                 <Button
                     android:id="@+id/bt_structure_1"
@@ -152,13 +155,14 @@
                 android:columnCount="4"
                 android:orientation="vertical"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:visibility="gone" >
+                android:paddingRight="10dp" 
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal" 
+                    android:paddingTop="@dimen/gadsize">
 
                     <Button
                         android:id="@+id/bt_elec1"
@@ -212,7 +216,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/gadsize" >
 
                     <Button
                         android:id="@+id/bt_elec5"
@@ -266,7 +271,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/gadsize"
+                    android:paddingBottom="@dimen/gadsize" >
 
                     <Button
                         android:id="@+id/bt_elec9"
@@ -358,17 +365,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone" >
+                android:visibility="gone" 
+                android:layout_marginTop="@dimen/gadsize"
+                android:layout_marginBottom="@dimen/gadsize">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/gadsize" >
 
                     <Button
                         android:id="@+id/bt_bath1"
                         style="@null"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
@@ -380,7 +390,7 @@
                     <Button
                         android:id="@+id/bt_bath2"
                         style="@null"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
@@ -392,7 +402,7 @@
                     <Button
                         android:id="@+id/bt_bath3"
                         style="@null"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
@@ -404,7 +414,7 @@
                     <Button
                         android:id="@+id/bt_bath4"
                         style="@null"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
@@ -417,12 +427,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal" 
+                    android:paddingBottom="@dimen/gadsize">
 
                     <Button
                         android:id="@+id/bt_bath5"
                         style="@null"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
@@ -434,7 +445,7 @@
                     <Button
                         android:id="@+id/bt_bath6"
                         style="@null"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
@@ -446,7 +457,7 @@
                     <Button
                         android:id="@+id/bt_bath7"
                         style="@null"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
@@ -457,7 +468,7 @@
 
                     <Button
                         style="@null"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
@@ -475,7 +486,8 @@
                 android:layout_marginTop="1dp"
                 android:background="@color/white"
                 android:orientation="horizontal"
-                android:padding="10dp" >
+                android:padding="10dp" 
+                >
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -507,12 +519,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone" >
+                android:visibility="gone" 
+                android:layout_marginTop="@dimen/gadsize"
+                android:layout_marginBottom="@dimen/gadsize">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal" 
+                    android:paddingBottom="@dimen/gadsize">
 
                     <Button
                         android:id="@+id/bt_wood_1"
@@ -566,7 +581,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/gadsize" >
 
                     <Button
                         android:id="@+id/bt_wood_5"
@@ -657,12 +673,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone" >
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/gadsize"
+                android:layout_marginBottom="@dimen/gadsize" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/gadsize" >
 
                     <Button
                         android:id="@+id/bt_face_1"
@@ -716,7 +735,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/gadsize" >
 
                     <Button
                         android:id="@+id/bt_face_5"
@@ -807,12 +827,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone" >
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/gadsize"
+                android:layout_marginBottom="@dimen/gadsize" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/gadsize" >
 
                     <Button
                         android:id="@+id/bt_lamp_1"
@@ -866,7 +889,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/gadsize" >
 
                     <Button
                         android:id="@+id/bt_lamp_5"
@@ -948,12 +972,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone" >
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/gadsize"
+                android:layout_marginBottom="@dimen/gadsize" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/gadsize" >
 
                     <Button
                         android:id="@+id/bt_furnish_1"
@@ -1007,7 +1034,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal" 
+                    android:paddingBottom="@dimen/gadsize">
 
                     <Button
                         android:id="@+id/bt_furnish_5"

@@ -85,12 +85,14 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_register" />
 
-        <Button
+        <TextView
+            android:id="@+id/forgetpw"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_gravity="right"
             android:layout_marginTop="10dp"
-            android:background="@drawable/bg_forget_psd" />
+            android:text="@string/forgetPw"
+            android:textColor="@color/red_check"/>
     </LinearLayout>
 
 </RelativeLayout>

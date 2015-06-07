@@ -1,20 +1,27 @@
 package com.gongheshe.activity;
 
+import java.util.ArrayList;
+
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gongheshe.R;
 import com.gongheshe.dialog.LoadingDlg;
 import com.gongheshe.injectView.InjectView;
+import com.gongheshe.javabean.OrderMod;
 import com.gongheshe.javabean.UserInfo;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.ShareSave;
@@ -36,7 +43,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 	private EditText edt_name;
 	@InjectView(id = R.id.password)
 	private EditText edt_psd;
-
+	@InjectView(id =R.id.forgetpw)
+	private TextView forgetpwText;
 	private Context context;
 	private AsyncHttpClient httpClient;
 	private final static String TAG = "LoginActivity";
@@ -52,6 +60,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 		context = this;
 		findViewById(R.id.btn_login).setOnClickListener(this);
 		findViewById(R.id.btn_register).setOnClickListener(this);
+		forgetpwText.setOnClickListener(this);
 		initDataByLocalData();
 	}
 
@@ -68,6 +77,31 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 			break;
 		case R.id.btn_register:
 			startActivity(new Intent(context, RegisterActivity.class));
+			break;
+		case R.id.forgetpw:
+			
+			final AlertDialog  dialog = new AlertDialog.Builder(this).create();
+			dialog.show();  
+			dialog.getWindow().setContentView(R.layout.dlg_for_sure);
+			((TextView)dialog.getWindow().findViewById(R.id.txt_title)).setText("是否联系客服?");
+			Button btOK=(Button)dialog.getWindow().findViewById(R.id.btn_ok);
+			btOK.setText("拨号");
+			btOK.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					dialog.dismiss();
+				}
+			});
+			dialog.getWindow().findViewById(R.id.btn_cancel).setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					dialog.dismiss();
+				}
+			});
 			break;
 		default:
 			break;
