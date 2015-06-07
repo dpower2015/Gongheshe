@@ -187,8 +187,15 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 			}
 			break;
 		case R.id.layout_collect:
-			requestCollectOrCancel();
-			
+			if(viewHolder.isCollect){
+				
+				requestCollectOrCancel("0");
+				
+			}else {
+				requestCollectOrCancel("1");
+				
+			}
+
 			break;
 		case R.id.bt_submit:
 			bt_submit.setText(R.string.uploading);
@@ -205,8 +212,8 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		}
 	}
 
-	private void requestCollectOrCancel() {
-		String url = GhhConst.BASE_URL +"isCollect.htm"; //"pMemberCollect.htm";
+	private void requestCollectOrCancel(String status) {
+		String url = GhhConst.BASE_URL + "isCollect.htm";
 		AsyncHttpClient httpClient;
 		httpClient = new AsyncHttpClient();
 		AsyncHttpResponseHandler handler = null;
@@ -221,11 +228,11 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 				try {
 					jsonObject = new JSONObject(data);
 					Boolean state=jsonObject.getBoolean("status");
+					viewHolder.isCollect = state;
 					if(state){
 						
 						ToastUtil.showToast(getActivity(),"已收藏");
 						img_collect.setImageResource(R.drawable.ic_collect_on);
-						
 					}else {
 						img_collect.setImageResource(R.drawable.ic_collect_off);
 						
@@ -252,6 +259,8 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		// params.put("userId", shareSave.getUid());
 		params.put("memberId", shareSave.getUid());
 		params.put("productId", productDetailMod.productDeti.id+"");
+		params.put("status",status);
+		System.out.println("###data status:"+status);
 		Log.i("ProductThird", url);
 		httpClient.post(url, params, handler);
 	}
