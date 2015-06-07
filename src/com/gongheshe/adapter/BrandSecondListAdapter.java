@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,6 +32,7 @@ public class BrandSecondListAdapter extends BaseAdapter {
 	private OnBussItemClickListener listener;
 	private boolean isEmptyRight = false;
 	private BrandMainListMod brandMainListMod;
+	private Context context;
 
 	public interface OnBussItemClickListener {
 		public void onBussItemClick(int position);
@@ -41,6 +44,7 @@ public class BrandSecondListAdapter extends BaseAdapter {
 
 	public BrandSecondListAdapter(Context context) {
 		inflater = LayoutInflater.from(context);
+		this.context = context;
 		datas = new ArrayList<BrandSecondMod>();
 		datas2 = new ArrayList<BrandSecondMod2>();
 		imgLoader = ImageLoader.getInstance();
@@ -113,15 +117,24 @@ public class BrandSecondListAdapter extends BaseAdapter {
 		}
 		if (position == 0) {
 			holder.layout_content.setVisibility(View.GONE);
-			holder.img_title.setVisibility(View.VISIBLE);
-			imgLoader.displayImage(//brandMainListMod.androidNote3Top,
-					//middleImages
-					//topImages
-					brandMainListMod.topImages,
-					holder.img_title);
+//			holder.img_title.setVisibility(View.VISIBLE);
+			holder.vp_brandsecond.setVisibility(View.VISIBLE);
+			BrandSecondVpageAdapter adapter = null;
+			adapter = new BrandSecondVpageAdapter(context);
+			List<String> urls=new ArrayList<String>();
+			urls.add(brandMainListMod.iphone56Top);
+			urls.add(brandMainListMod.middleImages);
+			urls.add(brandMainListMod.iphone6plusTop);
+			adapter.setUrlList(urls);
+			holder.vp_brandsecond.setAdapter(adapter);
+//			imgLoader.displayImage(//brandMainListMod.androidNote3Top,
+//					//middleImages
+//					//topImages
+//					brandMainListMod.topImages,
+//					holder.img_title);
 		} else {
 			holder.layout_content.setVisibility(View.VISIBLE);
-			holder.img_title.setVisibility(View.GONE);
+			holder.vp_brandsecond.setVisibility(View.GONE);
 			String url;
 			url = datas2.get(index).mod1.androidNote2ImagesMinUrl;
 			imgLoader.displayImage(url, holder.img_left);
@@ -156,7 +169,8 @@ public class BrandSecondListAdapter extends BaseAdapter {
 	}
 
 	class ViewHolder {
-		ImageView img_title;
+		ViewPager vp_brandsecond;
+//		ImageView img_title;
 		ImageView img_left;
 		ImageView img_right;
 		TextView txt_num1;
@@ -168,7 +182,8 @@ public class BrandSecondListAdapter extends BaseAdapter {
 		View layout2;
 
 		public void initView(View v) {
-			img_title = (ImageView) v.findViewById(R.id.img_title);
+			vp_brandsecond = (ViewPager) v.findViewById(R.id.vp_brandsecond);
+//			img_title = (ImageView) v.findViewById(R.id.img_title);
 			img_left = (ImageView) v.findViewById(R.id.img_left);
 			img_right = (ImageView) v.findViewById(R.id.img_right);
 			txt_num1 = (TextView) v.findViewById(R.id.txt_num1);

@@ -669,7 +669,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int img_picture=0x7f060070;
         public static final int img_right=0x7f060025;
         public static final int img_showDetail=0x7f060078;
-        public static final int img_title=0x7f060028;
         public static final int img_user=0x7f060060;
         public static final int item1=0x7f0600e0;
         public static final int layout1=0x7f06002a;
@@ -779,6 +778,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int user_name=0x7f06001d;
         public static final int username=0x7f060012;
         public static final int view_forsure=0x7f0600d2;
+        public static final int vp_brandsecond=0x7f060028;
         public static final int webview=0x7f06000f;
         public static final int weekday=0x7f0600f0;
         public static final int xListView=0x7f06006c;
