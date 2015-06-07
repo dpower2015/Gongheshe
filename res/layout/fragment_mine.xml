@@ -55,7 +55,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
                     android:contentDescription="@null"
-                    android:src="@drawable/test_user_image" />
+                    />
 
                 <TextView
                     android:id="@+id/user_name"

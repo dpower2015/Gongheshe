@@ -25,7 +25,6 @@ import com.gongheshe.javabean.ProductAttr;
 import com.gongheshe.javabean.ProductDetailMod;
 import com.gongheshe.javabean.ProductMod;
 import com.gongheshe.javabean.ProjectContentMod;
-import com.gongheshe.model.TypeClassMod;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.ShareSave;
 import com.gongheshe.util.ToastUtil;
@@ -188,13 +187,8 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 			}
 			break;
 		case R.id.layout_collect:
-			if (viewHolder.isCollect) {
-				requestCollectOrCancel(false);
-				img_collect.setImageResource(R.drawable.ic_collect_off);
-			} else {
-				requestCollectOrCancel(true);
-				img_collect.setImageResource(R.drawable.ic_collect_on);
-			}
+			requestCollectOrCancel();
+			
 			break;
 		case R.id.bt_submit:
 			bt_submit.setText(R.string.uploading);
@@ -211,8 +205,8 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 		}
 	}
 
-	private void requestCollectOrCancel(boolean isCollect) {
-		String url = GhhConst.BASE_URL + "pMemberCollect.htm";
+	private void requestCollectOrCancel() {
+		String url = GhhConst.BASE_URL +"isCollect.htm"; //"pMemberCollect.htm";
 		AsyncHttpClient httpClient;
 		httpClient = new AsyncHttpClient();
 		AsyncHttpResponseHandler handler = null;
@@ -222,20 +216,42 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 			public void onSuccess(int statusCode, Header[] headers,
 					byte[] response) {
 				String data = new String(response);
-				ToastUtil.showToast(getActivity(), data);
+				System.out.println("###data :"+data);
+				JSONObject jsonObject;
+				try {
+					jsonObject = new JSONObject(data);
+					Boolean state=jsonObject.getBoolean("status");
+					if(state){
+						
+						ToastUtil.showToast(getActivity(),"已收藏");
+						img_collect.setImageResource(R.drawable.ic_collect_on);
+						
+					}else {
+						img_collect.setImageResource(R.drawable.ic_collect_off);
+						
+						ToastUtil.showToast(getActivity(),"已取消收藏");
+						
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+				
 			}
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] response, Throwable e) {
+				System.out.println("###data :failed!");
 			}
 		};
 		RequestParams params = new RequestParams();
 		ShareSave shareSave = ShareSave.get();
 		// params.put("userId", shareSave.getUid());
-		params.put("memberId", shareSave.getUserName());
-		params.put("productId", productDetailMod.productDeti.id);
-		params.put("state", isCollect);
+		params.put("memberId", shareSave.getUid());
+		params.put("productId", productDetailMod.productDeti.id+"");
 		Log.i("ProductThird", url);
 		httpClient.post(url, params, handler);
 	}
@@ -357,6 +373,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 					boolean isCollect = json.getBoolean("status");
 					viewHolder.isCollect = isCollect;
 					if (viewHolder.isCollect) {
+						
 						img_collect.setImageResource(R.drawable.ic_collect_on);
 					} else {
 						img_collect.setImageResource(R.drawable.ic_collect_off);
