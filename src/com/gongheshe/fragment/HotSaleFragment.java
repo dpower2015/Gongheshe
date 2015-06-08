@@ -109,11 +109,12 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 
 			@Override
 			public void onItemClick(int position) {
-				if(position > 0){
+				
+				if(position - 1 >= 0){
 					ArrayList<ProductMod> list=mHotselAdapter.getHotSetList();
 					
 					if(list!=null){
-						thirdlFragment.setTypeClassMod(list.get(position));
+						thirdlFragment.setTypeClassMod(list.get(position-1));
 						
 						baseActivity.replaceFragment(thirdlFragment,false);
 					}
