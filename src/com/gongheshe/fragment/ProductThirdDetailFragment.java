@@ -191,6 +191,10 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 			
 			break;
 		case R.id.bt_submit:
+			if(viewHolder.projectMod == null){
+				ToastUtil.showToast(getActivity(), getString(R.string.project_belong_cannot_null));
+				break;
+			}
 			bt_submit.setText(R.string.uploading);
 			bt_submit.setClickable(false);
 			postToWebServer();
@@ -399,7 +403,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 	protected void updateView(final ProductDetailMod data) {
 		txt_describe.setText(Html.fromHtml(data.productDeti.description));
 		txt_price_retail.setText("￥" + data.productDeti.minprice);
-		txt_price_mark.setText("￥" + data.productDeti.martPrice);
+		txt_price_mark.setText("￥" + data.productAttr.get(0).martPrice);
 		txt_class.setText(getString(R.string.type) + "\t"
 				+ data.productDeti.typeOneName + "/"
 				+ data.productDeti.typeTwoName + "/"

@@ -957,6 +957,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int product_parameter=0x7f0a0097;
         public static final int project_addr=0x7f0a0023;
         public static final int project_begin_time=0x7f0a0024;
+        public static final int project_belong_cannot_null=0x7f0a00b2;
         public static final int project_charge=0x7f0a001e;
         public static final int project_charge_tel=0x7f0a001f;
         public static final int project_choose_date=0x7f0a0028;

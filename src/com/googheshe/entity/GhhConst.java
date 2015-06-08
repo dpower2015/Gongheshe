@@ -34,4 +34,6 @@ public class GhhConst {
 	public final static String headPicUrl = "http://s-145217.abc188.com";
 	
 	public final static String getcitys = BASE_URL+"pGetCitys.htm?pagesize=20&pagenumber=1";
+	
+	public final static String filePath = "http://121.40.219.222:8089/file/data?fileId=";
 }

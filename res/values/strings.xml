@@ -183,5 +183,6 @@
 	<string name="login_success">登录成功</string>
 	<string name="login_fail">登录失败</string>
 	<string name="search_should_not_null">搜索内容不能为空</string>
+	<string name="project_belong_cannot_null">所属项目不能为空</string>
 	
 </resources>

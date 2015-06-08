@@ -26,15 +26,15 @@ public class BrandSecondVpageAdapter extends PagerAdapter {
 		this.context = context;
 		ImageView img;
 		img = new ImageView(context);
-		img.setScaleType(ScaleType.CENTER_CROP);
+		img.setScaleType(ScaleType.FIT_XY);//ScaleType.CENTER_CROP
 		img.setImageResource(R.color.white);
 		imgs.add(img);
 		img = new ImageView(context);
-		img.setScaleType(ScaleType.CENTER_CROP);
+		img.setScaleType(ScaleType.FIT_XY);
 		img.setImageResource(R.color.white);
 		imgs.add(img);
 		img = new ImageView(context);
-		img.setScaleType(ScaleType.CENTER_CROP);
+		img.setScaleType(ScaleType.FIT_XY);
 		img.setImageResource(R.color.white);
 		imgs.add(img);
 		imgLoader = ImageLoader.getInstance();

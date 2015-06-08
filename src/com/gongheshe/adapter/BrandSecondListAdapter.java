@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.gongheshe.R;
 import com.gongheshe.javabean.BrandMainListMod;
 import com.gongheshe.javabean.BrandSecondMod;
+import com.googheshe.entity.GhhConst;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
@@ -122,9 +123,14 @@ public class BrandSecondListAdapter extends BaseAdapter {
 			BrandSecondVpageAdapter adapter = null;
 			adapter = new BrandSecondVpageAdapter(context);
 			List<String> urls=new ArrayList<String>();
-			urls.add(brandMainListMod.iphone56Top);
-			urls.add(brandMainListMod.middleImages);
-			urls.add(brandMainListMod.iphone6plusTop);
+			urls.add(GhhConst.filePath+brandMainListMod.androidNote2Top);
+			urls.add(GhhConst.filePath+brandMainListMod.androidNote3Top);
+//			urls.add(brandMainListMod.iphone56Top);
+//			urls.add(brandMainListMod.middleImages);
+//			urls.add(brandMainListMod.iphone6plusTop);
+//			urls.add(brandMainListMod.logo);
+//			urls.add(brandMainListMod.topImages);
+			urls.add(GhhConst.filePath+brandMainListMod.iphone56Top);
 			adapter.setUrlList(urls);
 			holder.vp_brandsecond.setAdapter(adapter);
 //			imgLoader.displayImage(//brandMainListMod.androidNote3Top,
@@ -138,13 +144,13 @@ public class BrandSecondListAdapter extends BaseAdapter {
 			String url;
 			url = datas2.get(index).mod1.androidNote2ImagesMinUrl;
 			imgLoader.displayImage(url, holder.img_left);
-			holder.txt_num1.setText(datas2.get(index).mod1.saleNum);
+			holder.txt_num1.setText(datas2.get(index).mod1.clickNum);
 			holder.txt_price1.setText("￥"+datas2.get(index).mod1.minprice);
 			if (null != datas2.get(index).mod2) {
 				holder.layout2.setVisibility(View.VISIBLE);
 				url = datas2.get(index).mod2.androidNote2ImagesMinUrl;
 				imgLoader.displayImage(url, holder.img_right);
-				holder.txt_num2.setText(datas2.get(index).mod2.saleNum);
+				holder.txt_num2.setText(datas2.get(index).mod2.clickNum);
 				holder.txt_price2.setText("￥"+datas2.get(index).mod2.minprice);
 				holder.img_right.setOnClickListener(new OnClickListener() {
 
