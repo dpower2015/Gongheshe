@@ -81,7 +81,7 @@ public class MyprojectFragment extends BaseFragment implements OnClickListener {
 				bundle.putBoolean(AddProjectFragment.MODIFY_OR_ADD,true);
 				myproject.setArguments(bundle);
 				baseActivity.replaceFragment(myproject,false);
-				ToastUtil.showToast(getActivity(), "点击" + (position));
+				//ToastUtil.showToast(getActivity(), "点击" + (position));
 			}
 		});
 		listView_myPro.setPullLoadEnable(true);

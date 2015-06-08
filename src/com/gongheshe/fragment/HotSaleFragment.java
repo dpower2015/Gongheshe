@@ -135,6 +135,7 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			mHotselAdapter.clearHotSels();
 			mHotselAdapter.notifyDataSetChanged();
 			mCurFlag=GET_PRICE_LIST;
+			mPageNum=1;
 			requestHotSelGoodsList(GET_PRICE_LIST);
 			
 		}else if(arg0.getId()==R.id.sentiment){
@@ -147,6 +148,7 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			mHotselAdapter.clearHotSels();
 			mHotselAdapter.notifyDataSetChanged();
 			mCurFlag=GET_SENTIMENT_LIST;
+			mPageNum=1;
 			requestHotSelGoodsList(GET_SENTIMENT_LIST);
 			
 			
@@ -160,6 +162,7 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 			mHotselAdapter.clearHotSels();
 			mHotselAdapter.notifyDataSetChanged();
 			mCurFlag=GET_SALE_LIST;
+			mPageNum=1;
 			requestHotSelGoodsList(GET_SALE_LIST);
 			
 		} 
@@ -198,7 +201,7 @@ PullToRefreshBase.OnRefreshListener<StaggeredGridView>,OnScrollListener{
 	public void requestHotSelGoodsList(int flag){
 		RequestParams paramsGoods = new RequestParams();
 		String url=null;
-		mPageNum=1;
+		//mPageNum=1;
 		paramsGoods.put("pagesize", PAGE_SIZE+"");
 		paramsGoods.put("pagenumber",mPageNum+"");
 		switch (flag){

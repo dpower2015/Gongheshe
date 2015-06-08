@@ -47,7 +47,7 @@ public class AddProjectFragment extends BaseFragment implements OnClickListener 
 	private EditText nameProjectEdit, chargeProjectEdit, chargeTelProjectEdit,
 			nameClientEdit, telClientEdit, addrProjectEdit,
 			desclibeProjectEdit;
-	private TextView timeBeginEdit, timeEndEdit, timeCurrent, stateText;
+	private TextView titleText,timeBeginEdit, timeEndEdit, timeCurrent, stateText;
 	private Bundle bundle = null;
 	public static final String MODIFY_OR_ADD = "modifyflag";
 	public static final String MODIFY_ID = "modifyid";
@@ -75,6 +75,7 @@ public class AddProjectFragment extends BaseFragment implements OnClickListener 
 		addrProjectEdit = (EditText) view.findViewById(R.id.add_project);
 		timeBeginEdit = (TextView) view.findViewById(R.id.time_begin);
 		timeEndEdit = (TextView) view.findViewById(R.id.time_end);
+		titleText=(TextView)view.findViewById(R.id.titile);
 		desclibeProjectEdit = (EditText) view
 				.findViewById(R.id.decribe_project);
 		switchState = (RadioButton) view.findViewById(R.id.switch_state);
@@ -97,6 +98,7 @@ public class AddProjectFragment extends BaseFragment implements OnClickListener 
 		if (bundle != null)
 			modifyId = bundle.getString(MODIFY_ID, "");
 		if (isModify) {
+			titleText.setText(baseActivity.getString(R.string.myproject_detail));
 			requestModifyData();
 		}
 		// add by ZhengZhiying

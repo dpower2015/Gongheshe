@@ -8,7 +8,9 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_brandsecond"
         android:layout_width="match_parent"
-        android:layout_height="350dp" />
+        android:layout_height="350dp"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="5dp" />
 
     <LinearLayout
         android:id="@+id/layout_content"
@@ -17,9 +19,9 @@
         android:background="@color/grey_main"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        android:paddingLeft="5dp" 
+        android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:paddingTop="5dp"  >
+        android:paddingTop="5dp" >
 
         <LinearLayout
             android:id="@+id/layout1"
@@ -42,28 +44,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_gravity="left"
                 android:background="@null"
                 android:orientation="horizontal" >
 
-                <FrameLayout
-                    android:layout_width="0px"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null" />
-
                 <TextView
                     android:id="@+id/txt_price1"
+                    style="@style/foot_stype"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="25dp"
                     android:text="@string/loading"
                     android:textColor="#88000000"
                     android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/txt_num1"
+                    style="@style/foot_stype"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/visit1"
@@ -91,21 +89,22 @@
                 android:layout_weight="1"
                 android:contentDescription="@null"
                 android:scaleType="fitXY"
-                android:src="@color/black" />
+                android:src="@color/white" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_gravity="left"
                 android:background="@null"
                 android:orientation="horizontal" >
 
                 <TextView
                     android:id="@+id/txt_price2"
+                    style="@style/foot_stype"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="25dp"
                     android:text="@string/loading"
                     android:textColor="#88000000"
                     android:textSize="15sp" />
@@ -118,7 +117,9 @@
                     android:singleLine="true"
                     android:text="@string/loading"
                     android:textColor="#88000000"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    style="@style/foot_stype"/>
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -25,6 +25,7 @@
 	<string name="change_image">修改头像</string>
 	<string name="myproject">我的项目</string>
 	<string name="addproject">添加项目</string>
+	<string name="myproject_detail">我的项目详情</string>
 	<string name="project_charge">负责人</string>
 	<string name="project_charge_tel">负责人电话</string>
 	<string name="project_client_name">客户姓名</string>

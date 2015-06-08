@@ -12,9 +12,9 @@ public class ImageLoderConfig {
 	
 	public static DisplayImageOptions getOptions(){
 		options = new DisplayImageOptions.Builder()
-        .showStubImage(R.drawable.img_on_fail)
-        .showImageForEmptyUri(R.drawable.img_on_fail)
-        .showImageOnFail(R.drawable.img_on_fail)
+        .showStubImage(R.color.white)
+        .showImageForEmptyUri(R.color.white)
+        .showImageOnFail(R.color.white)
         .cacheInMemory(true)
         .cacheOnDisc(true)
         .bitmapConfig(Bitmap.Config.RGB_565)

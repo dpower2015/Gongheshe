@@ -26,7 +26,8 @@
     		android:layout_height="wrap_content"
     		android:orientation="horizontal"
     		android:layout_centerInParent="true"
-    		android:background="@color/hongse"
+    		android:background="@color/red"
+    		android:padding="1dp"
        	    >
        	 
        	     <Button
@@ -35,7 +36,7 @@
             android:layout_height="30dp"
     		android:background="@color/red"
     		android:gravity="center"
-    		android:layout_margin="1dp"
+    		android:layout_marginRight="1dp"
     		android:textColor="@color/white"
             android:text="@string/finished"
             />
@@ -44,7 +45,6 @@
             android:layout_width="80dp"
             android:layout_height="30dp"
     		android:gravity="center"
-    		android:layout_margin="1dp"
     		android:background="@color/white_nor"
     		android:textColor="@color/red"
             android:text="@string/going"
