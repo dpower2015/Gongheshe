@@ -1,7 +1,5 @@
 package com.gongheshe.activity;
 
-import java.util.ArrayList;
-
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,6 +7,7 @@ import org.json.JSONObject;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -21,7 +20,6 @@ import android.widget.Toast;
 import com.example.gongheshe.R;
 import com.gongheshe.dialog.LoadingDlg;
 import com.gongheshe.injectView.InjectView;
-import com.gongheshe.javabean.OrderMod;
 import com.gongheshe.javabean.UserInfo;
 import com.gongheshe.util.LoggerSZ;
 import com.gongheshe.util.ShareSave;
@@ -50,6 +48,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 	private final static String TAG = "LoginActivity";
 	private ShareSave shareSave = ShareSave.get();
 	private UserInfo mod;
+	private final String TEL_NUM="15088618772";
 
 	// private String tag = "LoginActivity";
 
@@ -91,6 +90,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 				@Override
 				public void onClick(View arg0) {
 					// TODO Auto-generated method stub
+					Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+TEL_NUM));  
+	                startActivity(intent);  
 					dialog.dismiss();
 				}
 			});

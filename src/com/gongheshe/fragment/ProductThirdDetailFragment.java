@@ -44,7 +44,7 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 
 	private static final String url = GhhConst.BASE_URL + "pProduct.htm?id=";
 	private static final String urlPost = GhhConst.BASE_URL + "pSave.htm";
-	private String urlIsCollect = GhhConst.BASE_URL + "isCollect.htm?";
+	private String urlIsCollect = GhhConst.BASE_URL + "pMemberCollect.htm?";
 	private View view;
 	private ProductMod data;
 	private ToolImgLoader imgLoader = ToolImgLoader.get();
@@ -228,16 +228,23 @@ public class ProductThirdDetailFragment extends BaseFragment implements
 				try {
 					jsonObject = new JSONObject(data);
 					Boolean state=jsonObject.getBoolean("status");
-					viewHolder.isCollect = state;
+					
 					if(state){
+						if(viewHolder.isCollect){
+							
+							img_collect.setImageResource(R.drawable.ic_collect_off);
+							
+							ToastUtil.showToast(getActivity(),"已取消收藏");
+							viewHolder.isCollect = false;
+						}else {
+							ToastUtil.showToast(getActivity(),"已收藏");
+							img_collect.setImageResource(R.drawable.ic_collect_on);
+							viewHolder.isCollect = true;
+						}
 						
-						ToastUtil.showToast(getActivity(),"已收藏");
-						img_collect.setImageResource(R.drawable.ic_collect_on);
 					}else {
-						img_collect.setImageResource(R.drawable.ic_collect_off);
 						
-						ToastUtil.showToast(getActivity(),"已取消收藏");
-						
+						ToastUtil.showToast(getActivity(),"返回错误");
 					}
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
